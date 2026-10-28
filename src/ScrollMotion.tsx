@@ -42,3 +42,19 @@ export function usePhotoMotion(paused:boolean,pageKey:string){
   return()=>{stopped=true;cancelAnimationFrame(frame);observer.disconnect();clear()};
  },[paused,pageKey]);
 }
+
+// A small physical response, limited to fine pointers and one frame per paint.
+export function useFrameMotion(paused:boolean,pageKey:string){
+ useEffect(()=>{
+  if(paused||!matchMedia('(hover: hover) and (pointer: fine)').matches)return;
+  const frames=Array.from(document.querySelectorAll<HTMLElement>('[data-depth-frame]'));
+  const cleanups=frames.map(el=>{
+   let paint=0;let x=0;let y=0;
+   const move=(event:PointerEvent)=>{const rect=el.getBoundingClientRect();x=(event.clientX-rect.left)/rect.width-.5;y=(event.clientY-rect.top)/rect.height-.5;if(!paint)paint=requestAnimationFrame(()=>{paint=0;el.style.setProperty('--tilt-x',`${-y*5}deg`);el.style.setProperty('--tilt-y',`${x*6}deg`)})};
+   const reset=()=>{cancelAnimationFrame(paint);paint=0;el.style.removeProperty('--tilt-x');el.style.removeProperty('--tilt-y')};
+   el.addEventListener('pointermove',move);el.addEventListener('pointerleave',reset);el.addEventListener('pointercancel',reset);
+   return()=>{reset();el.removeEventListener('pointermove',move);el.removeEventListener('pointerleave',reset);el.removeEventListener('pointercancel',reset)};
+  });
+  return()=>cleanups.forEach(cleanup=>cleanup());
+ },[paused,pageKey]);
+}

@@ -37,7 +37,7 @@ function ProjectCase({study,onChange}:{study:Study;onChange:(id:string)=>void}){
   <div className="case-navigation"><a href="#/work">← All projects</a><span>{study.company} · {study.date}</span></div>
   <SectionIndex id="project-index" label="Projects" current={study.name}><nav className="project-selector" aria-label="Project stories">{studies.map((s,i)=><button key={s.id} onClick={()=>choose(s.id)} aria-pressed={s.id===study.id}><span>0{i+1}</span>{s.name}</button>)}</nav></SectionIndex>
   <div className="visual-case-intro"><div className="visual-case-copy"><h1 id="visual-case-title">{study.name}</h1><p>{study.intro}</p><div className="visual-role"><span>My part</span><p>{study.role}</p></div><a className="jump-to-process" href="#process" onClick={e=>{e.preventDefault();document.getElementById('process')?.scrollIntoView({behavior:document.documentElement.dataset.motion==='off'?'instant':'smooth'})}}>See how it came together <span aria-hidden="true">↓</span></a></div>
-   <button className="visual-hero" aria-label="Enlarge project cover" onClick={()=>setZoom(evidence[0])}><ProjectCover study={study}/></button>
+   <button className="visual-hero" data-depth-frame aria-label="Enlarge project cover" onClick={()=>setZoom(evidence[0])}><ProjectCover study={study}/></button>
   </div>
   <Reveal className="impact-strip">{study.results.map(result=><div key={result.label}><strong>{result.value}</strong><span>{result.label}</span></div>)}</Reveal>
   <section className="process-lab" id="process" aria-labelledby="process-heading">

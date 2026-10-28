@@ -50,14 +50,14 @@ export function WorkReel(){
     return <article className={`reel-story reel-story-${study.id}`} key={study.id} ref={element=>{sections.current[index]=element}} data-project={index} aria-labelledby={`reel-title-${study.id}`} tabIndex={-1} onFocusCapture={()=>{focusedProject.current=index;setActive(index)}}>
      <a className="reel-mobile-photo" href={`#/work/${study.id}`} aria-label={`Explore ${study.name}`}><img src={visual.cover} alt={visual.coverAlt} loading={index===0?'eager':'lazy'}/></a>
      <div className="reel-story-text"><span className="reel-company">{study.company}</span><h2 id={`reel-title-${study.id}`}><a href={`#/work/${study.id}`}>{study.name}</a></h2><p>{visual.subtitle}</p>
-      <div className="reel-impact">{(study.id==='careers-fair'?study.results.slice(0,1):study.id==='ctm'?[study.results[2],study.results[1]]:study.results.slice(0,2)).map(result=><p key={result.label}><strong>{result.value}</strong><span>{result.label}</span></p>)}</div>
+      <dl className="reel-impact">{(study.id==='careers-fair'?study.results.slice(0,1):study.id==='ctm'?[study.results[0],study.results[1]]:study.results.slice(0,2)).map(result=><div key={result.label}><dt>{result.label}</dt><dd>{result.value}</dd></div>)}</dl>
       {study.id==='careers-fair'&&<p className="reel-scope">At an event with 2,136 attendees and 53 companies.</p>}
       <a className="reel-open" href={`#/work/${study.id}`}>Explore project <span aria-hidden="true">↗</span></a>
      </div>
     </article>
    })}</div>
-   <aside className="reel-viewer" aria-label="Project photographs and navigation">
-    <div className="reel-screen">{studies.map((study,index)=>{const visual=workVisuals[study.id];return <a key={study.id} className={`reel-frame frame-${study.id} ${active===index?'is-active':''}`} href={`#/work/${study.id}`} aria-label={`Explore ${study.name}`} aria-hidden={active!==index} tabIndex={active===index?0:-1} inert={active!==index}><img src={visual.cover} alt={visual.coverAlt}/></a>})}</div>
+   <aside className="reel-viewer" data-depth-frame aria-label="Project photographs and navigation">
+    <div className="reel-screen">{studies.map((study,index)=>{const visual=workVisuals[study.id];return <a key={study.id} className={`reel-frame frame-${study.id} ${active===index?'is-active':''}`} href={`#/work/${study.id}`} aria-label={`Explore ${study.name}`} aria-hidden={active!==index} tabIndex={active===index?0:-1} inert={active!==index}><img src={visual.cover} alt={visual.coverAlt} loading={index===0?'eager':'lazy'}/></a>})}</div>
     <div className="reel-viewer-caption"><p>{captions[studies[active].id]}</p><span>{studies[active].date}</span></div>
     <div className="reel-controls"><nav className="reel-index" aria-label="Choose a project">{studies.map((study,index)=><button key={study.id} aria-label={`Show ${study.name}`} title={study.name} aria-current={active===index?'true':undefined} onClick={()=>jump(index)}>{String(index+1).padStart(2,'0')}</button>)}</nav><span aria-live="polite">{studies[active].name}</span></div>
    </aside>

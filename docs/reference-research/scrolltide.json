@@ -1,0 +1,122 @@
+{
+  "name": "scrolltide",
+  "requested_url": "https://www.scrolltide.co/components",
+  "status": 200,
+  "url": "https://www.scrolltide.co/components",
+  "title": "Animated React component prompts · Scrolltide",
+  "text": "REGIONAL PRICING\n$39\n$29/month — 26% off\n—\n23:57:56 left\nClaim →\nscrolltide\nLibrary\nComponents\nShaders\nSections\nUI\nMCPNEW\neBook\nPricing\nFAQ\nContact\nLog in\nGo Unlimited\n\nCOMPONENTS\n\nOne piece at a time\n\nNot every build needs a whole page. Sometimes what is missing is one element — a button that reacts properly, a globe that spins under the cursor, a key that presses. The kind of detail that is obvious when it is there and invisible when it is not.\n\nEach of these is a single prompt for a single piece. Paste it into Claude, Cursor or v0 and you get the component, self-contained, to drop into whatever you are already building.\n\n66 components, included with Yearly and Lifetime.\n\nWhy Scrolltide?\n3 min 35 sec watch\n→\nAll\nButton\n3D\nNavigation\nCard\nText\nLoader\nBackground\nPreview →\nScroll Key\n\n3D\n\nA glass keycap that turns under the cursor and presses when you click — bevelled edges catching a violet rim light, the label sunk into the surface rather than printed on it.\n\nPreview →\nParticle Globe\n\n3D\n\nContinents drawn as thousands of individual points on a slowly rotating sphere, drifting as it turns. Drag to spin it, let go and it keeps its momentum.\n\nPreview →\nGlow Ring Button\n\nButton\n\nA pill nav button whose icon disc wears an iridescent ring that travels around it — the colour shifts through the spectrum as it orbits, and settles on hover.\n\nPreview →\nSend Halo\n\nButton\n\nThe send button from an AI composer bar: a circular arrow inside a halo that brightens as the field fills, so the control tells you it is ready before you reach it.\n\nPreview →\nFan Deck\n\nCard\n\nA hand of campaign cards splayed open from a hinge below the deck, the middle one standing upright behind an acid-yellow plate. The spread is one rotation about a pivot off the bottom edge, so the gathered bottoms and swung tops come for free.\n\nPreview →\nSpotlight Carousel\n\nCard\n\nFramed photographs shingled into a rail with the middle one opened out to carry its caption. It does not simply scale up — it re-crops, so the picture widens into the frame rather than stretching.\n\nPreview →\nExpanded Cards\n\nCard\n\nA rail of tall slivers where hovering one widens it into a full card and slides its neighbours aside. The caption is laid out once at the open width, so the text never rewraps halfway through the reveal.\n\nPreview →\nFan Carousel\n\nCard\n\nA hand of cards dealt across the frame with the focused one picked up out of the spread — it jumps clear of the scale its neighbours sit on, which is what makes it read as lifted rather than merely nearest.\n\nPreview →\nCard Folder\n\nCard\n\nA manila-folder card whose tab slides down on hover to reveal an iridescent gradient beneath, with a cut-out object rising into view from behind it. The notch is an SVG mask, so the folder face can be any gradient.\n\nPreview →\nCard Bookmark\n\nCard\n\nA bookmark-tab card with a bite taken out of its lower edge, whose artwork blooms into saturated colour on hover — the image dissolves into the glow rather than being painted over by it.\n\nPreview →\nArc Carousel\n\nCard\n\nCards riding a very large circle with the focused one upright at its apex, each tilted tangent to the curve. Position and tilt fall out of a single rotation, so there is no per-card trigonometry anywhere in it.\n\nPreview →\nCarousel Ring\n\n3D\n\nFifty-two pages seated edge-out around a tipped wheel like cards in a rolodex, spinning slowly and throwing with momentum. The depth is sorted here per frame rather than handed to the browser, which cannot resolve cards this overlapped.\n\nPreview →\nMedia Gallery\n\n3D\n\nPortrait media standing on a ring that curls around the viewer, smallest in the middle and leaning in at both edges. The gaps are solved in projected space, so they stay even where every other 3D carousel bunches up.\n\nPreview →\nCircular Slider\n\n3D\n\nCards seated around a true 3D ring you spin with a drag. The far side stays visible through the gaps, mirrored text and all, which is what makes it read as a cylinder instead of a shallow fan.\n\nPreview →\nMesh Flow\n\nBackground\n\nA dot grid that sits almost invisible until the pointer draws it into a singularity, the lines bending like a rubber sheet under a weight. Canvas 2D, one Gaussian, no shader.\n\nPreview →\nFocus Reveal\n\nText\n\nWords sit blurred until a camera-style focus frame travels to them and brings them sharp, stretching into each word's box on the way rather than snapping to it. Every box is measured, so it takes any font at any size.\n\nPreview →\nShowcase Card\n\nCard\n\nA project card that opens into a case-study summary — overview, chips and description sharpening out of a blur — with a progressively blurred foot under the title.\n\nPreview →\nHover List\n\nCard\n\nA big numbered services list. The hovered row darkens, opens taller with its description and swings its picture in from a steep angle to settle at a slight lean.\n\nPreview →\nEye Button\n\nButton\n\nA pill button with googly eyes that follow the pointer anywhere on the page and blink at irregular intervals. One eye or two, four colourways.\n\nPreview →\nScroll Index\n\nCard\n\nA scroll-driven project index: each project in turn takes the screen with its picture full-bleed and its name huge across the middle, and a thumbnail strip marks your place.\n\nPreview →\nClothes Line\n\nCard\n\nPictures pegged to a sagging rope that drifts past. Every card is a pendulum, so when the line speeds up or stops the cards swing and settle. Peg, binder or tape clips.\n\nPreview →\nParallax Row\n\nCard\n\nAn uneven strip of portrait, landscape and square frames drifting past, each picture sliding inside its own frame by its own depth. Click one for a full-screen viewer.\n\nPreview →\nGrow Carousel\n\nCard\n\nAn endless strip where the hovered card grows and its neighbours part evenly to make room. The others dim, its caption fades in, and a blurred copy of it fills the background.\n\nPreview →\nTilt Carousel\n\n3D\n\nA drifting row of overlapping cards that tilt, sink, shrink and then blur and fade with distance from the middle, so the row reads as a lens rather than a strip.\n\nPreview →\nReel Slider\n\n3D\n\nA coverflow of tall portrait reels. The active one faces you while its neighbours slide out, turn toward it and soften; with video, only the active reel plays.\n\nPreview →\nQuote Deck\n\nCard\n\nA testimonial deck fanned across the width — the focused quote upright, the rest leaning away, shrinking and dimming. Autoplays and loops; drag, wheel, arrows and keys step through it.\n\nPreview →\nHover Tabs\n\nNavigation\n\nA services list beside one framed picture. The hovered row becomes a tab of the frame's colour that opens to its description and joins the frame through concave corners, while the picture crossfades.\n\nPreview →\nService Cards\n\nCard\n\nCompact service cards that reflow from three-up to one column with no breakpoints. Hover lifts a card, eases its picture in and fills its button with the card's own accent colour.\n\nPreview →\nZoom Reveal\n\nCard\n\nA small pill of footage between two words that opens into a full-bleed frame as the page scrolls, the words riding its edges out of the screen and a play label surfacing at the end.\n\nPreview →\nImage Tunnel\n\n3D\n\nAn endless CSS 3D corridor with pictures hung on all four walls and a fine wireframe, gliding toward you forever. Click to stop it, hold to rush ahead; it turns slightly toward the pointer.\n\nPreview →\nMedia Folder\n\nCard\n\nA desktop folder that springs a scatter of draggable media windows out around itself — pictures, video or audio, each with its own title bar — and sends them home on a click outside.\n\nPreview →\nParticle Text\n\nText\n\nA word made of thousands of tiny dots that the pointer sweeps aside. They spring home and wobble back through the letters, the moving ones glowing brighter. Sits over any background, photo included.\n\nPreview →\nHalo Carousel\n\nCard\n\nCards riding the rim of a huge wheel whose hub sits below the frame — a shallow arch over a serif headline. It drifts on its own and turns under your finger when dragged.\n\nPreview →\nPhoto Stack\n\nCard\n\nA pile of tilted prints you leaf through: each click swings the top photo out to the side and tucks it back under the pile, over a huge ghosted word.\n\nPreview →\nOrbit Gallery\n\nCard\n\nSmall tilted pictures orbiting a centred headline on three counter-rotating rings. Hover a card to lift it; drag anywhere to send every ring spinning before they coast back to cruising.\n\nPreview →\nLayer Carousel\n\nCard\n\nA deck of framed cards stepping back in size and blur either side of the one in focus. Autoplays with a progress line and springs between cards with a hair of overshoot; arrows, drag, wheel and keys all move it.\n\nPreview →\nBlock Field\n\n3D\n\nAn isometric field of rounded blocks that ripples like water under the pointer. Every block is a spring tied to its neighbours, so the swell spreads, overshoots and settles, glowing as it rises.\n\nPreview →\nLight Cove\n\nBackground\n\nLanes of light pouring down a wall, round a cove and out across a mirrored floor toward you, pulses running along every one, with a soft bloom. A WebGL background for content to sit on.\n\nPreview →\nOverlap Reel\n\nCard\n\nA drifting strip of tall portrait cards, overlapping a little and each leaning its own way. Throw it with a drag or the wheel, hover to straighten a card, click to open the lightbox. Takes images or video.\n\nPreview →\nStep Accordion\n\nCard\n\nA numbered how-it-works accordion with a picture that slides to sit beside the open step and morphs through a pill into the next one. Autoplays, and holds while you read.\n\nPreview →\nStep Path\n\nCard\n\nProcess steps joined by one dashed line that hops from dot to dot. It draws itself in as it scrolls into view, each step fading up as the line arrives, then a darker stretch keeps travelling along it.\n\nPreview →\nStory Deck\n\nCard\n\nCustomer stories beside a deck of portrait cards you can throw. Fling the top card and it flies off while the next story slides in; autoplay runs with a progress ring round the next button.\n\nPreview →\nIntro Loader\n\nLoader\n\nA page-load intro: a tagline builds word by word, gives way to the logo, picture cards stream up both sides, and the screen splits open onto the page. Two sequences, and it removes itself when done.\n\nPreview →\nDither Lens\n\nBackground\n\nA photograph that turns into an ordered-dither print in a ragged, flickering zone that follows the pointer. Canvas 2D over a plain image, so the photo stays a real image everywhere else.\n\nPreview →\nTeam Roster\n\nCard\n\nA team ledger beside one large portrait. Hover a name and its letters roll over one by one while the portrait wipes down to that person; role chips filter the list.\n\nPreview →\nImage Trail\n\nBackground\n\nA wrapper that drops picture stickers along the pointer's path, evenly spaced however fast you move, each popping in and fading away. Click-through, so the section underneath keeps working.\n\nPreview →\nReveal Gallery\n\nCard\n\nA strip of staggered photo cards over a huge serif headline. Hovering a card breaks a second picture through it by one of five effects, from a gooey blob to a melting letter, while the page tints to match.\n\nPreview →\nPetal Dissolve\n\nText\n\nA word erodes into tumbling red and white petals, then time runs backwards and every petal flies home to rebuild it. Each petal's path is a pure function of time, so the rewind is exact.\n\nPreview →\nEmber Carve\n\nBackground\n\nA grainy, glowing mass you carve with the pointer. A ring of fire opens where you rest and drags into channels whose rims glow, cool and slowly grow back. Simulated on the GPU.\n\nPreview →\nContour Reveal\n\nCard\n\nA slideshow whose pictures give way through a drawing of themselves: the old one sinks into contour lines while a crystalline opening spreads from your click, showing the next as frost before colour floods in.\n\nPreview →\nMosaic Trail\n\nBackground\n\nA field of tiny greyscale thumbnails that swell and bloom into colour along the pointer's path, then shrink back to dots behind it. One shader pass, however dense the grid.\n\nPreview →\nNoise Blobs\n\nBackground\n\nGlossy blobs of poured paint: noise-displaced spheres banded from a palette, rippling and slowly spiralling, stirring faster under the pointer. Your content sits on top.\n\nPreview →\nFluted Glass\n\nBackground\n\nA picture behind reeded glass. Each rib is its own little lens holding a squeezed slice of the image, stretched into long spikes, and bending harder near the pointer.\n\nPreview →\nGrid Warp\n\nText\n\nA word read through a coarse grid the pointer drags. Cells shift as solid blocks, so the letters shear into stepped slices along your path and knit back together behind it.\n\nPreview →\nElastic Frame\n\nCard\n\nA rounded frame drawn as an elastic string. Bring the pointer to an edge and it plucks outward into a glowing veil, then springs back with a wobble; whatever you put inside sits in the square.\n\nPreview →\nMarble Scroll\n\nBackground\n\nA scroll story of full-bleed pictures whose seams tear and melt into marbling as they cross the view, strongest when you scroll fast, then settle clean as each picture arrives.\n\nPreview →\nWave Gallery\n\n3D\n\nAn endless ribbon of glossy project cards bent into a wave in depth. Cards ride up over the crest and sink into fog beyond it, with their titles printed into the surface so the type bends with them.\n\nPreview →\nLiquid Carousel\n\nCard\n\nAn image strip seen through a tilted lens of liquid glass. The middle is optically flat; the rim drags the pictures along itself, splits them into a spectrum and glows.\n\nPreview →\nSpiral Slider\n\n3D\n\nCurved panels wound onto a helix that screws along its own track. The far side shows through the gaps, frosted, so the spiral reads as depth instead of a second row.\n\nPreview →\nDNA Carousel\n\n3D\n\nPictures wound onto two opposing strands of a helix, climbing and leaning against each other as they drift past, with the far ones blurred and colour-fringed like the edge of a lens.\n\nPreview →\nScroll 3D Slider\n\n3D\n\nA horizontal image slider that swells toward you when you scroll it fast. The bulge is a lens fixed in the middle of the frame, so slides bend as they pass through it and flatten again as it settles.\n\nPreview →\nLiquid Glass Button\n\nButton\n\nA glass pill that blurs what is behind it and bends it at the bevel like a thick lens, with highlights that chase the pointer. The lights, tilt and press all run on registered CSS properties, with no per-frame JS.\n\nPreview →\nGrainy Carousel\n\nCard\n\nA row of photographs whose outer ends blow away like sand. The grain is sampled from the picture itself in a shader, so the specks carry its colour and overshoot the card's own edge.\n\nPreview →\nDepth Carousel\n\n3D\n\nA coverflow that turns each card further edge-on as it recedes, until the sides stack into slivers that dissolve into frosted glass. Plain CSS 3D, no canvas.\n\nPreview →\nPost Carousel\n\nCard\n\nA social post with a swipeable media carousel and the rest of the album floating either side of it. Change slide and the neighbours travel out from behind the post to their new places.\n\nPreview →\nMorph Pill Card\n\nCard\n\nAn avatar pill that grows into a full profile or product card on hover. It is one surface moving between two measured layouts, so the pill visibly becomes the card instead of a card appearing behind it.\n\nSTART SHIPPING TODAY\n\nRide the tide.\n\nJoin 13,500+ builders shipping cinematic sites. New prompts every Friday — start today.\n\nSubscribe newsletter\n\nNo spam. One email when fresh prompts drop.\n\nscrolltide\n\nA curated library of scroll-driven website prompts. Copy, paste, launch.\n\nLIBRARY\nAll Templates\nFree Templates\nHero Sections\nPRODUCT\neBook\nPricing\nFAQ\nChangelog\nAffiliate\nCOMPANY\nContact\nTerms & Conditions\nPrivacy Policy\nRefunds & Returns\nscrolltide\n\n© 2026 Scrolltide. All rights reserved.\n\nMADE FOR PEOPLE WHO SHIP",
+  "links": [
+    {
+      "text": "Claim →",
+      "href": "https://www.scrolltide.co/pricing"
+    },
+    {
+      "text": "scrolltide",
+      "href": "https://www.scrolltide.co/"
+    },
+    {
+      "text": "Library",
+      "href": "https://www.scrolltide.co/templates"
+    },
+    {
+      "text": "Components",
+      "href": "https://www.scrolltide.co/components"
+    },
+    {
+      "text": "Shaders",
+      "href": "https://www.scrolltide.co/shaders"
+    },
+    {
+      "text": "Sections",
+      "href": "https://www.scrolltide.co/sections"
+    },
+    {
+      "text": "UI",
+      "href": "https://www.scrolltide.co/ui"
+    },
+    {
+      "text": "MCPNEW",
+      "href": "https://www.scrolltide.co/mcp"
+    },
+    {
+      "text": "eBook",
+      "href": "https://www.scrolltide.co/ebook"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.scrolltide.co/pricing"
+    },
+    {
+      "text": "FAQ",
+      "href": "https://www.scrolltide.co/faq"
+    },
+    {
+      "text": "Contact",
+      "href": "https://www.scrolltide.co/contact"
+    },
+    {
+      "text": "Log in",
+      "href": "https://www.scrolltide.co/login"
+    },
+    {
+      "text": "Go Unlimited",
+      "href": "https://www.scrolltide.co/pricing"
+    },
+    {
+      "text": "Why Scrolltide?\n3 min 35 sec watch\n→",
+      "href": "https://www.scrolltide.co/why-scrolltide"
+    },
+    {
+      "text": "scrolltide",
+      "href": "https://www.scrolltide.co/"
+    },
+    {
+      "text": "All Templates",
+      "href": "https://www.scrolltide.co/templates"
+    },
+    {
+      "text": "Free Templates",
+      "href": "https://www.scrolltide.co/free"
+    },
+    {
+      "text": "Hero Sections",
+      "href": "https://www.scrolltide.co/templates"
+    },
+    {
+      "text": "eBook",
+      "href": "https://www.scrolltide.co/ebook"
+    },
+    {
+      "text": "Pricing",
+      "href": "https://www.scrolltide.co/pricing"
+    },
+    {
+      "text": "FAQ",
+      "href": "https://www.scrolltide.co/faq"
+    },
+    {
+      "text": "Changelog",
+      "href": "https://www.scrolltide.co/components#"
+    },
+    {
+      "text": "Affiliate",
+      "href": "https://www.scrolltide.co/components#"
+    },
+    {
+      "text": "Contact",
+      "href": "https://www.scrolltide.co/contact"
+    },
+    {
+      "text": "Terms & Conditions",
+      "href": "https://www.scrolltide.co/terms"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.scrolltide.co/privacy"
+    },
+    {
+      "text": "Refunds & Returns",
+      "href": "https://www.scrolltide.co/refunds"
+    }
+  ]
+}
