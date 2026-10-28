@@ -1,0 +1,50 @@
+{
+  "name": "inspora",
+  "requested_url": "https://www.inspora.design/",
+  "status": 200,
+  "url": "https://www.inspora.design/",
+  "title": "Inspora",
+  "text": "Explore\nContact\nEmail address\nsubscribe\nUpdated hourly\nAll\nWeb\nBranding\nProduct\nMotion\nIllustration\n3D\nPrint\nLatest",
+  "links": [
+    {
+      "text": "Explore",
+      "href": "https://www.inspora.design/"
+    },
+    {
+      "text": "Contact",
+      "href": "https://x.com/neropursue?s=11"
+    },
+    {
+      "text": "All",
+      "href": "https://www.inspora.design/"
+    },
+    {
+      "text": "Web",
+      "href": "https://www.inspora.design/?category=Web"
+    },
+    {
+      "text": "Branding",
+      "href": "https://www.inspora.design/?category=Branding"
+    },
+    {
+      "text": "Product",
+      "href": "https://www.inspora.design/?category=Product"
+    },
+    {
+      "text": "Motion",
+      "href": "https://www.inspora.design/?category=Motion"
+    },
+    {
+      "text": "Illustration",
+      "href": "https://www.inspora.design/?category=Illustration"
+    },
+    {
+      "text": "3D",
+      "href": "https://www.inspora.design/?category=3D"
+    },
+    {
+      "text": "Print",
+      "href": "https://www.inspora.design/?category=Print"
+    }
+  ]
+}

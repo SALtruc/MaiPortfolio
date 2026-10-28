@@ -1,0 +1,194 @@
+{
+  "name": "createwithswift",
+  "requested_url": "https://www.createwithswift.com/",
+  "status": 200,
+  "url": "https://www.createwithswift.com/",
+  "title": "Create with Swift - Anything is possible.",
+  "text": "About\nContact\nNapoli Meetup\nNewsletter\nSign in\nSubscribe\n\n Latest article • App Design\n\nSmall Choices, Big Impact: The Environmental Cost of Mobile Design Decisions\n\nReflect upon the possible environmental impact of design choices in your app features and user interface design.\n\nGiselle Katics\nMar 13, 2026 • 7 min read\nRead it now\nMake it Accessible\n\nCreating applications that are truly for everyone\n\nMake it Spatial\n\nBuilding limitless experiences\n\nMake it Intelligent\n\nDesigning apps that learn and adapt\n\nApp Design\nSmall Choices, Big Impact: The Environmental Cost of Mobile Design Decisions\nReflect upon the possible environmental impact of design choices in your app features and user interface design.\nMar 13, 2026\n7 min read\nMapKit\nCreating overlays on a map in a SwiftUI app in iOS 26\nLearn how to overlay shapes on top of maps using MapKit in a modern iOS application.\nMar 6, 2026\n2 min read\nMetal\nCustom Parameters and Animation with Metal Shaders\nLearn how to create and use parametrized shaders with Metal and SwiftUI.\nFeb 24, 2026\n6 min read\nMapKit\nCreating Maps in SwiftUI apps with MapKit\nLearn how to integrate Maps using MapKit in modern iOS applications.\nFeb 20, 2026\n3 min read\nMetal\nTaking First Steps into Metal Shaders\nLearn the basics of Metal with SwiftUI to take your first steps on using shaders in your app UI.\nFeb 12, 2026\n8 min read\nSwift\nCall for Application at the Apple Developer Academy 2026\nBecome a World Class Developer at the Apple Developer Academy in Naples, Italy. Call for Application 2026/27.\nFeb 6, 2026\n2 min read\nApp Design\nBeyond the Human: Designing with Non-Human Personas in Mobile Apps\nDesign beyond the screen, non-human personas bring environmental reality into decision-making, from energy grids to cooling systems.\nFeb 3, 2026\n6 min read\nSpatial Computing\nSolid Interfaces for visionOS: Widgets and Cognitive Space in Spatial Computing\nA new grammar for designing Cognitive Spatial Experiences in visionOS and WebXR.\nJan 30, 2026\n26 min read\nApp Design\nBranding with AI: Superpowers for Indie Creators\nBuild products that are not only functional but meaningful. Not only efficient, but expressive. Not only usable, but intentional.\nJan 29, 2026\n8 min read\nApp Intents\nSharing content among apps using AppEntity and Transferable protocol\nLearn how to make content in your app shareable across apps using AppEntity and Transferable.\nJan 27, 2026\n7 min read\nSpatial Computing\nK.I.T.E. UX: The First Spatial Ergonomics Benchmark for XR\nCreate wireframe visionOS decisions and validate layouts before you write a single line of code.\nJan 23, 2026\n10 min read\nSwiftUI\nManaging simultaneous, in sequence and exclusive gestures\nUnderstand how to compose multiple gestures together to create complex interactions in a SwiftUI app.\nJan 22, 2026\n3 min read\nStoreKit\nProviding access to premium features with StoreKit 2\nLearn how to build a tiered subscription system and gate premium features in a SwiftUI app using StoreKit 2.\nJan 20, 2026\n13 min read\nSwiftUI\nCrafting document-based apps in SwiftUI\nUnderstand how to build document-based apps with SwiftUI using DocumentGroup and Uniform Type Identifiers\nJan 16, 2026\n6 min read\nEventKit\nCreating reminder lists with EventKit from your app\nCreate new calendars in EventKit to organize reminders or events under custom lists\nJan 13, 2026\n5 min read\nSwiftUI\nUnderstanding gesture hierarchy\nLearn how to set up the hierarchy of gestures in views and subviews within a SwiftUI app.\nJan 9, 2026\n2 min read\nSwiftUI\nUnderstanding Spring Animations in SwiftUI\nLearn how to use spring animations to enhance the experience of your users in SwiftUI apps.\nJan 8, 2026\n4 min read\nContacts\nContact Management: Working with the Contact Picker View Controller\nLearn how to use the default controls for handling contacts provided by Apple in your SwiftUI app.\nDec 19, 2025\n3 min read\nStoreKit\nImplementing Consumable In-App Purchases with StoreKit 2\nLearn how to start selling Consumable In-App Purchases in your SwiftUI app.\nDec 18, 2025\n8 min read\nStoreKit\nImplementing subscriptions In-App Purchases with StoreKit 2\nLearn how to start selling subscriptions In-App Purchases in your SwiftUI app.\nDec 16, 2025\n8 min read\nSwiftUI\nUnderstanding scenes for your macOS app\nLearn how to manage scenes and windows within a SwiftUI app.\nDec 12, 2025\n3 min read\nApp Design\nThe power of ethics in mobile design\nMobile design is intimate. They are tools people hold in their hands and check hundreds of times a day. That’s why mobile developers hold a quiet kind of power: we don’t just make interfaces, we shape behavior, expectations, and trust –whether we mean to or not. As technology\nDec 11, 2025\n7 min read\nUX Design\nDesigning with people: Creating applications for reality\nUnderstand the value of designing applications, including the communities they are for, in the process.\nDec 9, 2025\n6 min read\nContacts\nCreating Contacts with SwiftUI\nLearn how to add contacts to the user’s device within a SwiftUI app.\nDec 5, 2025\n2 min read\nStoreKit\nImplementing Non-Consumable In-App Purchases with StoreKit 2\nLearn how to start selling Non-Consumable In-App Purchases in your SwiftUI app.\nDec 4, 2025\n7 min read\nCreate with Swift © 2026\nTerms of Service\nPrivacy Policy\nImprint\nSubscribe\nSponsor\nPowered by Ghost",
+  "links": [
+    {
+      "text": "About",
+      "href": "https://www.createwithswift.com/about/"
+    },
+    {
+      "text": "Contact",
+      "href": "https://www.createwithswift.com/contact/"
+    },
+    {
+      "text": "Napoli Meetup",
+      "href": "https://www.createwithswift.com/napoli-meetup/"
+    },
+    {
+      "text": "Newsletter",
+      "href": "https://www.createwithswift.com/subscribe/"
+    },
+    {
+      "text": "Sign in",
+      "href": "https://www.createwithswift.com/#/portal/signin"
+    },
+    {
+      "text": "Subscribe",
+      "href": "https://www.createwithswift.com/#/portal/signup"
+    },
+    {
+      "text": "App Design",
+      "href": "https://www.createwithswift.com/tag/app-design/"
+    },
+    {
+      "text": "Small Choices, Big Impact: The Environmental Cost of Mobile Design Decisions\n\nReflect upon the possi",
+      "href": "https://www.createwithswift.com/small-choices-big-impact-the-environmental-cost-of-mobile-design-decisions/"
+    },
+    {
+      "text": "Giselle Katics",
+      "href": "https://www.createwithswift.com/author/giselle/"
+    },
+    {
+      "text": "Read it now",
+      "href": "https://www.createwithswift.com/small-choices-big-impact-the-environmental-cost-of-mobile-design-decisions/"
+    },
+    {
+      "text": "Make it Accessible\n\nCreating applications that are truly for everyone",
+      "href": "https://www.createwithswift.com/make-it-accessible/"
+    },
+    {
+      "text": "Make it Spatial\n\nBuilding limitless experiences",
+      "href": "https://www.createwithswift.com/make-it-spatial/"
+    },
+    {
+      "text": "Make it Intelligent\n\nDesigning apps that learn and adapt",
+      "href": "https://www.createwithswift.com/make-it-intelligent/"
+    },
+    {
+      "text": "App Design\nSmall Choices, Big Impact: The Environmental Cost of Mobile Design Decisions\nReflect upon",
+      "href": "https://www.createwithswift.com/small-choices-big-impact-the-environmental-cost-of-mobile-design-decisions/"
+    },
+    {
+      "text": "MapKit\nCreating overlays on a map in a SwiftUI app in iOS 26\nLearn how to overlay shapes on top of m",
+      "href": "https://www.createwithswift.com/creating-overlays-on-a-map-in-a-swiftui-app-in-ios-26/"
+    },
+    {
+      "text": "Metal\nCustom Parameters and Animation with Metal Shaders\nLearn how to create and use parametrized sh",
+      "href": "https://www.createwithswift.com/custom-parameters-and-animation-with-metal-shaders/"
+    },
+    {
+      "text": "MapKit\nCreating Maps in SwiftUI apps with MapKit\nLearn how to integrate Maps using MapKit in modern ",
+      "href": "https://www.createwithswift.com/creating-maps-in-swiftui-apps-with-mapkit/"
+    },
+    {
+      "text": "Metal\nTaking First Steps into Metal Shaders\nLearn the basics of Metal with SwiftUI to take your firs",
+      "href": "https://www.createwithswift.com/taking-first-steps-into-metal-shaders/"
+    },
+    {
+      "text": "Swift\nCall for Application at the Apple Developer Academy 2026\nBecome a World Class Developer at the",
+      "href": "https://www.createwithswift.com/call-for-application-at-the-apple-developer-academy-2026/"
+    },
+    {
+      "text": "App Design\nBeyond the Human: Designing with Non-Human Personas in Mobile Apps\nDesign beyond the scre",
+      "href": "https://www.createwithswift.com/beyond-the-human-designing-with-non-human-personas-in-mobile-apps/"
+    },
+    {
+      "text": "Spatial Computing\nSolid Interfaces for visionOS: Widgets and Cognitive Space in Spatial Computing\nA ",
+      "href": "https://www.createwithswift.com/solid-interfaces-for-visionos-widgets-and-cognitive-space-in-spatial-computing/"
+    },
+    {
+      "text": "App Design\nBranding with AI: Superpowers for Indie Creators\nBuild products that are not only functio",
+      "href": "https://www.createwithswift.com/branding-with-ai-superpowers-for-indie-creators/"
+    },
+    {
+      "text": "App Intents\nSharing content among apps using AppEntity and Transferable protocol\nLearn how to make c",
+      "href": "https://www.createwithswift.com/sharing-content-among-apps-using-appentity-and-transferable-protocol/"
+    },
+    {
+      "text": "Spatial Computing\nK.I.T.E. UX: The First Spatial Ergonomics Benchmark for XR\nCreate wireframe vision",
+      "href": "https://www.createwithswift.com/k-i-t-e-ux-the-first-spatial-ergonomics-benchmark-for-xr/"
+    },
+    {
+      "text": "SwiftUI\nManaging simultaneous, in sequence and exclusive gestures\nUnderstand how to compose multiple",
+      "href": "https://www.createwithswift.com/managing-simultaneous-in-sequence-and-exclusive-gestures/"
+    },
+    {
+      "text": "StoreKit\nProviding access to premium features with StoreKit 2\nLearn how to build a tiered subscripti",
+      "href": "https://www.createwithswift.com/providing-access-to-premium-features-with-storekit-2/"
+    },
+    {
+      "text": "SwiftUI\nCrafting document-based apps in SwiftUI\nUnderstand how to build document-based apps with Swi",
+      "href": "https://www.createwithswift.com/crafting-document-based-apps-in-swiftui/"
+    },
+    {
+      "text": "EventKit\nCreating reminder lists with EventKit from your app\nCreate new calendars in EventKit to org",
+      "href": "https://www.createwithswift.com/creating-reminder-lists-with-eventkit-from-your-app/"
+    },
+    {
+      "text": "SwiftUI\nUnderstanding gesture hierarchy\nLearn how to set up the hierarchy of gestures in views and s",
+      "href": "https://www.createwithswift.com/understanding-gesture-hierarchy/"
+    },
+    {
+      "text": "SwiftUI\nUnderstanding Spring Animations in SwiftUI\nLearn how to use spring animations to enhance the",
+      "href": "https://www.createwithswift.com/understanding-spring-animations-in-swiftui/"
+    },
+    {
+      "text": "Contacts\nContact Management: Working with the Contact Picker View Controller\nLearn how to use the de",
+      "href": "https://www.createwithswift.com/contact-management-working-with-the-contact-picker-view-controller/"
+    },
+    {
+      "text": "StoreKit\nImplementing Consumable In-App Purchases with StoreKit 2\nLearn how to start selling Consuma",
+      "href": "https://www.createwithswift.com/implementing-consumable-in-app-purchases-with-storekit-2/"
+    },
+    {
+      "text": "StoreKit\nImplementing subscriptions In-App Purchases with StoreKit 2\nLearn how to start selling subs",
+      "href": "https://www.createwithswift.com/implementing-subscriptions-in-app-purchases-with-storekit-2/"
+    },
+    {
+      "text": "SwiftUI\nUnderstanding scenes for your macOS app\nLearn how to manage scenes and windows within a Swif",
+      "href": "https://www.createwithswift.com/understanding-scenes-for-your-macos-app/"
+    },
+    {
+      "text": "App Design\nThe power of ethics in mobile design\nMobile design is intimate. They are tools people hol",
+      "href": "https://www.createwithswift.com/the-power-of-ethics-in-mobile-design/"
+    },
+    {
+      "text": "UX Design\nDesigning with people: Creating applications for reality\nUnderstand the value of designing",
+      "href": "https://www.createwithswift.com/designing-with-people-creating-applications-for-reality/"
+    },
+    {
+      "text": "Contacts\nCreating Contacts with SwiftUI\nLearn how to add contacts to the user’s device within a Swif",
+      "href": "https://www.createwithswift.com/creating-contacts-with-swiftui/"
+    },
+    {
+      "text": "StoreKit\nImplementing Non-Consumable In-App Purchases with StoreKit 2\nLearn how to start selling Non",
+      "href": "https://www.createwithswift.com/implementing-non-consumable-in-app-purchases-with-storekit-2/"
+    },
+    {
+      "text": "Older Posts →",
+      "href": "https://www.createwithswift.com/page/2/"
+    },
+    {
+      "text": "Create with Swift",
+      "href": "https://www.createwithswift.com/"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "https://www.createwithswift.com/terms-of-service/"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "https://www.createwithswift.com/privacy-policy/"
+    },
+    {
+      "text": "Imprint",
+      "href": "https://www.createwithswift.com/imprint/"
+    },
+    {
+      "text": "Subscribe",
+      "href": "https://www.createwithswift.com/subscribe/"
+    },
+    {
+      "text": "Sponsor",
+      "href": "https://www.createwithswift.com/sponsor/"
+    },
+    {
+      "text": "Powered by Ghost",
+      "href": "https://ghost.org/"
+    }
+  ]
+}

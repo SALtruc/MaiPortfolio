@@ -1,0 +1,58 @@
+[
+  {
+    "name": "scrolltide",
+    "requested_url": "https://www.scrolltide.co/components",
+    "status": 200,
+    "url": "https://www.scrolltide.co/components",
+    "title": "Animated React component prompts \u00b7 Scrolltide"
+  },
+  {
+    "name": "threeui",
+    "requested_url": "https://threeui.com/browse?sort=recent",
+    "status": 200,
+    "url": "https://threeui.com/browse?sort=recent",
+    "title": "Three.js Components, Templates & Interactive Shaders | ThreeUI"
+  },
+  {
+    "name": "inspora",
+    "requested_url": "https://www.inspora.design/",
+    "status": 200,
+    "url": "https://www.inspora.design/",
+    "title": "Inspora"
+  },
+  {
+    "name": "landbook",
+    "requested_url": "https://land-book.com/",
+    "status": 403,
+    "url": "https://land-book.com/",
+    "title": "Just a moment..."
+  },
+  {
+    "name": "details",
+    "requested_url": "https://www.details.so/inspo/category/carousel",
+    "status": 200,
+    "url": "https://www.details.so/inspo/category/carousel",
+    "title": "Carousel UI Design Examples & Inspiration | Details.so"
+  },
+  {
+    "name": "sceneai",
+    "requested_url": "https://sceneai.art/",
+    "status": 200,
+    "url": "https://sceneai.art/",
+    "title": "SceneAI: The Best UI Prompt Library on the Internet"
+  },
+  {
+    "name": "createwithswift",
+    "requested_url": "https://www.createwithswift.com/",
+    "status": 200,
+    "url": "https://www.createwithswift.com/",
+    "title": "Create with Swift - Anything is possible."
+  },
+  {
+    "name": "kitbitz",
+    "requested_url": "https://kitbitz.art/",
+    "status": 200,
+    "url": "https://kitbitz.art/",
+    "title": "Kitbitz \u2014 2,000+ free hand-drawn illustrations"
+  }
+]

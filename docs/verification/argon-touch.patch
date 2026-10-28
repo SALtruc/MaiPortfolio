@@ -1,0 +1,274 @@
+diff --git a/docs/design-motion/argon-journey-review.md b/docs/design-motion/argon-journey-review.md
+index 87e206c..6fed776 100644
+--- a/docs/design-motion/argon-journey-review.md
++++ b/docs/design-motion/argon-journey-review.md
+@@ -1,4 +1,4 @@
+-Tóm tắt: Đã rà soát checkpoint `20ae9a9` kèm ảnh chụp xác thực và trực tiếp triển khai các cải tiến chất lượng cảnh 3D, tương tác, hiển thị và hiệu năng cho trang Journey.
++Tóm tắt: Đã rà soát checkpoint `20ae9a9` kèm ảnh chụp xác thực và trực tiếp triển khai các cải tiến chất lượng cảnh 3D, tương tác cảm ứng huy hiệu `>=44px` trên mobile, hiển thị và hiệu năng cho trang Journey.
+ 
+ ---
+ 
+@@ -9,13 +9,13 @@ Qua kiểm tra trực tiếp mã nguồn (`src/JourneyPage.tsx`, `src/JourneyDes
+ 1. **Chồng lấp giữa Đèn bàn & Khung ảnh RMIT Careers + Cắt cúp cạnh trên khi Focus (`lamp/photo overlap & clipped background objects`)**:
+    - Trong `buildJourneyScene.ts`, đèn bàn (`lamp` tại `(-4.35, 0.08, -2.1)`) nằm ngay phía sau khung ảnh RMIT Careers (`frame` tại `(-3.15, 0.12, -1.65)`) theo hướng chiếu trực giao `(7, 9, 12)`. Trên `journey-desk-desktop.png` và `journey-desk-council.png`, chụp đèn màu coral thò ra ngay góc trên-trái của khung ảnh trắng, gây rối hình khối.
+    - Trong `JourneyDesk.tsx`, tâm nhìn `focus` đặt thấp (`y = 0.2..0.25`) và khi chọn vật thể tiền cảnh (như sổ tay Council tại `z = 1.12`), `destination.z` dịch về phía trước làm đẩy toàn bộ cụm hậu cảnh (chụp đèn và đỉnh khung ảnh số `3`) chạm sát và bị cắt ở mép trên canvas (`journey-desk-council.png`).
+-2. **Huy hiệu số (`1`–`5`) đè lên chữ trên vật thể 3D & Tooltip va chạm thanh công cụ (`tooltip/marker collisions`)**:
++2. **Huy hiệu số (`1`–`5`) đè lên chữ trên vật thể 3D, Tooltip va chạm thanh công cụ & Đích chạm Mobile (`tooltip/marker collisions & mobile touch targets`)**:
+    - `anchors` cũ chỉ cộng độ lệch trục Y `(0, y, 0)` vào tâm vật thể nên:
+      - Huy hiệu `1` đè thẳng lên chữ `"People."` trên bìa sổ Student Council.
+      - Huy hiệu `2` đè lên tiêu đề `"A next step."` trên màn hình điện thoại CTM.
+      - Huy hiệu `3` nằm sát mép trên canvas (`y = 24px`), khiến tooltip (`bottom: calc(100% + 7px)`) đâm xuyên lên thanh `.j-desk-toolbar`.
+      - Huy hiệu `5` đè thẳng lên chữ `"Always"` trong dòng `"Always Day 1."` trên màn hình laptop TikTok.
+-   - Trên mobile (`<= 600px`), `.j-markers` bị đặt `display: none` hoàn toàn (`journey-desk-mobile.png`), khiến người dùng di động không thấy đánh số `1`–`5` trên các vật thể.
++   - Trên mobile (`<= 600px`), khi hiển thị huy hiệu số `1`–`5` ở góc vật thể, nếu đặt `pointer-events: none` thì thao tác chạm vào tâm huy hiệu sẽ xuyên qua huy hiệu xuống raycast 3D và trượt khỏi 4/5 vật thể. Do đó cả 5 huy hiệu cần giữ vùng chạm thực tế `>= 44x44px` (`pointer-events: auto; touch-action: pan-y`) trong khi vẫn giữ mặt hiển thị gọn `22x22px`, đồng thời thống nhất xử lý kéo/chạm trên `.j-desk-canvas`.
+ 3. **Độ tương phản chất liệu, chi tiết kỷ vật & Font chữ trên `CanvasTexture` (`material/light & legibility`)**:
+    - Bìa hồ sơ Michelin (`folder`) dùng chung vật liệu `sage` (`0xb7cbbb`) với tấm lót bàn (`desk mat`), khiến bìa hồ sơ bị chìm vào nền tấm lót trên `journey-desk-desktop.png`.
+    - Thân điện thoại CTM màu `coral` tiệp màu với mặt bàn gỗ birch; tấm thẻ đeo cạnh khung ảnh RMIT Careers (`badge`) là khối trắng trơn chưa có nội dung in; mặt trong bìa sổ Council chưa có lớp giấy lót kem khi mở hé; các `CanvasTexture` dùng font `sans-serif` mặc định thay vì `'Outfit'` và chưa tự vẽ lại sau `document.fonts.ready`.
+@@ -31,37 +31,34 @@ Qua kiểm tra trực tiếp mã nguồn (`src/JourneyPage.tsx`, `src/JourneyDes
+ 
+ ### 2. Các thay đổi mã nguồn đã triển khai trực tiếp (Implemented Code Changes)
+ 
+-1. **[src/desk/buildJourneyScene.ts](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_7a57af17/src/desk/buildJourneyScene.ts)**:
++1. **[src/desk/buildJourneyScene.ts](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_f8ac9d8a/src/desk/buildJourneyScene.ts)**:
+    - Tách vị trí đèn bàn (`lamp` sang `(-4.35, 0.08, -0.78, 0.35)`), ống bút (`pencils` sang `(-3.82, 0.08, 0.52)`) và tinh chỉnh khung ảnh RMIT Careers (`frame` tại `(-2.85, 0.12, -1.52, 0.15)`, chiều cao `1.88`) để chấm dứt hoàn toàn hiện tượng đèn bàn đè sau khung ảnh và bị cắt mép trên.
+    - Bổ sung vật liệu `forest` (`0x2f5349`) cho bìa hồ sơ Michelin để tách biệt sắc nét khỏi tấm lót bàn `sage` (`0xb7cbbb`); bổ sung vỏ `navy` (`0x25364f`) viền `coral` cho điện thoại CTM; thêm đĩa tán sáng ấm (`bulbMat` phát sáng nhẹ `0xffc978`) dưới chụp đèn bàn; thêm lớp giấy lót mặt trong bìa sổ Council (`innerCover`) và chi tiết ghi chú có lề trang.
+    - In nội dung thẻ đeo `"RMIT CAREERS · Career Checkpoint · Discover → Apply → Connect"` lên bề mặt `badge` cạnh khung ảnh RMIT Careers.
+    - Nâng cấp helper `texture()` sử dụng bộ font `"Outfit", "DM Sans", sans-serif` và tự động vẽ lại + gọi `invalidate()` khi `document.fonts.ready` hoàn tất.
+    - Dời 5 tọa độ `anchorOffsets` ra góc/viền từng vật thể để huy hiệu `1`–`5` không che khuất chữ trên bìa sổ, màn hình điện thoại, khung ảnh, hồ sơ Michelin và màn hình laptop TikTok (đồng thời giữ nguyên vùng click mesh sổ tay tại `(0.32, 0.55)`).
+-2. **[src/JourneyDesk.tsx](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_7a57af17/src/JourneyDesk.tsx)**:
++2. **[src/JourneyDesk.tsx](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_f8ac9d8a/src/JourneyDesk.tsx)**:
+    - Nâng tâm nhìn cơ sở lên `(0, 0.38, -0.08)` và giới hạn biên dịch chuyển `destination` theo từng chương (`y = 0.44..0.52`, `z <= 0.08`, zoom `1.06` desktop / `1.18` mobile) giúp cả vật thể đang chọn lẫn các vật thể hậu cảnh luôn nằm gọn trong khung nhìn.
+    - Mở rộng góc mở bìa sổ Council khi chọn (`0.46 rad`) để lộ rõ trang ghi chú bên trong; đưa độ lệch góc mở bìa sổ và màn hình laptop vào điều kiện cập nhật `shadowMap.needsUpdate`.
+    - Tái sử dụng `destination` (`THREE.Vector3`) và bổ sung `markerCache` để chỉ cập nhật DOM (`style.transform`, `dataset.tip`, `dataset.hover`) khi giá trị thực sự thay đổi, đồng thời tự động đổi hướng tooltip (`top`/`bottom`, `-start`/`-end`) khi gần mép canvas và đồng bộ trạng thái hover giữa vật thể 3D với huy hiệu số.
++   - Gắn `data-marker={index}` cho 5 nút `.j-markers button`, chuyển bộ lắng nghe pointer (`pointerdown`, `pointermove`, `pointerup`, `pointercancel`, `lostpointercapture`, `pointerleave`) lên `.j-desk-canvas` (`el`) và ưu tiên kiểm tra `[data-marker]` cùng khung `getBoundingClientRect()` `44x44px` của 5 nút trước khi raycast 3D trong `hit(e)`. Nhờ đó thao tác chạm vào tâm từng huy hiệu `1`–`5` trên mobile (`390x844`) chọn chính xác chương `0`–`4`, vẫn giữ kéo xoay ngang bàn, cuộn dọc `pan-y` tự nhiên và chặn chọn nhầm chương sau khi kéo/hủy (`blockClick`).
+    - Hỗ trợ phím `Escape` trên vùng bàn 3D để trở về chế độ xem toàn bàn (`Whole desk`) và gắn `aria-pressed={selected < 0}` cho nút `Whole desk`.
+-3. **[src/JourneyPage.tsx](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_7a57af17/src/JourneyPage.tsx)**:
++3. **[src/JourneyPage.tsx](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_f8ac9d8a/src/JourneyPage.tsx)**:
+    - Hiển thị thêm câu chuyển ý chân thật từ `stories.ts` (`<p className="j-story-turn">{story.title} <em>{story.turn}</em></p>`) ngay dưới vai trò, giữ nguyên toàn bộ dữ liệu gốc và mục `<details className="j-reflection">`.
+    - Thêm `useEffect` tự động cuộn ngang thanh `.j-chapters` (`nav.scrollTo({ left })`) để căn giữa nút chương đang chọn trên màn hình hẹp mà tuyệt đối không làm thay đổi `window.scrollY`.
+-4. **[src/journey-desk.css](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_7a57af17/src/journey-desk.css)**:
++4. **[src/journey-desk.css](file:///C:/Users/PC/AppData/Local/AgentDesk/wt/11f1d248cc40/r_f8ac9d8a/src/journey-desk.css)**:
+    - Bổ sung quy tắc định vị tooltip thông minh theo `data-tip^=bottom`, `data-tip$=-start`, `data-tip$=-end` và hiệu ứng đồng bộ `data-hover=true` khi rê chuột lên vật thể 3D.
+-   - Trên màn hình `<= 600px`, giữ hiển thị các huy hiệu số `1`–`5` kích thước gọn (`22px`) với `pointer-events: none` (thay vì `display: none`) để người dùng mobile nhận diện rõ 5 vật thể tương tác mà không cản trở thao tác chạm/kéo ngang trên `<canvas>` hay cuộn dọc tự nhiên.
++   - Trên mọi kích thước màn hình (kể cả `<= 600px`), giữ `.j-markers button` có vùng chạm tương tác `44x44px` (`pointer-events: auto; touch-action: pan-y; cursor: pointer`) trong khi thu gọn mặt tròn hiển thị `.j-markers button > span` xuống `22x22px` (`pointer-events: none`) trên mobile.
+    - Định dạng `.j-story-turn` và trạng thái nút `.j-reset[aria-pressed=false]`.
+ 
+ ---
+ 
+ ### 3. Giới hạn môi trường & Danh sách kiểm thử nghiệm thu cho Codex (Limitations & Acceptance Tests for Codex)
+ 
+-* **Giới hạn môi trường**: Trong phiên chạy headless này của Antigravity (`r_7a57af17`), mọi lệnh shell (`npm`, `python`, `git`) và trình duyệt trực tiếp đều bị chặn theo quy định sandbox. Do đó, quá trình kiểm tra được thực hiện thông qua phân tích mã nguồn, tính toán hình học chiếu trực giao và đối chiếu ảnh chụp xác thực có sẵn (`docs/verification/journey-desk-*.png`), không giả lập kết quả chạy trình duyệt.
++* **Giới hạn môi trường**: Trong phiên chạy headless này của Antigravity (`r_f8ac9d8a`), mọi lệnh shell (`npm`, `python`, `git`) và trình duyệt trực tiếp đều bị chặn theo quy định sandbox. Do đó, quá trình kiểm tra được thực hiện thông qua phân tích mã nguồn, tính toán hình học chiếu trực giao và cập nhật bộ kiểm thử tự động trong `scripts/verify-journey-desk.py`.
+ * **Kiểm thử nghiệm thu dành cho Codex sau khi Argon hoàn tất**:
+   1. Chạy `npm run build` để xác nhận TypeScript và gói bundle Vite biên dịch thành công không có lỗi.
+-  2. Chạy `python scripts/verify-journey-desk.py` (49 bài kiểm tra tự động + 5 kiểm tra vùng `aria-live` bền vững):
+-     - Kiểm tra click mesh sổ tay tại `(0.32 * width, 0.55 * height)` mở đúng `#/journey/0`.
+-     - Kiểm tra 5 nút marker `Explore ...` và 5 nút `.j-chapters button` cùng điều hướng bàn phím (`ArrowRight`, `End`).
+-     - Kiểm tra kéo xoay bàn bằng chuột và cảm ứng CDP trên mobile (`390x844`), cuộn dọc tự nhiên, nút `Whole desk`, nút `Pause motion` / `reduced-motion`, offscreen pause và WebGL fallback.
+-  3. Chụp lại `docs/verification/journey-desk-desktop.png`, `journey-desk-council.png`, `journey-desk-mobile.png` để xác nhận:
+-     - Đèn bàn tách rời hoàn toàn khỏi khung ảnh RMIT Careers và không bị cắt mép trên khi chọn chương.
+-     - Huy hiệu `1`–`5` nằm gọn ở góc vật thể, không đè lên chữ `"People."`, `"A next step."`, `"Always Day 1."` và tooltip không va chạm thanh công cụ.
+-     - Bìa hồ sơ Michelin màu xanh rừng đậm nổi bật rõ trên tấm lót bàn, thẻ đeo RMIT Careers có nội dung in sắc nét, và dòng `.j-story-turn` hiển thị hài hòa trong cột câu chuyện.
++  2. Chạy `python scripts/verify-journey-desk.py` (55 bài kiểm tra tự động bao gồm 6 bài kiểm tra hồi quy chạm tâm huy hiệu mobile):
++     - Trên `390x844` (`reduced_motion='reduce'`), xác nhận cả 5 `.j-markers button` có `pointer-events !== 'none'`, kích thước vùng chạm `>= 44x44px` và mặt hiển thị `span` đúng `22x22px`.
++     - Đặt lại `Whole desk` trước mỗi lần chạm, gửi sự kiện cảm ứng thực tế (`Input.dispatchTouchEvent` `touchStart` + `touchEnd`) vào chính giữa từng huy hiệu `1`..`5` và xác nhận chọn đúng chương `0`..`4` (`/journey/0`..`/journey/4`).
++     - Xác nhận kéo ngang xoay bàn, vuốt dọc cuộn trang tự nhiên (`pan-y`), thanh chương `.j-chapters`, `Pause motion` / `reduced-motion`, offscreen pause và WebGL fallback đều hoạt động nguyên vẹn.
+diff --git a/docs/design-motion/journey-growing.md b/docs/design-motion/journey-growing.md
+index 7563579..06b932e 100644
+--- a/docs/design-motion/journey-growing.md
++++ b/docs/design-motion/journey-growing.md
+@@ -4,7 +4,7 @@ The user wanted the earlier 3D desk restored to Journey, with more detail and sh
+ 
+ ## Collaboration and decisions
+ 
+-Antigravity / Gemini 4 Argon High completed initial independent source inspection and art direction (`t_2f416858`, run `r_14c0c946`), followed by Codex's baseline implementation (`20ae9a9`) and Argon's direct code quality review and implementation pass (`t_1a1d8eea`, run `r_7a57af17`). Full review and implementation details are in `argon-journey-review.md`.
++Antigravity / Gemini 4 Argon High completed initial independent source inspection and art direction (`t_2f416858`, run `r_14c0c946`), followed by Codex's baseline implementation (`20ae9a9`) and Argon's direct code quality review and implementation passes (`t_1a1d8eea`, runs `r_7a57af17` and `r_f8ac9d8a`). Full review and implementation details are in `argon-journey-review.md`.
+ 
+ Adopted: a warm study desk, authentic chapter material, different paper/metal/ceramic surfaces, closer composition, five chapter objects, slight focus and lift on selection, normal touch scrolling, accessible HTML controls and render-on-demand when motion is paused. The homepage stays intact.
+ 
+@@ -19,12 +19,12 @@ Adapted: an orthographic camera keeps objects legible across widths; CTM uses a
+   - **Marker & tooltip collision prevention**: Moved 3D marker anchors to object corners/bezels so badges `1`–`5` never obscure headline typography on the notebook, phone, folder, photo frame, or laptop screen. Added dynamic `data-tip` edge-flipping (`top`/`bottom` and `-start`/`-end`) and `data-hover` synchronization between 3D canvas hover and DOM marker badges.
+   - **Material contrast & font-ready textures**: Differentiated the Michelin folder (`#2f5349` deep forest) from the `#b7cbbb` sage desk mat, upgraded the CTM phone case to deep navy (`#25364f`) with a coral frame, added a printed Career Ready lanyard card texture to the badge beside the photo frame, added a cream inner lining to the Council notebook cover (`0.46 rad` open angle), and redrew all `CanvasTexture` surfaces with `'Outfit'` once `document.fonts.ready` resolves.
+   - **Draw & DOM cost**: Eliminated per-frame `Vector3` allocations and cached projected marker transform/tooltip/hover strings so no redundant DOM writes occur during ambient plant sway; included cover and laptop hinge deltas in `shadowMap.needsUpdate`; added `Escape` to reset to the whole desk.
+-  - **Responsive & copy polish**: Surfaced the truthful turning-point line (`story.title` + `story.turn`) in `.j-story-turn`, kept compact `1`–`5` badges visible on mobile (`pointer-events: none` so touch drag and vertical scroll remain unchanged), and horizontally centered the active chapter button inside the mobile `.j-chapters` strip without affecting `window.scrollY`.
++  - **Responsive & mobile marker touch targets**: Surfaced the truthful turning-point line (`story.title` + `story.turn`) in `.j-story-turn`, made all five mobile `1`–`5` markers interactive touch and keyboard controls with `44x44px` hit targets (`pointer-events: auto; touch-action: pan-y`) while retaining `22x22px` visual badge faces, unified stage pointer drag/tap handling on `.j-desk-canvas` so horizontal drag and vertical scroll work seamlessly without accidental chapter selection, and horizontally centered the active chapter button inside the mobile `.j-chapters` strip without affecting `window.scrollY`.
+ - Lighting uses hemisphere fill, directional daylight, a reflection environment and a 2048px shadow map. Shadow maps refresh during object/view/hinge changes; the small ambient plant sway reuses the static shadow. Render resolution follows device pixel ratio up to 2; generated canvas maps use anisotropic filtering.
+ - Three.js is loaded only when Journey's desk is mounted.
+ 
+ ## Review and release status
+ 
+-Baseline production build and 49 browser checks (+5 persistent live-region checks) passed at `20ae9a9`. In Argon's headless environment (`r_7a57af17`), shell commands and live browser execution are restricted by the sandbox, so verification in this pass was performed via source and screenshot inspection (`docs/verification/journey-desk-*.png`), with all selectors, ARIA contracts, raycast coordinates, and frame counters preserved for Codex's post-Argon build and Playwright verification pass.
++Baseline production build and 49 browser checks (+5 persistent live-region checks) passed at `20ae9a9`, and 6 additional mobile marker hit-target and center-touch regression checks were added in `scripts/verify-journey-desk.py`. In Argon's headless environment (`r_f8ac9d8a`), shell commands and live browser execution are restricted by the sandbox, so verification was performed via source and coordinate analysis, ready for Codex's build and Playwright verification pass.
+ 
+ All changes are local for review. Nothing was pushed, merged or deployed, and no production service or configuration was changed.
+diff --git a/docs/plans/2026-10-28-journey-mobile-markers.md b/docs/plans/2026-10-28-journey-mobile-markers.md
+new file mode 100644
+index 0000000..2fc14ff
+--- /dev/null
++++ b/docs/plans/2026-10-28-journey-mobile-markers.md
+@@ -0,0 +1,22 @@
++# 2026-10-28 — Journey Mobile Marker Touch Targets & Selection Fix
++
++## Goal
++Fix the mobile regression where `.j-markers button` elements look like interactive numbered controls (`1`–`5`) at `<= 600px` but have `pointer-events: none`, causing touches at marker centers on `390x844` to fall through to the 3D raycast and miss 4 of the 5 objects. Ensure all five visible markers are reliable touch and keyboard selection controls with `>= 44px` hit targets while retaining compact `22px` visual badge faces on mobile, and preserve native vertical `pan-y` scrolling, horizontal canvas drag, pause/reduced-motion behavior, chapter strip navigation, and WebGL fallback.
++
++## Key Decisions
++1. **Restore `>= 44px` interactive hit targets on mobile while keeping `22px` visual faces**:
++   - Remove `.j-markers,.j-markers button{pointer-events:none}` from `@media(max-width:600px)` in `src/journey-desk.css`.
++   - Keep `.j-markers button` at `width: 44px; height: 44px; pointer-events: auto; touch-action: pan-y; cursor: pointer;` across breakpoints, while `.j-markers button > span` renders the `22px × 22px` visual circle (`pointer-events: none`) on `<= 600px`.
++2. **Unify pointer drag/tap handling across `.j-desk-canvas` (`el`) and `.j-markers button`**:
++   - Attach pointer listeners (`pointerdown`, `pointermove`, `pointerup`, `pointercancel`, `lostpointercapture`, `pointerleave`) to the stage container `el` (`.j-desk-canvas`) rather than only `<canvas>`, ignoring `.j-desk-fallback`.
++   - Resolve `hit(e)` against `[data-marker]` (via `e.target.closest('[data-marker]')` and visible marker button `getBoundingClientRect()` bounds) before falling back to the 3D `Raycaster`, so touching the center of any marker `1`–`5` reliably selects chapter `0`–`4`.
++   - Guard `<button onClick>` with a post-pointer timestamp (`blockClick`) so pointer taps select once without duplicate history updates, horizontal drags or cancelled touches never trigger accidental chapter selection, and keyboard activation (`Enter`/`Space`, `e.detail === 0`) remains fully functional.
++3. **Update verification suite & project docs**:
++   - Add regression checks in `scripts/verify-journey-desk.py` verifying `>= 44px` marker hit targets, `22px` mobile badge faces, and CDP touch selection at the center of all five markers (`0`–`4`) on `390x844` with `reduced_motion='reduce'` and overview reset before each touch.
++   - Update `docs/design-motion/journey-growing.md` and `docs/design-motion/argon-journey-review.md` to reflect the mobile marker touch fix.
++
++## Steps
++- [x] Create plan in `docs/plans/2026-10-28-journey-mobile-markers.md`.
++- [x] Update `src/journey-desk.css` to keep `.j-markers button` interactive (`pointer-events: auto`, `44x44px` hit box, `touch-action: pan-y`) at `<= 600px` while retaining `22x22px` visual badge spans.
++- [x] Update `src/JourneyDesk.tsx` so stage pointer handling and `hit(e)` support marker buttons directly while preserving horizontal drag, vertical scroll, keyboard selection, and no accidental selection on drag/cancel.
++- [x] Update `scripts/verify-journey-desk.py` and documentation (`docs/design-motion/journey-growing.md`, `docs/design-motion/argon-journey-review.md`) with the mobile marker touch regression test and notes.
+diff --git a/scripts/verify-journey-desk.py b/scripts/verify-journey-desk.py
+index c0be6e7..23c66ed 100644
+--- a/scripts/verify-journey-desk.py
++++ b/scripts/verify-journey-desk.py
+@@ -132,6 +132,20 @@ with sync_playwright() as p:
+     check('Reduced-motion rendering rests when unchanged',count==reduced.locator('.j-desk-canvas').get_attribute('data-frames'))
+     reduced.locator('.j-chapters button').first.click();expect(reduced.locator('.j-company')).to_have_text('Student Council')
+     check('Reduced-motion chapter selection still works',reduced.url.endswith('/journey/0'))
++    reduced.set_viewport_size({'width':390,'height':844})
++    reduced.get_by_role('button',name='Whole desk',exact=True).click();reduced.wait_for_timeout(150)
++    stage_in_view(reduced)
++    check('Mobile markers have >=44px hit targets and 22px visual faces',reduced.locator('.j-markers button').evaluate_all('els=>els.length===5&&els.every(el=>{const r=el.getBoundingClientRect(),s=el.querySelector("span").getBoundingClientRect();return getComputedStyle(el).pointerEvents!=="none"&&r.width>=44&&r.height>=44&&Math.round(s.width)===22&&Math.round(s.height)===22})'))
++    reduced_session=reduced.context.new_cdp_session(reduced)
++    for i in range(5):
++        reduced.get_by_role('button',name='Whole desk',exact=True).click();reduced.wait_for_timeout(100)
++        stage_in_view(reduced)
++        mb=reduced.locator('.j-markers button').nth(i).bounding_box()
++        mx,my=mb['x']+mb['width']/2,mb['y']+mb['height']/2
++        for event,points in [('touchStart',[{'x':mx,'y':my}]),('touchEnd',[])]:
++            reduced_session.send('Input.dispatchTouchEvent',{'type':event,'touchPoints':points})
++        reduced.wait_for_timeout(100)
++        check(f'Mobile touch at marker {i+1} center selects chapter {i}',reduced.url.endswith(f'/journey/{i}') and reduced.locator('.j-chapters button').nth(i).get_attribute('aria-pressed')=='true')
+     reduced.close()
+     fallback=browser.new_page(viewport={'width':390,'height':844})
+     fallback.add_init_script("const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){if(type==='webgl2'||type==='webgl'||type==='experimental-webgl')return null;return original.call(this,type,...args)}")
+diff --git a/src/JourneyDesk.tsx b/src/JourneyDesk.tsx
+index 81da5c6..111d84d 100644
+--- a/src/JourneyDesk.tsx
++++ b/src/JourneyDesk.tsx
+@@ -11,6 +11,7 @@ export default function JourneyDesk({ selected, paused, onSelect }: { selected:
+   const markers = useRef<(HTMLButtonElement | null)[]>([]);
+   const state = useRef({ selected, paused, onSelect });
+   const controls = useRef<Controls | null>(null);
++  const blockClick = useRef(0);
+   const [status, setStatus] = useState<'loading' | 'ready' | 'failed'>('loading');
+   useEffect(() => { state.current = { selected, paused, onSelect }; controls.current?.wake(); }, [selected, paused, onSelect]);
+ 
+@@ -109,6 +110,12 @@ export default function JourneyDesk({ selected, paused, onSelect }: { selected:
+     }
+     const raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
+     const hit = (e: PointerEvent) => {
++      const marker = (e.target as Element | null)?.closest?.('[data-marker]') as HTMLElement | null;
++      if (marker) return Number(marker.dataset.marker);
++      for (let i = 0; i < markers.current.length; i++) {
++        const rect = markers.current[i]?.getBoundingClientRect();
++        if (rect && rect.width > 0 && e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) return i;
++      }
+       const bounds = renderer.domElement.getBoundingClientRect();
+       pointer.set((e.clientX - bounds.left) / bounds.width * 2 - 1, -(e.clientY - bounds.top) / bounds.height * 2 + 1);
+       raycaster.setFromCamera(pointer, camera);
+@@ -119,12 +126,16 @@ export default function JourneyDesk({ selected, paused, onSelect }: { selected:
+       return object?.userData.chapter ?? -1;
+     };
+     let drag: { id: number; x: number; y: number; start: number; moved: boolean; locked: boolean } | null = null;
+-    const down = (e: PointerEvent) => { if (!e.isPrimary || e.button !== 0) return; drag = { id: e.pointerId, x: e.clientX, y: e.clientY, start: targetAngle, moved: false, locked: false }; };
++    const down = (e: PointerEvent) => {
++      if (!e.isPrimary || e.button !== 0 || (e.target as Element | null)?.closest?.('.j-desk-fallback')) return;
++      blockClick.current = 0;
++      drag = { id: e.pointerId, x: e.clientX, y: e.clientY, start: targetAngle, moved: false, locked: false };
++    };
+     const move = (e: PointerEvent) => {
+       if (drag && drag.id === e.pointerId) {
+         const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+         if (Math.hypot(dx, dy) > 9) drag.moved = true;
+-        if (!drag.locked && Math.abs(dx) > 9 && Math.abs(dx) > Math.abs(dy) * 1.25) { drag.locked = true; renderer.domElement.setPointerCapture(e.pointerId); }
++        if (!drag.locked && Math.abs(dx) > 9 && Math.abs(dx) > Math.abs(dy) * 1.25) { drag.locked = true; el.setPointerCapture(e.pointerId); }
+         if (drag.locked) { targetAngle = THREE.MathUtils.clamp(drag.start + dx * .003, -.65, .65); wake(); }
+       } else if (e.pointerType === 'mouse') {
+         const next = hit(e); if (next !== hover) { hover = next; renderer.domElement.style.cursor = hover >= 0 ? 'pointer' : 'grab'; wake(); }
+@@ -132,15 +143,18 @@ export default function JourneyDesk({ selected, paused, onSelect }: { selected:
+     };
+     const up = (e: PointerEvent) => {
+       const current = drag; drag = null;
+-      if (renderer.domElement.hasPointerCapture(e.pointerId)) renderer.domElement.releasePointerCapture(e.pointerId);
+-      if (current?.id === e.pointerId && !current.moved) { const index = hit(e); if (index >= 0) state.current.onSelect(index); }
++      if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
++      if (current?.id === e.pointerId) {
++        blockClick.current = performance.now() + 400;
++        if (!current.moved) { const index = hit(e); if (index >= 0) { state.current.selected = index; state.current.onSelect(index); } }
++      }
+       wake();
+     };
+-    const cancel = () => { drag = null; hover = -1; wake(); };
++    const cancel = () => { if (drag) blockClick.current = performance.now() + 400; drag = null; hover = -1; wake(); };
+     const leave = () => { hover = -1; renderer.domElement.style.cursor = 'grab'; wake(); };
+     const canvas = renderer.domElement;
+-    canvas.addEventListener('pointerdown', down); canvas.addEventListener('pointermove', move); canvas.addEventListener('pointerup', up);
+-    canvas.addEventListener('pointercancel', cancel); canvas.addEventListener('lostpointercapture', cancel); canvas.addEventListener('pointerleave', leave);
++    el.addEventListener('pointerdown', down); el.addEventListener('pointermove', move); el.addEventListener('pointerup', up);
++    el.addEventListener('pointercancel', cancel); el.addEventListener('lostpointercapture', cancel); el.addEventListener('pointerleave', leave);
+     const resize = new ResizeObserver(() => {
+       const bounds = el.getBoundingClientRect(); width = bounds.width; height = bounds.height;
+       if (!width || !height) return;
+@@ -158,14 +172,14 @@ export default function JourneyDesk({ selected, paused, onSelect }: { selected:
+       wake,
+       rotate: step => { targetAngle = THREE.MathUtils.clamp(targetAngle + step, -.65, .65); wake(); },
+       zoom: step => { zoom = THREE.MathUtils.clamp(zoom + step, .8, 1.35); wake(); },
+-      reset: () => { targetAngle = 0; zoom = 1; state.current.onSelect(-1); wake(); },
++      reset: () => { targetAngle = 0; zoom = 1; state.current.selected = -1; state.current.onSelect(-1); wake(); },
+     };
+     setStatus('ready'); wake();
+     return () => {
+       disposed = true; controls.current = null; cancelAnimationFrame(raf); resize.disconnect(); intersection.disconnect();
+       document.removeEventListener('visibilitychange', visibility);
+-      canvas.removeEventListener('pointerdown', down); canvas.removeEventListener('pointermove', move); canvas.removeEventListener('pointerup', up);
+-      canvas.removeEventListener('pointercancel', cancel); canvas.removeEventListener('lostpointercapture', cancel); canvas.removeEventListener('pointerleave', leave); canvas.removeEventListener('webglcontextlost', contextLost);
++      el.removeEventListener('pointerdown', down); el.removeEventListener('pointermove', move); el.removeEventListener('pointerup', up);
++      el.removeEventListener('pointercancel', cancel); el.removeEventListener('lostpointercapture', cancel); el.removeEventListener('pointerleave', leave); canvas.removeEventListener('webglcontextlost', contextLost);
+       desk.dispose(); groundGeo.dispose(); groundMat.dispose(); environment.dispose(); pmrem.dispose(); sun.shadow.dispose(); renderer.dispose(); renderer.forceContextLoss(); canvas.remove();
+     };
+   }, []);
+@@ -179,7 +193,7 @@ export default function JourneyDesk({ selected, paused, onSelect }: { selected:
+       <button className="j-reset" aria-pressed={selected < 0} disabled={status !== 'ready'} onClick={() => controls.current?.reset()}>Whole desk</button>
+     </div></div>
+     <div className="j-desk-canvas" ref={host} data-scene-state={status} role="group" aria-label="Mai’s interactive 3D journey desk">
+-      <div className="j-markers">{names.map((name, index) => <button key={name} ref={node => { markers.current[index] = node; }} aria-label={`Explore ${name}`} aria-pressed={selected === index} onClick={() => onSelect(index)}><span>{index + 1}</span><small>{name}</small></button>)}</div>
++      <div className="j-markers">{names.map((name, index) => <button key={name} type="button" data-marker={index} ref={node => { markers.current[index] = node; }} aria-label={`Explore ${name}`} aria-pressed={selected === index} onClick={event => { if (event.detail > 0 && performance.now() < blockClick.current) { blockClick.current = 0; return; } state.current.selected = index; onSelect(index); controls.current?.wake(); }}><span>{index + 1}</span><small>{name}</small></button>)}</div>
+       {status !== 'ready' && <div className="j-desk-fallback"><img src="/assets/mai-portrait.webp" alt="Mai at RMIT" /><p role="status">{status === 'loading' ? 'Making room for the next chapter…' : 'The 3D desk couldn’t load. You can still explore every chapter below.'}</p>{status === 'failed' && <button onClick={() => location.reload()}>Try the desk again</button>}</div>}
+     </div>
+     <div className="j-desk-note"><span>A few things I’ve learned along the way.</span><span>Always room for more.</span></div>
+diff --git a/src/journey-desk.css b/src/journey-desk.css
+index b094cea..b5cfe21 100644
+--- a/src/journey-desk.css
++++ b/src/journey-desk.css
+@@ -18,8 +18,8 @@
+ .j-desk-canvas{height:550px;position:relative;isolation:isolate;touch-action:pan-y}
+ .j-desk-canvas>canvas{display:block;width:100%;height:100%;touch-action:pan-y;cursor:grab}
+ .j-markers{position:absolute;inset:0;pointer-events:none}
+-.j-markers button{position:absolute;left:0;top:0;width:44px;height:44px;pointer-events:auto;display:grid;place-items:center;padding:0;background:transparent;border:0;border-radius:50%;color:#34433a;box-shadow:none;font-family:inherit;font-size:16px;transition:background .2s,color .2s}
+-.j-markers button>span{display:grid;place-items:center;width:28px;height:28px;border:1px solid #48634d66;border-radius:50%;background:#fafbf4;color:#34433a;font-size:13px;font-weight:550;box-shadow:0 2px 8px #2b3b2418;transition:transform .18s,background .18s,color .18s,border-color .18s}
++.j-markers button{position:absolute;left:0;top:0;width:44px;height:44px;pointer-events:auto;touch-action:pan-y;cursor:pointer;display:grid;place-items:center;padding:0;background:transparent;border:0;border-radius:50%;color:#34433a;box-shadow:none;font-family:inherit;font-size:16px;transition:background .2s,color .2s}
++.j-markers button>span{display:grid;place-items:center;width:28px;height:28px;pointer-events:none;border:1px solid #48634d66;border-radius:50%;background:#fafbf4;color:#34433a;font-size:13px;font-weight:550;box-shadow:0 2px 8px #2b3b2418;transition:transform .18s,background .18s,color .18s,border-color .18s}
+ .j-markers button:hover>span,.j-markers button[data-hover=true]>span{border-color:#315dd3;color:#21409a;transform:scale(1.08)}
+ .j-markers button[aria-pressed=true]{background:transparent}
+ .j-markers button[aria-pressed=true]>span{background:#315dd3;color:white;border-color:#315dd3;transform:scale(1.08)}
+@@ -63,6 +63,6 @@
+ @media(min-width:1500px){.j-desk-canvas{height:610px}}
+ @media(max-width:1100px){.j-workspace{grid-template-columns:minmax(0,1fr) 290px;gap:0 22px}.j-desk-canvas{height:520px}.j-desk-toolbar{flex-wrap:wrap;gap:0}.j-desk-toolbar>span{width:100%;padding-left:8px}.j-desk-toolbar>div{margin-left:auto}.j-desk-note>span:last-child{display:none}.portfolio-world .j-story h2{font-size:34px}.j-story-summary,.j-overview>p:not(.j-story-kicker){font-size:18px}.j-opening>p{font-size:20px;max-width:320px}}
+ @media(max-width:850px){.j-page{padding:20px 24px 30px}.j-opening{align-items:start}.portfolio-world .j-opening h1{font-size:62px}.j-opening>p{font-size:18px;max-width:260px}.j-workspace{grid-template-columns:1fr}.j-desk-canvas{height:490px}.j-desk-toolbar{flex-wrap:nowrap}.j-desk-toolbar>span{width:auto}.j-chapters{grid-row:2;margin-top:24px;gap:15px}.j-story{grid-row:3;margin-top:24px;border-top:1px solid #bcc9bb;padding-top:25px}.j-story-content,.j-overview{max-width:650px;margin:auto}.j-story figure img{height:300px}.j-overview figure img{height:320px}.j-story-summary,.j-overview>p:not(.j-story-kicker){font-size:20px}.portfolio-world .j-story h2{font-size:42px}.j-chapter-name{font-size:17px}.j-chapter-lesson{font-size:12px}.j-chapter-year{font-size:12px}}
+-@media(max-width:600px){.j-page{padding:18px 20px 30px}.j-opening{display:block;margin:8px 0 25px}.j-eyebrow{font-size:13px;margin-bottom:15px}.portfolio-world .j-opening h1{font-size:58px}.j-opening>p{font-size:18px;max-width:100%;margin-top:22px;padding:0}.j-opening>p>br{display:none}.j-opening>p>span{font-size:13px;margin-top:8px}.j-desk-wrap{margin-inline:-20px;border-radius:0}.j-desk-toolbar{padding:13px 13px 0;flex-wrap:wrap;gap:4px}.j-desk-toolbar>span{padding-left:7px;font-size:12px;width:100%}.j-desk-toolbar>div{margin-left:0;width:100%;justify-content:flex-end}.j-desk-toolbar button{font-size:21px}.j-desk-toolbar .j-reset{font-size:13px;margin-left:auto}.j-desk-canvas{height:340px}.j-markers,.j-markers button{pointer-events:none}.j-markers button>span{width:22px;height:22px;font-size:11px}.j-markers small{display:none}.j-desk-note{font-size:12px;padding-inline:20px}.j-chapters{display:flex;overflow-x:auto;gap:18px;scrollbar-width:thin;padding:6px 4px 4px;margin-top:15px;scroll-snap-type:x proximity}.j-chapters button{flex:0 0 138px;min-height:105px;scroll-snap-align:start}.j-chapter-name{font-size:17px}.j-chapter-lesson{font-size:12px}.j-story{margin-top:8px}.j-story-kicker{margin-bottom:19px;font-size:13px}.portfolio-world .j-story h2{font-size:36px}.j-story-summary,.j-overview>p:not(.j-story-kicker){font-size:18px}.j-story figure img{height:250px}.j-overview figure img{height:310px}.j-story-navigation{margin-top:20px}.j-footer{margin-top:32px;align-items:start;flex-direction:column;gap:14px}.j-footer>p{font-size:23px}.j-footer>p>span{font-size:15px}.j-footer>a{font-size:18px}.j-scene-loading{height:450px;margin-inline:-20px;border-radius:0}}
++@media(max-width:600px){.j-page{padding:18px 20px 30px}.j-opening{display:block;margin:8px 0 25px}.j-eyebrow{font-size:13px;margin-bottom:15px}.portfolio-world .j-opening h1{font-size:58px}.j-opening>p{font-size:18px;max-width:100%;margin-top:22px;padding:0}.j-opening>p>br{display:none}.j-opening>p>span{font-size:13px;margin-top:8px}.j-desk-wrap{margin-inline:-20px;border-radius:0}.j-desk-toolbar{padding:13px 13px 0;flex-wrap:wrap;gap:4px}.j-desk-toolbar>span{padding-left:7px;font-size:12px;width:100%}.j-desk-toolbar>div{margin-left:0;width:100%;justify-content:flex-end}.j-desk-toolbar button{font-size:21px}.j-desk-toolbar .j-reset{font-size:13px;margin-left:auto}.j-desk-canvas{height:340px}.j-markers button>span{width:22px;height:22px;font-size:11px}.j-markers small{display:none}.j-desk-note{font-size:12px;padding-inline:20px}.j-chapters{display:flex;overflow-x:auto;gap:18px;scrollbar-width:thin;padding:6px 4px 4px;margin-top:15px;scroll-snap-type:x proximity}.j-chapters button{flex:0 0 138px;min-height:105px;scroll-snap-align:start}.j-chapter-name{font-size:17px}.j-chapter-lesson{font-size:12px}.j-story{margin-top:8px}.j-story-kicker{margin-bottom:19px;font-size:13px}.portfolio-world .j-story h2{font-size:36px}.j-story-summary,.j-overview>p:not(.j-story-kicker){font-size:18px}.j-story figure img{height:250px}.j-overview figure img{height:310px}.j-story-navigation{margin-top:20px}.j-footer{margin-top:32px;align-items:start;flex-direction:column;gap:14px}.j-footer>p{font-size:23px}.j-footer>p>span{font-size:15px}.j-footer>a{font-size:18px}.j-scene-loading{height:450px;margin-inline:-20px;border-radius:0}}
+ @media(max-width:359px){.portfolio-world .j-opening h1{font-size:49px}.j-desk-canvas{height:310px}}
+ @media(prefers-reduced-motion:reduce){.j-page *{animation:none!important;transition:none!important}}

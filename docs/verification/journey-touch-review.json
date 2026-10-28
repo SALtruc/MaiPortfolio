@@ -1,0 +1,28 @@
+{
+  "passed": 22,
+  "checks": [
+    "390px marker hit targets are at least 44px",
+    "390px actual touch selects marker 1",
+    "390px actual touch selects marker 2",
+    "390px actual touch selects marker 3",
+    "390px actual touch selects marker 4",
+    "390px actual touch selects marker 5",
+    "320px marker hit targets are at least 44px",
+    "320px actual touch selects marker 1",
+    "320px actual touch selects marker 2",
+    "320px actual touch selects marker 3",
+    "320px actual touch selects marker 4",
+    "320px actual touch selects marker 5",
+    "Dragging from a marker does not accidentally select",
+    "Cancelled marker touch does not select",
+    "Vertical swipe starting on a marker scrolls the page",
+    "Vertical swipe does not select a chapter",
+    "Keyboard Enter selects marker 1",
+    "Keyboard Enter selects marker 2",
+    "Keyboard Enter selects marker 3",
+    "Keyboard Enter selects marker 4",
+    "Keyboard Enter selects marker 5",
+    "No uncaught browser errors"
+  ],
+  "errors": []
+}
