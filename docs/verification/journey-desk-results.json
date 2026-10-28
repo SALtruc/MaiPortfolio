@@ -1,5 +1,5 @@
 {
-  "passed": 49,
+  "passed": 55,
   "checks": [
     "Journey shows real WebGL canvas",
     "Canvas matches display pixel ratio",
@@ -48,6 +48,12 @@
     "System reduced motion is respected",
     "Reduced-motion rendering rests when unchanged",
     "Reduced-motion chapter selection still works",
+    "Mobile markers have >=44px hit targets and 22px visual faces",
+    "Mobile touch at marker 1 center selects chapter 0",
+    "Mobile touch at marker 2 center selects chapter 1",
+    "Mobile touch at marker 3 center selects chapter 2",
+    "Mobile touch at marker 4 center selects chapter 3",
+    "Mobile touch at marker 5 center selects chapter 4",
     "Unavailable WebGL has a usable fallback",
     "No uncaught browser errors"
   ],

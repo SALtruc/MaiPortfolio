@@ -132,6 +132,20 @@ with sync_playwright() as p:
     check('Reduced-motion rendering rests when unchanged',count==reduced.locator('.j-desk-canvas').get_attribute('data-frames'))
     reduced.locator('.j-chapters button').first.click();expect(reduced.locator('.j-company')).to_have_text('Student Council')
     check('Reduced-motion chapter selection still works',reduced.url.endswith('/journey/0'))
+    reduced.set_viewport_size({'width':390,'height':844})
+    reduced.get_by_role('button',name='Whole desk',exact=True).click();reduced.wait_for_timeout(150)
+    stage_in_view(reduced)
+    check('Mobile markers have >=44px hit targets and 22px visual faces',reduced.locator('.j-markers button').evaluate_all('els=>els.length===5&&els.every(el=>{const r=el.getBoundingClientRect(),s=el.querySelector("span").getBoundingClientRect();return getComputedStyle(el).pointerEvents!=="none"&&r.width>=43.99&&r.height>=43.99&&Math.round(s.width)===22&&Math.round(s.height)===22})'))
+    reduced_session=reduced.context.new_cdp_session(reduced)
+    for i in range(5):
+        reduced.get_by_role('button',name='Whole desk',exact=True).click();reduced.wait_for_timeout(100)
+        stage_in_view(reduced)
+        mb=reduced.locator('.j-markers button').nth(i).bounding_box()
+        mx,my=mb['x']+mb['width']/2,mb['y']+mb['height']/2
+        for event,points in [('touchStart',[{'x':mx,'y':my}]),('touchEnd',[])]:
+            reduced_session.send('Input.dispatchTouchEvent',{'type':event,'touchPoints':points})
+        reduced.wait_for_timeout(100)
+        check(f'Mobile touch at marker {i+1} center selects chapter {i}',reduced.url.endswith(f'/journey/{i}') and reduced.locator('.j-chapters button').nth(i).get_attribute('aria-pressed')=='true')
     reduced.close()
     fallback=browser.new_page(viewport={'width':390,'height':844})
     fallback.add_init_script("const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){if(type==='webgl2'||type==='webgl'||type==='experimental-webgl')return null;return original.call(this,type,...args)}")
