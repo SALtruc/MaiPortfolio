@@ -1,23 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { email, linkedin } from './content';
-import { awardSource, journeyStories } from './stories';
+import { awardSource } from './stories';
 import { Reveal } from './ScrollMotion';
-import { SectionIndex } from './SectionIndex';
 
-export function JourneyPage({chapter,paused,onChange}:{chapter:number;paused:boolean;onChange:(n:number)=>void}){
- const [active,setActive]=useState(Math.max(0,chapter));const storyRefs=useRef<(HTMLElement|null)[]>([]);const previousRequest=useRef(-2);
- useEffect(()=>{if(chapter<0||chapter===previousRequest.current)return;let cancelled=false;void document.fonts.ready.then(()=>{if(cancelled)return;previousRequest.current=chapter;storyRefs.current[chapter]?.scrollIntoView({behavior:'instant',block:'start'})});return()=>{cancelled=true}},[chapter,paused]);
- useEffect(()=>{const observer=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting)setActive(Number((e.target as HTMLElement).dataset.chapter))},{rootMargin:'-22% 0px -50% 0px',threshold:0});storyRefs.current.forEach(el=>el&&observer.observe(el));return()=>observer.disconnect()},[]);
- return <section className="path-page" aria-label="Mai’s learning journey">
-  <div className="path-opening"><h1>The turning <em>points.</em></h1><p>How each experience changed the way I work.</p></div>
-  <SectionIndex id="journey-index" label="Timeline" current={journeyStories[active].company}><nav className="path-chapters" aria-label="Journey, oldest to newest">{journeyStories.map((s,i)=><button key={s.company} aria-current={active===i?'step':undefined} onClick={()=>{storyRefs.current[i]?.scrollIntoView({behavior:paused?'instant':'smooth',block:'start'});onChange(i)}}><span>{s.year}</span>{s.company}</button>)}</nav></SectionIndex>
-  {journeyStories.map((s,i)=><article className={`path-story story-${i}`} key={s.company} data-chapter={i} ref={el=>{storyRefs.current[i]=el}} aria-labelledby={`story-title-${i}`}>
-   <figure className="path-photo scroll-photo"><img src={s.image} alt={s.alt} loading={i===0||i===chapter?'eager':'lazy'}/><figcaption>{s.company} · {s.date}</figcaption></figure>
-   <div className="path-story-copy"><Reveal><span className="story-role">{s.role}</span><h2 id={`story-title-${i}`}>{s.title}<em>{s.turn}</em></h2><p>{s.body}</p></Reveal><Reveal className="turning-point"><h3>What shifted</h3><p>{s.insight}</p></Reveal><Reveal className="carry-note"><p>{s.carry}</p><a href={s.source} target="_blank" rel="noreferrer">Read the original reflection ↗</a></Reveal></div>
-  </article>)}
-  <div className="path-endnote"><Reveal><h2>What does that look like <em>in practice?</em></h2><a href="#/work">Open the project stories ↗</a></Reveal></div>
- </section>
-}
+export { JourneyPage } from './JourneyPage';
 
 export { WorkPage } from './WorkPage';
 

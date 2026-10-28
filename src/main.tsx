@@ -5,5 +5,6 @@ import './styles.css';
 import './refinement.css';
 import './motion-home.css';
 import './interactive-stories.css';
+import './journey-desk.css';
 history.scrollRestoration='manual';
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);

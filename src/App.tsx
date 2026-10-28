@@ -12,7 +12,7 @@ export default function App(){
  usePhotoMotion(paused,route.join('/'));
  useFrameMotion(paused,route.join('/'));
  const navigate=useCallback((destination:string)=>{location.hash=`/${destination}`},[]);
- useEffect(()=>{const update=()=>{const next=readRoute();if(next[0]!==previousPage.current||next[1]===undefined)window.scrollTo({top:0,behavior:'instant'});previousPage.current=next[0];setRoute(next);setMenu(false)};window.addEventListener('hashchange',update);return()=>window.removeEventListener('hashchange',update)},[]);
+ useEffect(()=>{const update=()=>{const next=readRoute();if(next[0]!==previousPage.current||(next[1]===undefined&&next[0]!=='journey'))window.scrollTo({top:0,behavior:'instant'});previousPage.current=next[0];setRoute(next);setMenu(false)};window.addEventListener('hashchange',update);return()=>window.removeEventListener('hashchange',update)},[]);
  useEffect(()=>{document.documentElement.dataset.motion=paused?'off':'on'},[paused]);
  useEffect(()=>{if(!menu)return;const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setMenu(false)};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close)},[menu]);
  useEffect(()=>{const q=matchMedia('(prefers-reduced-motion: reduce)');const update=()=>setPaused(q.matches);q.addEventListener('change',update);return()=>q.removeEventListener('change',update)},[]);
@@ -29,7 +29,7 @@ export default function App(){
   <button className="navigation-peek" aria-label="Show navigation" onClick={navigation.show}>Menu <span aria-hidden="true">⌄</span></button>
   <main className="page-stage" id="main" tabIndex={-1} key={page}>
    {page===''&&<HomePage paused={paused}/>}
-   {page==='journey'&&<JourneyPage chapter={chapter} paused={paused} onChange={i=>navigate(`journey/${i}`)}/>}
+   {page==='journey'&&<JourneyPage chapter={chapter} paused={paused} onChange={i=>navigate(i<0?'journey':`journey/${i}`)}/>}
    {page==='work'&&<WorkPage projectId={route[1]} onChange={id=>navigate(`work/${id}`)}/>}
    {page==='notes'&&<NotesPage/>}
    {page==='hello'&&<HelloPage/>}
