@@ -1,0 +1,319 @@
+{
+  "passed": 78,
+  "total": 78,
+  "checks": [
+    {
+      "name": "Global navigation has one stable set of four destinations",
+      "passed": true
+    },
+    {
+      "name": "Home is marked active",
+      "passed": true
+    },
+    {
+      "name": "Competing floating navigation controls are removed",
+      "passed": true
+    },
+    {
+      "name": "Home preserves real Mai portrait",
+      "passed": true
+    },
+    {
+      "name": "Home has only three curated project previews",
+      "passed": true
+    },
+    {
+      "name": "Home preview does not repeat all five project stories",
+      "passed": true
+    },
+    {
+      "name": "Home has explicit paths to Projects and About",
+      "passed": true
+    },
+    {
+      "name": "about belongs to About Mai",
+      "passed": true
+    },
+    {
+      "name": "about integrates the desk and personal background",
+      "passed": true
+    },
+    {
+      "name": "journey belongs to About Mai",
+      "passed": true
+    },
+    {
+      "name": "journey integrates the desk and personal background",
+      "passed": true
+    },
+    {
+      "name": "journey/0 belongs to About Mai",
+      "passed": true
+    },
+    {
+      "name": "journey/0 integrates the desk and personal background",
+      "passed": true
+    },
+    {
+      "name": "journey/0 opens exact legacy chapter",
+      "passed": true
+    },
+    {
+      "name": "journey/4 belongs to About Mai",
+      "passed": true
+    },
+    {
+      "name": "journey/4 integrates the desk and personal background",
+      "passed": true
+    },
+    {
+      "name": "journey/4 opens exact legacy chapter",
+      "passed": true
+    },
+    {
+      "name": "notes belongs to About Mai",
+      "passed": true
+    },
+    {
+      "name": "notes integrates the desk and personal background",
+      "passed": true
+    },
+    {
+      "name": "Projects is marked active",
+      "passed": true
+    },
+    {
+      "name": "Projects owns all five case studies",
+      "passed": true
+    },
+    {
+      "name": "New project navigation starts at top",
+      "passed": true
+    },
+    {
+      "name": "Browser Back restores collection reading position",
+      "passed": true
+    },
+    {
+      "name": "council has one canonical case with Projects active",
+      "passed": true
+    },
+    {
+      "name": "council has a collection return link",
+      "passed": true
+    },
+    {
+      "name": "council links to the correct personal journey chapter",
+      "passed": true
+    },
+    {
+      "name": "council has no competing project overlay",
+      "passed": true
+    },
+    {
+      "name": "ctm has one canonical case with Projects active",
+      "passed": true
+    },
+    {
+      "name": "ctm has a collection return link",
+      "passed": true
+    },
+    {
+      "name": "ctm links to the correct personal journey chapter",
+      "passed": true
+    },
+    {
+      "name": "ctm has no competing project overlay",
+      "passed": true
+    },
+    {
+      "name": "checkpoint has one canonical case with Projects active",
+      "passed": true
+    },
+    {
+      "name": "checkpoint has a collection return link",
+      "passed": true
+    },
+    {
+      "name": "checkpoint links to the correct personal journey chapter",
+      "passed": true
+    },
+    {
+      "name": "checkpoint has no competing project overlay",
+      "passed": true
+    },
+    {
+      "name": "careers-fair has one canonical case with Projects active",
+      "passed": true
+    },
+    {
+      "name": "careers-fair has a collection return link",
+      "passed": true
+    },
+    {
+      "name": "careers-fair links to the correct personal journey chapter",
+      "passed": true
+    },
+    {
+      "name": "careers-fair has no competing project overlay",
+      "passed": true
+    },
+    {
+      "name": "michelin has one canonical case with Projects active",
+      "passed": true
+    },
+    {
+      "name": "michelin has a collection return link",
+      "passed": true
+    },
+    {
+      "name": "michelin links to the correct personal journey chapter",
+      "passed": true
+    },
+    {
+      "name": "michelin has no competing project overlay",
+      "passed": true
+    },
+    {
+      "name": "Careers chapter connects both actual projects",
+      "passed": true
+    },
+    {
+      "name": "In-place chapter selection preserves desktop context",
+      "passed": true
+    },
+    {
+      "name": "Back restores the previously selected chapter",
+      "passed": true
+    },
+    {
+      "name": "work/not-a-project gives a recoverable invalid route state",
+      "passed": true
+    },
+    {
+      "name": "journey/7 gives a recoverable invalid route state",
+      "passed": true
+    },
+    {
+      "name": "journey/abc gives a recoverable invalid route state",
+      "passed": true
+    },
+    {
+      "name": "not-a-page gives a recoverable invalid route state",
+      "passed": true
+    },
+    {
+      "name": "Contact has correct active navigation",
+      "passed": true
+    },
+    {
+      "name": "Contact exposes email without flipping a card",
+      "passed": true
+    },
+    {
+      "name": "Contact exposes LinkedIn without flipping a card",
+      "passed": true
+    },
+    {
+      "name": "Contact exposes CV without flipping a card",
+      "passed": true
+    },
+    {
+      "name": "Mobile menu closes with Escape",
+      "passed": true
+    },
+    {
+      "name": "Escape returns focus to mobile menu trigger",
+      "passed": true
+    },
+    {
+      "name": "Mobile navigation reaches Projects and closes",
+      "passed": true
+    },
+    {
+      "name": "320px home does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "320px work does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "320px work/michelin does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "320px about does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "320px contact does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "390px home does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "390px work does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "390px work/michelin does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "390px about does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "390px contact does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "768px home does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "768px work does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "768px work/michelin does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "768px about does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "768px contact does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "1440px home does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "1440px work does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "1440px work/michelin does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "1440px about does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "1440px contact does not overflow horizontally",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

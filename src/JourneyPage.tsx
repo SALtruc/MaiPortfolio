@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useRef } from 'react';
 import { awardSource, journeyStories } from './stories';
 import { approaches } from './content';
 import { chapterLessons } from './routes';
@@ -19,10 +19,50 @@ export function JourneyPage({
   onChange: (n: number) => void;
 }) {
   const selected = invalidChapter ? -1 : chapter;
+  const opening = useRef<HTMLElement>(null);
+  const workspace = useRef<HTMLDivElement>(null);
   const strip = useRef<HTMLElement>(null);
+  const storyPanel = useRef<HTMLElement>(null);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const story = selected >= 0 ? journeyStories[selected] : null;
   const lesson = selected >= 0 ? chapterLessons[selected] : null;
+
+  useLayoutEffect(() => {
+    const area = workspace.current;
+    if (!area) return;
+
+    const fitWorkspace = () => {
+      // Layout offsets stay stable while the page arrives or the reader scrolls.
+      let top = 0;
+      let node: HTMLElement | null = area;
+      while (node) {
+        top += node.offsetTop;
+        node = node.offsetParent as HTMLElement | null;
+      }
+      const available = Math.floor((window.visualViewport?.height ?? window.innerHeight) - top - 16);
+      area.style.setProperty('--j-workspace-height', `${Math.min(860, Math.max(0, available))}px`);
+      area.dataset.viewportFit = available >= 410 ? 'contained' : 'flow';
+    };
+
+    fitWorkspace();
+    const observer = new ResizeObserver(fitWorkspace);
+    [opening.current, document.querySelector('.site-header'), area.previousElementSibling].forEach(element => {
+      if (element) observer.observe(element);
+    });
+    window.addEventListener('resize', fitWorkspace);
+    window.visualViewport?.addEventListener('resize', fitWorkspace);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', fitWorkspace);
+      window.visualViewport?.removeEventListener('resize', fitWorkspace);
+    };
+  }, [invalidChapter]);
+
+  useEffect(() => {
+    if (storyPanel.current) {
+      storyPanel.current.scrollTop = 0;
+    }
+  }, [selected]);
 
   useEffect(() => {
     if (selected < 0) return;
@@ -33,36 +73,32 @@ export function JourneyPage({
     nav.scrollTo({ left: Math.max(0, left), behavior: paused ? 'instant' : 'smooth' });
   }, [selected, paused]);
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: paused ? 'instant' : 'smooth', block: 'start' });
-  };
-
   return (
     <section className="j-page about-unified" aria-labelledby="journey-title">
-      <header className="j-opening">
-        <div>
-          <p className="j-eyebrow">About Mai · Biography & interactive journey</p>
+      <header className="j-opening" ref={opening}>
+        <div className="j-opening-main">
+          <p className="j-eyebrow">About Mai · Biography &amp; interactive journey</p>
           <h1 id="journey-title">
-            Still curious.<br />
-            <em>Still growing.</em>
+            Still curious. <em>Still growing.</em>
           </h1>
         </div>
         <div className="j-opening-side">
-          <p>
-            I’m Ngoc Mai Nguyen—a Business student at RMIT Vietnam (Finance major, Digital Marketing minor) and AI Data Service &amp; Operations Intern at TikTok.
-            <span>Pick an object on my desk to explore the five chapters so far, or read my background below.</span>
+          <p className="j-opening-bio">
+            I’m <strong>Ngoc Mai Nguyen</strong>—a Business student at RMIT Vietnam (Finance major, Digital Marketing minor) and AI Data Service &amp; Operations Intern at TikTok.
           </p>
-          <nav className="about-local-nav" aria-label="On this page">
-            <button type="button" onClick={() => scrollToSection('journey-desk')}>
-              <span>01</span> Interactive 3D desk
-            </button>
-            <button type="button" onClick={() => scrollToSection('about-background')}>
-              <span>02</span> Story &amp; education
-            </button>
-            <button type="button" onClick={() => scrollToSection('about-recognition')}>
-              <span>03</span> Leadership recognition
-            </button>
-          </nav>
+          <div className="j-opening-status" aria-live="polite">
+            <span className="j-status-pill">
+              <i aria-hidden="true" />
+              {story && lesson
+                ? `0${selected + 1} / 05 · ${story.company} — ${story.role}`
+                : '5 chapters on the desk · 2024 – Now'}
+            </span>
+            {selected >= 0 && (
+              <button type="button" className="j-opening-reset" onClick={() => onChange(-1)}>
+                Whole desk
+              </button>
+            )}
+          </div>
         </div>
       </header>
 
@@ -70,7 +106,9 @@ export function JourneyPage({
         <div className="invalid-route-callout" role="alert">
           <div>
             <strong>That chapter isn’t on the desk yet.</strong>
-            <p>Mai’s journey currently spans five chapters (01 Student Council to 05 TikTok). Choose one of the five chapters below or explore the whole desk.</p>
+            <p>
+              Mai’s journey currently spans five chapters (01 Student Council to 05 TikTok). Choose one of the five chapters below or explore the whole desk.
+            </p>
           </div>
           <button type="button" className="j-callout-reset" onClick={() => onChange(-1)}>
             Show whole desk
@@ -78,32 +116,55 @@ export function JourneyPage({
         </div>
       )}
 
-      <div className="j-workspace" id="journey-desk">
+      <div className="j-workspace" id="journey-desk" ref={workspace} data-selected-chapter={selected}>
         <Suspense fallback={<div className="j-scene-loading" role="status">Making room for the next chapter…</div>}>
           <JourneyDesk selected={selected} paused={paused} onSelect={onChange} />
         </Suspense>
-        <aside className="j-story" id="journey-story-panel" aria-label="Selected journey chapter">
+        <aside className="j-story" id="journey-story-panel" ref={storyPanel} tabIndex={0} aria-label="Selected journey chapter">
           <span className="j-announcement" role="status" aria-live="polite" aria-atomic="true">
             {story && lesson ? `${story.company}. ${lesson.title}` : 'Journey overview. Choose an object or a chapter to explore.'}
           </span>
           {story && lesson ? (
             <div className="j-story-content" key={selected}>
-              <p className="j-story-kicker">
-                {lesson.object} <span>{story.date}</span>
-              </p>
-              <div>
-                <p className="j-company">{story.company}</p>
+              <div className="j-story-kicker">
+                <span>
+                  0{selected + 1} / 05 · {lesson.object}
+                </span>
+                <span>{story.date}</span>
+              </div>
+              <div className="j-story-header">
+                <div className="j-company-line">
+                  <p className="j-company">{story.company}</p>
+                  <p className="j-role">{story.role}</p>
+                </div>
                 <h2>{lesson.title}</h2>
                 <p className="j-story-summary">{lesson.text}</p>
               </div>
-              <p className="j-role">{story.role}</p>
-              <p className="j-story-turn">
-                {story.title} <em>{story.turn}</em>
-              </p>
-              <figure>
-                <img src={story.image} alt={story.alt} />
-                <figcaption>{story.company} · {story.year}</figcaption>
-              </figure>
+              <div className="j-story-media-block">
+                <figure>
+                  <img src={story.image} alt={story.alt} />
+                  <figcaption>
+                    {story.company} · {story.year}
+                  </figcaption>
+                </figure>
+                <p className="j-story-turn">
+                  {story.title} <em>{story.turn}</em>
+                </p>
+              </div>
+              {lesson.relatedProjects.length > 0 && (
+                <div className="j-project-links">
+                  {lesson.relatedProjects.map((proj, idx) => (
+                    <a
+                      key={proj.id}
+                      className={idx === 0 ? 'j-project-link' : 'j-project-link j-project-link-secondary'}
+                      href={`#/work/${proj.id}`}
+                    >
+                      <span>{idx === 0 ? `See the work behind it · ${proj.name}` : proj.label}</span>
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  ))}
+                </div>
+              )}
               <details className="j-reflection">
                 <summary>
                   A little more of the story <span>+</span>
@@ -115,28 +176,27 @@ export function JourneyPage({
                   Read the original reflection ↗
                 </a>
               </details>
-              {lesson.relatedProjects.map((proj, idx) => (
-                <a
-                  key={proj.id}
-                  className={idx === 0 ? 'j-project-link' : 'j-project-link j-project-link-secondary'}
-                  href={`#/work/${proj.id}`}
-                >
-                  {idx === 0 ? 'See the work behind it' : proj.label} <span>↗</span>
-                </a>
-              ))}
               <div className="j-story-navigation">
-                <button onClick={() => onChange((selected + 4) % 5)} aria-label="Previous chapter">
+                <button type="button" onClick={() => onChange((selected + 4) % 5)} aria-label="Previous chapter">
                   ←
                 </button>
-                <span>{selected + 1} of 5 chapters</span>
-                <button onClick={() => onChange((selected + 1) % 5)} aria-label="Next chapter">
+                <div className="j-story-nav-center">
+                  <span>{selected + 1} of 5 chapters</span>
+                  <button type="button" className="j-story-reset-inline" onClick={() => onChange(-1)}>
+                    Whole desk
+                  </button>
+                </div>
+                <button type="button" onClick={() => onChange((selected + 1) % 5)} aria-label="Next chapter">
                   →
                 </button>
               </div>
             </div>
           ) : (
             <div className="j-overview">
-              <p className="j-story-kicker">Different chapters. Same curious me.</p>
+              <p className="j-story-kicker">
+                <span>Different chapters. Same curious me.</span>
+                <span>2024 – Now</span>
+              </p>
               <h2>
                 Growing into<br />
                 my own.
@@ -146,7 +206,17 @@ export function JourneyPage({
                 <img src="/assets/mai-portrait.webp" alt="Mai at RMIT University Vietnam" />
                 <figcaption>Ngoc Mai Nguyen · RMIT Business</figcaption>
               </figure>
-              <button className="j-start" onClick={() => onChange(0)}>
+              <div className="j-overview-pillars">
+                <div>
+                  <strong>RMIT University Vietnam</strong>
+                  <span>Finance major · Digital Marketing minor</span>
+                </div>
+                <div>
+                  <strong>TikTok / ByteDance</strong>
+                  <span>AI Data Service &amp; Operations Intern</span>
+                </div>
+              </div>
+              <button type="button" className="j-start" onClick={() => onChange(0)}>
                 Start with the notebook <span>↗</span>
               </button>
             </div>
@@ -156,6 +226,7 @@ export function JourneyPage({
           {journeyStories.map((item, index) => (
             <button
               key={item.company}
+              type="button"
               ref={node => {
                 buttons.current[index] = node;
               }}
@@ -169,7 +240,9 @@ export function JourneyPage({
                 onChange(next);
               }}
             >
-              <span className="j-chapter-year">{item.year}</span>
+              <span className="j-chapter-year">
+                0{index + 1} · {item.year}
+              </span>
               <span className="j-chapter-name">{item.company}</span>
               <span className="j-chapter-lesson">{chapterLessons[index].lessonShort}</span>
             </button>
@@ -203,7 +276,9 @@ export function JourneyPage({
         <Reveal className="about-approaches-grid">
           {approaches.map((item, idx) => (
             <article key={item.word} className="about-approach-card">
-              <span className="about-approach-kicker">0{idx + 1} · {item.word}</span>
+              <span className="about-approach-kicker">
+                0{idx + 1} · {item.word}
+              </span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <small>{item.proof}</small>
@@ -218,8 +293,10 @@ export function JourneyPage({
               Learning on <em>two tracks.</em>
             </h2>
             <p>
-              <strong>RMIT University Vietnam</strong><br />
-              Bachelor of Business · Expected 2027<br />
+              <strong>RMIT University Vietnam</strong>
+              <br />
+              Bachelor of Business · Expected 2027
+              <br />
               Finance major · Digital Marketing minor
             </p>
           </div>
@@ -231,8 +308,10 @@ export function JourneyPage({
             <div>
               <h3>Languages</h3>
               <p>
-                Vietnamese · native<br />
-                English · fluent<br />
+                Vietnamese · native
+                <br />
+                English · fluent
+                <br />
                 German · intermediate
               </p>
             </div>
@@ -249,7 +328,9 @@ export function JourneyPage({
           <h2 id="award-title">
             A moment that <em>meant a lot.</em>
           </h2>
-          <p>In 2026, I received RMIT’s Impactful Leaders Award and was one of 14 students selected for the Student Leadership Recognition Awards.</p>
+          <p>
+            In 2026, I received RMIT’s Impactful Leaders Award and was one of 14 students selected for the Student Leadership Recognition Awards.
+          </p>
           <p>What mattered most to me was that the recognition came from people who had seen different chapters of my growth.</p>
           <div className="award-actions">
             <a href={awardSource} target="_blank" rel="noreferrer">
@@ -262,7 +343,8 @@ export function JourneyPage({
 
       <footer className="j-footer">
         <p>
-          Not a finished story.<br />
+          Not a finished story.
+          <br />
           <span>Just a good place to begin the next chapter.</span>
         </p>
         <div className="j-footer-links">

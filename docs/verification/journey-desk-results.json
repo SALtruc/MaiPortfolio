@@ -1,6 +1,9 @@
 {
-  "passed": 55,
+  "passed": 60,
   "checks": [
+    "Canonical #/about activates About Mai nav item",
+    "Unified About Mai includes 3D desk, biography, education and award sections",
+    "Backwards-compatible #/journey activates About Mai nav item",
     "Journey shows real WebGL canvas",
     "Canvas matches display pixel ratio",
     "Five accessible chapter controls",
@@ -24,6 +27,7 @@
     "Paused scene selection remains functional",
     "Resume restarts visible scene rendering",
     "Direct chapter URL opens the right story",
+    "RMIT Careers chapter links to both Career Checkpoint and Careers Fair studies",
     "Browser back synchronizes chapter selection",
     "1440px Journey has no horizontal overflow",
     "1440px chapter controls meet 44px height",
@@ -40,6 +44,7 @@
     "Touch horizontal drag rotates the desk",
     "Vertical swipe preserves native page scrolling",
     "Mobile chapter strip selects newest chapter",
+    "Mobile selected chapter status jump button is visible",
     "Offscreen desk stops rendering",
     "Leaving Journey removes the canvas",
     "Homepage retains photograph and interactive stories",

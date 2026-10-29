@@ -1,0 +1,193 @@
+/* Scoped shared shell styles for lazy project case modules (.visual-case[data-project]). */
+.visual-case[data-project]{
+  --case-shell-paper:#f5f4ee;
+  --case-shell-card:#fbfaf5;
+  --case-shell-sage-bg:#ecefe8;
+  --case-shell-border:#c5d0c4;
+  --case-shell-sage:#44614b;
+  --case-shell-cobalt:#2952c8;
+  --case-shell-ink:#151e28;
+  --case-shell-muted:#58635c;
+}
+
+.visual-case .case-navigation{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px 24px;
+  flex-wrap:wrap;
+  min-height:0;
+  padding:6px 0 10px;
+  border-bottom:1px solid var(--case-shell-border,#c5d0c4);
+  font-size:15px;
+  color:var(--case-shell-muted,#58635c);
+}
+
+.visual-case .case-breadcrumb{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  min-width:0;
+}
+
+.visual-case .case-back-link{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  color:var(--case-shell-cobalt,#2952c8);
+  font-weight:550;
+  transition:color .2s,transform .2s;
+}
+
+.visual-case .case-back-link:hover{
+  transform:translateX(-2px);
+}
+
+.visual-case .case-breadcrumb-sep{
+  color:#8fa093;
+  user-select:none;
+}
+
+.visual-case .case-breadcrumb-current{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-weight:550;
+  color:var(--case-shell-ink,#151e28);
+}
+
+.visual-case .case-breadcrumb-current>span{
+  font-size:12px;
+  font-variant-numeric:tabular-nums;
+  color:var(--case-shell-sage,#44614b);
+  background:var(--case-shell-sage-bg,#ecefe8);
+  border:1px solid var(--case-shell-border,#c5d0c4);
+  border-radius:12px;
+  padding:2px 8px;
+}
+
+.visual-case .case-meta-links{
+  display:flex;
+  align-items:center;
+  min-width:0;
+}
+
+.visual-case .case-journey-link{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  padding:6px 14px;
+  border-radius:20px;
+  background:var(--case-shell-sage-bg,#ecefe8);
+  border:1px solid var(--case-shell-border,#c5d0c4);
+  color:#2c4233;
+  font-size:14px;
+  font-weight:500;
+  white-space:nowrap;
+  transition:border-color .2s,color .2s,background .2s;
+}
+
+.visual-case .case-back-link:focus-visible,
+.visual-case .case-journey-link:focus-visible{
+  outline:2px solid var(--case-shell-cobalt,#2952c8);
+  outline-offset:4px;
+}
+
+.visual-case .case-journey-link:hover{
+  border-color:var(--case-shell-cobalt,#2952c8);
+  color:var(--case-shell-cobalt,#2952c8);
+  background:#fbfaf5;
+}
+
+.visual-case .case-module-stage{
+  min-width:0;
+  padding:12px 0 42px;
+}
+
+/* These modules already sit inside the shell gutter. Keep one page inset. */
+.visual-case .case-module-stage > :is(.case-council,.case-ctm,.case-michelin){
+  padding-inline:0;
+}
+
+.visual-case .case-module-loading,
+.visual-case .case-module-error{
+  margin:24px 0 18px;
+  padding:36px 32px;
+  border-radius:20px;
+  background:var(--case-shell-sage-bg,#ecefe8);
+  border:1px solid var(--case-shell-border,#c5d0c4);
+  color:var(--case-shell-ink,#151e28);
+}
+
+.visual-case .case-module-loading-copy{
+  font-size:20px;
+  line-height:1.5;
+  color:#34424e;
+  margin-top:8px;
+}
+
+.visual-case .case-module-error h1{
+  font-family:'Outfit','DM Sans',sans-serif;
+  font-size:clamp(34px,4vw,52px);
+  font-weight:550;
+  line-height:1.08;
+  letter-spacing:-.04em;
+  margin:6px 0 14px;
+}
+
+.visual-case .case-module-error p{
+  font-size:18px;
+  line-height:1.58;
+  max-width:60ch;
+  color:#34424e;
+}
+
+.visual-case .case-module-error-outcome{
+  margin-top:12px;
+  color:#26352b;
+}
+
+.visual-case .case-module-error-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:22px;
+}
+
+@media(max-width:650px){
+  .visual-case .case-navigation{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    align-items:center;
+    gap:8px;
+    padding:6px 0 8px;
+  }
+  .visual-case .case-breadcrumb{
+    display:flex;
+  }
+  .visual-case .case-breadcrumb-sep,
+  .visual-case .case-breadcrumb-current{
+    display:none;
+  }
+  .visual-case .case-back-link,
+  .visual-case .case-journey-link{
+    font-size:14px;
+    width:100%;
+    min-height:44px;
+  }
+  .visual-case .case-meta-links{
+    justify-content:flex-end;
+  }
+  .visual-case .case-journey-link{
+    justify-content:center;
+    padding:6px 8px;
+  }
+  .visual-case .case-module-stage{
+    padding:8px 0 32px;
+  }
+  .visual-case .case-module-loading,
+  .visual-case .case-module-error{
+    padding:24px 20px;
+  }
+}

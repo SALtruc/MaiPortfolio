@@ -1,0 +1,19 @@
+{
+  "passed": 13,
+  "checks": [
+    "Model is present in first desktop screen",
+    "Single canvas survives StrictMode mount",
+    "Technical pitch and mode UI removed",
+    "Visible model animates when enabled",
+    "Pause rests renderer",
+    "Arrow keys change the meaningful model focus",
+    "View control rotates actual geometry",
+    "Evidence photograph opens and Escape closes it",
+    "Actual touch selects station 1",
+    "Actual touch selects station 2",
+    "Actual touch selects station 3",
+    "Vertical gesture preserves native page scrolling",
+    "No uncaught browser errors"
+  ],
+  "errors": []
+}

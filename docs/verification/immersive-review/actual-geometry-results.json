@@ -1,0 +1,308 @@
+{
+  "passed": 74,
+  "total": 74,
+  "checks": [
+    {
+      "name": "1280x720, chapter -1: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter -1: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter -1, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter -1, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 0: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 0: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1280x720 desk table is at least 30% wider than the previous 379px fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 0, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 0, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 1: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 1: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 1, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 1, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 2: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 2: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 2, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 2, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 3: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 3: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 3, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 3, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 4: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 4: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 4, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1280x720, chapter 4, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter -1: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter -1: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter -1, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter -1, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 0: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 0: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 0, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 0, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 1: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 1: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 1, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 1, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 2: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 2: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 2, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 2, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 3: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 3: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 3, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 3, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 4: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 4: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 4, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1440x900, chapter 4, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter -1: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter -1: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter -1, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter -1, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 0: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 0: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 0, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 0, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 1: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 1: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 1, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 1, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 2: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 2: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 2, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 2, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 3: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 3: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 3, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 3, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 4: all current mesh geometry is inside stage",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 4: every mesh is checked independently of the 35-point fit hull",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 4, left limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "1920x1080, chapter 4, right limit: actual props fit",
+      "passed": true
+    },
+    {
+      "name": "Whole desk restores full framing after manual zoom",
+      "passed": true
+    }
+  ],
+  "source": "actual-bounds-check.log, geometry section before independent touch assertion",
+  "table_before_px": 379,
+  "table_after_px": 501,
+  "canvas_width_px": 785.21875,
+  "mesh_bounds_count": 234,
+  "fit_hull_points": 35
+}

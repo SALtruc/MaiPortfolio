@@ -1,0 +1,127 @@
+{
+  "passed": 24,
+  "total": 24,
+  "checks": [
+    {
+      "name": "Canvas particles animate while visible",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "facebook changes the active Canvas route and SVG path",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "tiktok changes the active Canvas route and SVG path",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "linkedin changes the active Canvas route and SVG path",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "website changes the active Canvas route and SVG path",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "webinars changes a factual personal action",
+      "passed": true,
+      "detail": "I coordinated 5+ monthly webinars and information sessions, including participant communications and follow-up."
+    },
+    {
+      "name": "feedback changes a factual personal action",
+      "passed": true,
+      "detail": "I tracked audience engagement, customer feedback and campaign performance while supporting course promotion and sales."
+    },
+    {
+      "name": "followup changes a factual personal action",
+      "passed": true,
+      "detail": "My course promotion, customer engagement and sales support contributed to 15%+ of monthly revenue."
+    },
+    {
+      "name": "Channel arrow keys select and focus the next node",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Stage End key selects and focuses follow-up",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Pause stops the Canvas loop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Paused channel selection redraws a complete static route",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Paused selection does not start another loop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Enable motion resumes the loop",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Canvas loop stops when diagram leaves the screen",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Authentic event photo opens in a native dialog",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Photo dialog closes with Escape",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Decision reasoning is available on demand",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Reduced-motion illustration renders and stays still",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Reduced-motion retains all seven reachable controls",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Diagram preserves native vertical panning",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Reduced-motion work selection still changes content",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Original evidence source remains reachable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "errors": []
+}

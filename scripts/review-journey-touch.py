@@ -1,5 +1,6 @@
 """Independent reviewer checks for Argon's mobile marker correction."""
 import json
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
 
@@ -15,12 +16,12 @@ with sync_playwright() as p:
     page = context.new_page()
     errors = []
     page.on('pageerror', lambda e: errors.append(str(e)))
-    page.goto('http://127.0.0.1:4173/#/journey')
+    page.goto(os.environ.get('PORTFOLIO_URL', 'http://127.0.0.1:4173') + '/#/journey')
     stage = page.locator('.j-desk-canvas')
     expect(stage).to_have_attribute('data-scene-state', 'ready', timeout=60000)
     session = context.new_cdp_session(page)
     def reset():
-        page.get_by_role('button', name='Whole desk', exact=True).click()
+        page.locator('.j-reset').click()
         expect(page.locator('.j-overview')).to_be_visible()
         page.locator('.j-desk-wrap').evaluate('(el)=>window.scrollTo({top:el.getBoundingClientRect().top+scrollY-85,behavior:"instant"})')
         page.wait_for_timeout(180)

@@ -1,0 +1,334 @@
+{
+  "passed": 24,
+  "total": 24,
+  "checks": [
+    {
+      "name": "1280x720 chapter -1: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 189.65625,
+        "bottom": 703.65625,
+        "height": 514,
+        "railBottom": 703.65625,
+        "canvasHeight": 353,
+        "wholeScene": "true",
+        "scene": "171,32,615,321",
+        "table": "172,101,613,321",
+        "storyHeight": 432,
+        "window": 720
+      }
+    },
+    {
+      "name": "1280x720 chapter 0: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 704.0625,
+        "height": 494,
+        "railBottom": 704.0625,
+        "canvasHeight": 304,
+        "wholeScene": "true",
+        "scene": "202,27,584,276",
+        "table": "203,87,582,276",
+        "storyHeight": 412,
+        "window": 720
+      }
+    },
+    {
+      "name": "1280x720 chapter 1: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 704.0625,
+        "height": 494,
+        "railBottom": 704.0625,
+        "canvasHeight": 304,
+        "wholeScene": "true",
+        "scene": "202,27,584,276",
+        "table": "203,87,582,276",
+        "storyHeight": 412,
+        "window": 720
+      }
+    },
+    {
+      "name": "1280x720 chapter 2: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 704.0625,
+        "height": 494,
+        "railBottom": 704.0625,
+        "canvasHeight": 304,
+        "wholeScene": "true",
+        "scene": "202,27,584,276",
+        "table": "203,87,582,276",
+        "storyHeight": 412,
+        "window": 720
+      }
+    },
+    {
+      "name": "1280x720 chapter 3: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 704.0625,
+        "height": 494,
+        "railBottom": 704.0625,
+        "canvasHeight": 304,
+        "wholeScene": "true",
+        "scene": "202,27,584,276",
+        "table": "203,87,582,276",
+        "storyHeight": 412,
+        "window": 720
+      }
+    },
+    {
+      "name": "1280x720 chapter 4: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 704.0625,
+        "height": 494,
+        "railBottom": 704.0625,
+        "canvasHeight": 304,
+        "wholeScene": "true",
+        "scene": "202,27,584,276",
+        "table": "203,87,582,276",
+        "storyHeight": 412,
+        "window": 720
+      }
+    },
+    {
+      "name": "1440x900 chapter -1: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 189.65625,
+        "bottom": 883.65625,
+        "height": 694,
+        "railBottom": 883.65625,
+        "canvasHeight": 529,
+        "wholeScene": "true",
+        "scene": "110,48,775,481",
+        "table": "113,151,773,481",
+        "storyHeight": 608,
+        "window": 900
+      }
+    },
+    {
+      "name": "1440x900 chapter 0: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 884.0625,
+        "height": 674,
+        "railBottom": 884.0625,
+        "canvasHeight": 480,
+        "wholeScene": "true",
+        "scene": "141,43,744,436",
+        "table": "143,137,742,436",
+        "storyHeight": 588,
+        "window": 900
+      }
+    },
+    {
+      "name": "1440x900 chapter 1: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 884.0625,
+        "height": 674,
+        "railBottom": 884.0625,
+        "canvasHeight": 480,
+        "wholeScene": "true",
+        "scene": "141,43,744,436",
+        "table": "143,137,742,436",
+        "storyHeight": 588,
+        "window": 900
+      }
+    },
+    {
+      "name": "1440x900 chapter 2: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 884.0625,
+        "height": 674,
+        "railBottom": 884.0625,
+        "canvasHeight": 480,
+        "wholeScene": "true",
+        "scene": "141,43,744,436",
+        "table": "143,137,742,436",
+        "storyHeight": 588,
+        "window": 900
+      }
+    },
+    {
+      "name": "1440x900 chapter 3: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 884.0625,
+        "height": 674,
+        "railBottom": 884.0625,
+        "canvasHeight": 480,
+        "wholeScene": "true",
+        "scene": "141,43,744,436",
+        "table": "143,137,742,436",
+        "storyHeight": 588,
+        "window": 900
+      }
+    },
+    {
+      "name": "1440x900 chapter 4: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 884.0625,
+        "height": 674,
+        "railBottom": 884.0625,
+        "canvasHeight": 480,
+        "wholeScene": "true",
+        "scene": "141,43,744,436",
+        "table": "143,137,742,436",
+        "storyHeight": 588,
+        "window": 900
+      }
+    },
+    {
+      "name": "1920x1080 chapter -1: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 189.65625,
+        "bottom": 1049.65625,
+        "height": 860,
+        "railBottom": 1049.65625,
+        "canvasHeight": 695,
+        "wholeScene": "true",
+        "scene": "62,80,882,614",
+        "table": "65,207,879,614",
+        "storyHeight": 774,
+        "window": 1080
+      }
+    },
+    {
+      "name": "1920x1080 chapter 0: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 1064.0625,
+        "height": 854,
+        "railBottom": 1064.0625,
+        "canvasHeight": 660,
+        "wholeScene": "true",
+        "scene": "62,63,882,597",
+        "table": "65,190,879,597",
+        "storyHeight": 768,
+        "window": 1080
+      }
+    },
+    {
+      "name": "1920x1080 chapter 1: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 1064.0625,
+        "height": 854,
+        "railBottom": 1064.0625,
+        "canvasHeight": 660,
+        "wholeScene": "true",
+        "scene": "62,63,882,597",
+        "table": "65,190,879,597",
+        "storyHeight": 768,
+        "window": 1080
+      }
+    },
+    {
+      "name": "1920x1080 chapter 2: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 1064.0625,
+        "height": 854,
+        "railBottom": 1064.0625,
+        "canvasHeight": 660,
+        "wholeScene": "true",
+        "scene": "62,63,882,597",
+        "table": "65,190,879,597",
+        "storyHeight": 768,
+        "window": 1080
+      }
+    },
+    {
+      "name": "1920x1080 chapter 3: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 1064.0625,
+        "height": 854,
+        "railBottom": 1064.0625,
+        "canvasHeight": 660,
+        "wholeScene": "true",
+        "scene": "62,63,882,597",
+        "table": "65,190,879,597",
+        "storyHeight": 768,
+        "window": 1080
+      }
+    },
+    {
+      "name": "1920x1080 chapter 4: entire table/props and rail",
+      "passed": true,
+      "detail": {
+        "top": 210.0625,
+        "bottom": 1064.0625,
+        "height": 854,
+        "railBottom": 1064.0625,
+        "canvasHeight": 660,
+        "wholeScene": "true",
+        "scene": "62,63,882,597",
+        "table": "65,190,879,597",
+        "storyHeight": 768,
+        "window": 1080
+      }
+    },
+    {
+      "name": "Motion toggle preserves reading position",
+      "passed": true,
+      "detail": {
+        "before": 120,
+        "after": 120
+      }
+    },
+    {
+      "name": "Changing chapter resets story position",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Story region supports native keyboard scrolling",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "Workspace and opening controls retain 44px heights",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "Short desktop window uses an unclipped normal-flow fallback",
+      "passed": true,
+      "detail": {
+        "flow": "flow",
+        "height": 560,
+        "scene": "true",
+        "storyHeight": 478,
+        "storyOverflow": "auto",
+        "overflow": false
+      }
+    },
+    {
+      "name": "No browser page errors",
+      "passed": true,
+      "detail": []
+    }
+  ]
+}

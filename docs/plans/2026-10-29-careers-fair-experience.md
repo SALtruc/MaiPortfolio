@@ -1,0 +1,17 @@
+# Plan: Careers Fair Case Experience (`2026-10-29`)
+
+## Goal
+Build a distinctive, production-ready interactive project case study module (`src/cases/CareersFairCase.tsx` and `src/cases/CareersFairCase.css`, plus helper data in `src/cases/careers-fair/fairData.ts` and design documentation in `docs/design-motion/careers-fair-experience.md`) for **Careers Fair — RMIT Careers, Alumni & Industry Relations**. The experience stages Mai's transition from a first-year visitor in the crowd to a Career Booth team member who personally engaged with 300+ students within a 2,136-participant, 53-company university careers event.
+
+## Steps
+- [x] Document the visual, interaction, and motion architecture in `docs/design-motion/careers-fair-experience.md`.
+- [x] Create structured, source-faithful helper data in `src/cases/careers-fair/fairData.ts` covering the Visitor-to-Contributor pass perspectives, the three spatial wayfinding zones (`Guide`, `Connect`, `Learn`), the honest personal-vs-event scale ledger (`300+` personal vs `53` companies and `2,136` whole-event participants), and the three authentic evidence photos (`careers-fair.webp`, `mai-networking.webp`, `career-launch.webp`).
+- [x] Implement `src/cases/CareersFairCase.tsx` with default export `{ study: Study; paused: boolean }`, interactive CSS 3D Event Pass & Lanyard perspective switcher, SVG Wayfinding & Conversation Floor Map with GSAP path/node choreography and scrubbable journey lens, interactive Scope & Attribution proportion matrix, reflection themes (`AI in recruitment`, `Resilience`, `Human skills`), and accessible evidence lightbox.
+- [x] Implement scoped styling in `src/cases/CareersFairCase.css` under `.case-careers-fair` using the shared warm paper/ink/sage/cobalt foundation with a bounded terracotta lanyard accent, responsive across `320px–1920px`, `>= 44px` interactive targets, and full reduced-motion / `paused` support.
+- [x] Verify all study facts, props, accessibility attributes, GSAP/ScrollTrigger cleanup, and file ownership rules, then mark all steps complete.
+
+## Key Decisions
+1. **No Generic 3-Tab Template**: Replace the old `hero -> 3 tabs -> single photo` pattern with an authored **Wayfinding & Conversation Concourse** where visitors navigate an architectural SVG floor map of the RMIT Careers Fair (Crowd Entrance → Career Booth Anchor → 53-Company Floor Ring → Career Ready Launching Week Forum) via spatial nodes, a scrubbable path progress control, or keyboard arrows.
+2. **Physical Event Pass & Visitor-to-Contributor Narrative**: Stage a flippable, 3D-tilting physical RMIT Event Lanyard Pass in the hero that contrasts Mai's earlier experience as a participant in the crowd (and four applications to RMIT Careers) with her 2026 role behind the Career Booth counter.
+3. **Strict Truthfulness & Clear Scope Attribution**: Visually separate Mai's personal contribution (`300+` students engaged at the Career Booth as one team member) from whole-event figures (`53` companies and `2,136` participants delivered by the wider RMIT Careers, Alumni & Industry Relations team) using an interactive proportional dot-field and attribution ledger. Never invent attendee stories, company names, quotes, or placement numbers.
+4. **Motion & Accessibility Discipline**: Use `gsap`, `ScrollTrigger`, and `useGSAP` scoped to `.case-careers-fair` with `gsap.matchMedia()`, `IntersectionObserver` ambient gating, and immediate static fallback when `paused` is true or `prefers-reduced-motion: reduce` is active.

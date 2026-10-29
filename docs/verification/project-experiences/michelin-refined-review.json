@@ -1,0 +1,57 @@
+[
+  {
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "errors": [],
+    "scene": {
+      "x": 49.953125,
+      "y": 322.1875,
+      "width": 1000.0625,
+      "height": 560
+    },
+    "focusControls": 3
+  },
+  {
+    "width": 1280,
+    "height": 720,
+    "overflow": false,
+    "errors": [],
+    "scene": {
+      "x": 44.515625,
+      "y": 314.984375,
+      "width": 888.78125,
+      "height": 350
+    },
+    "focusControls": 3
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "errors": [],
+    "scene": {
+      "x": 0,
+      "y": 368.125,
+      "width": 390,
+      "height": 330
+    },
+    "focusControls": 3
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "overflow": false,
+    "errors": [],
+    "scene": {
+      "x": 0,
+      "y": 371.140625,
+      "width": 320,
+      "height": 295
+    },
+    "focusControls": 3
+  },
+  {
+    "WebGLFallback": "usable"
+  }
+]

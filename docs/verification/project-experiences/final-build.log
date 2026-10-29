@@ -1,0 +1,30 @@
+
+> mai-portfolio@1.0.0 build
+> tsc -b && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 76 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                               1.26 kB │ gzip:   0.65 kB
+dist/assets/CtmCase-DzFKGm17.css             14.52 kB │ gzip:   3.34 kB
+dist/assets/CouncilCase-CGxYuX0W.css         16.34 kB │ gzip:   3.52 kB
+dist/assets/MichelinCase-CQE2cvxI.css        18.23 kB │ gzip:   3.79 kB
+dist/assets/CareersFairCase-CFH7yYa0.css     18.89 kB │ gzip:   3.96 kB
+dist/assets/CheckpointCase-DALSBX9C.css      20.76 kB │ gzip:   4.49 kB
+dist/assets/index-BLRNINDK.css              153.48 kB │ gzip:  29.88 kB
+dist/assets/CtmCase-Dj04GMqk.js              11.44 kB │ gzip:   4.26 kB
+dist/assets/CareersFairCase-Qhrk3J25.js      12.20 kB │ gzip:   3.88 kB
+dist/assets/CouncilCase-DnB33rWW.js          12.28 kB │ gzip:   3.99 kB
+dist/assets/CheckpointCase-BNlDsBb0.js       16.19 kB │ gzip:   5.44 kB
+dist/assets/MichelinCase-C-5439mt.js         27.73 kB │ gzip:  10.69 kB
+dist/assets/JourneyDesk-CJa8u5ci.js          33.14 kB │ gzip:  12.99 kB
+dist/assets/index-ChVAOe5_.js               424.36 kB │ gzip: 140.74 kB
+dist/assets/RoundedBoxGeometry-ChGRSnB-.js  555.71 kB │ gzip: 139.91 kB
+✓ built in 3.66s
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

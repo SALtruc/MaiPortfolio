@@ -1,9 +1,10 @@
 """Independent end-to-end review of portfolio information architecture."""
 import json
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
 
-BASE = 'http://127.0.0.1:4173'
+BASE = os.environ.get('PORTFOLIO_URL', 'http://127.0.0.1:4173')
 OUT = Path('docs/verification/cohesion-review')
 OUT.mkdir(parents=True, exist_ok=True)
 checks, errors = [], []

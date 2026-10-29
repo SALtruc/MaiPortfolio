@@ -1,0 +1,77 @@
+{
+  "responsive": [
+    {
+      "viewport": [
+        1440,
+        1000
+      ],
+      "allNodesContained": true,
+      "allTargets44": true,
+      "noOverflow": true,
+      "oneH1": true,
+      "headlineLines": 1,
+      "fieldWidth": 862.796875
+    },
+    {
+      "viewport": [
+        1280,
+        720
+      ],
+      "allNodesContained": true,
+      "allTargets44": true,
+      "noOverflow": true,
+      "oneH1": true,
+      "headlineLines": 1,
+      "fieldWidth": 753.9375
+    },
+    {
+      "viewport": [
+        1024,
+        900
+      ],
+      "allNodesContained": true,
+      "allTargets44": true,
+      "noOverflow": true,
+      "oneH1": true,
+      "headlineLines": 1,
+      "fieldWidth": 580.375
+    },
+    {
+      "viewport": [
+        768,
+        844
+      ],
+      "allNodesContained": true,
+      "allTargets44": true,
+      "noOverflow": true,
+      "oneH1": true,
+      "headlineLines": 1,
+      "fieldWidth": 617.78125
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "allNodesContained": true,
+      "allTargets44": true,
+      "noOverflow": true,
+      "oneH1": true,
+      "headlineLines": 1,
+      "fieldWidth": 328
+    },
+    {
+      "viewport": [
+        320,
+        844
+      ],
+      "allNodesContained": true,
+      "allTargets44": true,
+      "noOverflow": true,
+      "oneH1": true,
+      "headlineLines": 2,
+      "fieldWidth": 258
+    }
+  ],
+  "nativeTouchScroll": true
+}

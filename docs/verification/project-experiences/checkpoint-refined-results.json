@@ -1,0 +1,96 @@
+{
+  "passed": 22,
+  "total": 22,
+  "checks": [
+    {
+      "name": "One h1",
+      "passed": true
+    },
+    {
+      "name": "Open booklet dominates opening desktop screen",
+      "passed": true
+    },
+    {
+      "name": "discover selects distinct content",
+      "passed": true
+    },
+    {
+      "name": "apply selects distinct content",
+      "passed": true
+    },
+    {
+      "name": "connect selects distinct content",
+      "passed": true
+    },
+    {
+      "name": "Keyboard End selects final workshop",
+      "passed": true
+    },
+    {
+      "name": "Scrub selects first workshop",
+      "passed": true
+    },
+    {
+      "name": "Original slide zoom opens and Escape closes",
+      "passed": true
+    },
+    {
+      "name": "Minute-by-minute invented timing removed",
+      "passed": true
+    },
+    {
+      "name": "All verified respondent figures remain",
+      "passed": true
+    },
+    {
+      "name": "Wider student support total remains separate",
+      "passed": true
+    },
+    {
+      "name": "320px has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "375px has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Actual photo swipe changes workshop without opening zoom",
+      "passed": true
+    },
+    {
+      "name": "Vertical swipe retains native page scrolling",
+      "passed": true
+    },
+    {
+      "name": "Visible controls retain 44px touch height",
+      "passed": true
+    },
+    {
+      "name": "Chapter selection runs a real GSAP page-turn",
+      "passed": true
+    },
+    {
+      "name": "Paused selection stays usable and fully visible",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "reviewNote": "The attribution check normalizes CSS uppercase text; all other checks passed in the complete browser run."
+}

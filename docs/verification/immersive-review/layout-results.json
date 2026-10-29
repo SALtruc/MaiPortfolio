@@ -1,0 +1,251 @@
+{
+  "passed": 61,
+  "total": 61,
+  "checks": [
+    {
+      "name": "1280x720: removed the requested instruction and local navigation",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter -1 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter -1 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 0 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 0 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 1 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 1 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 2 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 2 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 3 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 3 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 4 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1280x720: chapter 4 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1280px About has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440x900: removed the requested instruction and local navigation",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter -1 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter -1 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 0 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 0 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 1 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 1 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 2 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 2 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 3 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 3 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 4 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1440x900: chapter 4 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1440px About has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: removed the requested instruction and local navigation",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter -1 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter -1 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 0 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 0 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 1 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 1 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 2 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 2 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 3 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 3 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 4 workspace fits the opening screen",
+      "passed": true
+    },
+    {
+      "name": "1920x1080: chapter 4 has visible scene and story",
+      "passed": true
+    },
+    {
+      "name": "1920px About has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px all four photo frames are centered for selection 0",
+      "passed": true
+    },
+    {
+      "name": "1280px all four photo frames are centered for selection 1",
+      "passed": true
+    },
+    {
+      "name": "1280px all four photo frames are centered for selection 2",
+      "passed": true
+    },
+    {
+      "name": "1280px all four photo frames are centered for selection 3",
+      "passed": true
+    },
+    {
+      "name": "1440px all four photo frames are centered for selection 0",
+      "passed": true
+    },
+    {
+      "name": "1440px all four photo frames are centered for selection 1",
+      "passed": true
+    },
+    {
+      "name": "1440px all four photo frames are centered for selection 2",
+      "passed": true
+    },
+    {
+      "name": "1440px all four photo frames are centered for selection 3",
+      "passed": true
+    },
+    {
+      "name": "1920px all four photo frames are centered for selection 0",
+      "passed": true
+    },
+    {
+      "name": "1920px all four photo frames are centered for selection 1",
+      "passed": true
+    },
+    {
+      "name": "1920px all four photo frames are centered for selection 2",
+      "passed": true
+    },
+    {
+      "name": "1920px all four photo frames are centered for selection 3",
+      "passed": true
+    },
+    {
+      "name": "320px mobile About preserves the selected story and full usable canvas",
+      "passed": true
+    },
+    {
+      "name": "320px mobile About does not overflow",
+      "passed": true
+    },
+    {
+      "name": "390px mobile About preserves the selected story and full usable canvas",
+      "passed": true
+    },
+    {
+      "name": "390px mobile About does not overflow",
+      "passed": true
+    },
+    {
+      "name": "768px mobile About preserves the selected story and full usable canvas",
+      "passed": true
+    },
+    {
+      "name": "768px mobile About does not overflow",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,301 @@
+{
+  "passed": 14,
+  "total": 14,
+  "checks": [
+    {
+      "name": "1440px zero horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px Then/Now targets44px",
+      "passed": true
+    },
+    {
+      "name": "1440 complete pass and both metric scopes fit opening viewport",
+      "passed": true
+    },
+    {
+      "name": "1280px zero horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px Then/Now targets44px",
+      "passed": true
+    },
+    {
+      "name": "1280 meaningful photograph preview and perspective controls visible",
+      "passed": true
+    },
+    {
+      "name": "Short desktop pass flips to visitor",
+      "passed": true
+    },
+    {
+      "name": "Visitor photograph opens",
+      "passed": true
+    },
+    {
+      "name": "Escape closes photograph",
+      "passed": true
+    },
+    {
+      "name": "390px zero horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px Then/Now targets44px",
+      "passed": true
+    },
+    {
+      "name": "320px zero horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px Then/Now targets44px",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser errors",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "layouts": [
+    {
+      "width": 1440,
+      "height": 900,
+      "pass": {
+        "x": 390,
+        "y": 535.4375,
+        "width": 660,
+        "height": 330,
+        "top": 535.4375,
+        "right": 1050,
+        "bottom": 865.4375,
+        "left": 390
+      },
+      "photo": {
+        "x": 410,
+        "y": 581.4375,
+        "width": 306.28125,
+        "height": 234.40625,
+        "top": 581.4375,
+        "right": 716.28125,
+        "bottom": 815.84375,
+        "left": 410
+      },
+      "controls": {
+        "x": 390,
+        "y": 435.4375,
+        "width": 660,
+        "height": 44,
+        "top": 435.4375,
+        "right": 1050,
+        "bottom": 479.4375,
+        "left": 390
+      },
+      "personal": {
+        "x": 107.265625,
+        "y": 547.859375,
+        "width": 209.46875,
+        "height": 242.296875,
+        "top": 547.859375,
+        "right": 316.734375,
+        "bottom": 790.15625,
+        "left": 107.265625
+      },
+      "event": {
+        "x": 1072,
+        "y": 575.234375,
+        "width": 312,
+        "height": 232.546875,
+        "top": 575.234375,
+        "right": 1384,
+        "bottom": 807.78125,
+        "left": 1072
+      },
+      "overflow": false,
+      "targets": [
+        44,
+        44
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "pass": {
+        "x": 310,
+        "y": 486.25,
+        "width": 660,
+        "height": 330,
+        "top": 486.25,
+        "right": 970,
+        "bottom": 816.25,
+        "left": 310
+      },
+      "photo": {
+        "x": 330,
+        "y": 532.25,
+        "width": 306.28125,
+        "height": 234.40625,
+        "top": 532.25,
+        "right": 636.28125,
+        "bottom": 766.65625,
+        "left": 330
+      },
+      "controls": {
+        "x": 310,
+        "y": 400.25,
+        "width": 660,
+        "height": 44,
+        "top": 400.25,
+        "right": 970,
+        "bottom": 444.25,
+        "left": 310
+      },
+      "personal": {
+        "x": 78.890625,
+        "y": 512.703125,
+        "width": 186.203125,
+        "height": 228.21875,
+        "top": 512.703125,
+        "right": 265.09375,
+        "bottom": 740.921875,
+        "left": 78.890625
+      },
+      "event": {
+        "x": 992,
+        "y": 533.046875,
+        "width": 232,
+        "height": 232.546875,
+        "top": 533.046875,
+        "right": 1224,
+        "bottom": 765.59375,
+        "left": 992
+      },
+      "overflow": false,
+      "targets": [
+        44,
+        44
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "pass": {
+        "x": 25.890625,
+        "y": 497.234375,
+        "width": 338.21875,
+        "height": 315,
+        "top": 497.234375,
+        "right": 364.109375,
+        "bottom": 812.234375,
+        "left": 25.890625
+      },
+      "photo": {
+        "x": 38.890625,
+        "y": 538.828125,
+        "width": 149.109375,
+        "height": 230.21875,
+        "top": 538.828125,
+        "right": 188,
+        "bottom": 769.046875,
+        "left": 38.890625
+      },
+      "controls": {
+        "x": 25.890625,
+        "y": 382.234375,
+        "width": 338.21875,
+        "height": 44,
+        "top": 382.234375,
+        "right": 364.109375,
+        "bottom": 426.234375,
+        "left": 25.890625
+      },
+      "personal": {
+        "x": 25.890625,
+        "y": 897.53125,
+        "width": 133.046875,
+        "height": 138.15625,
+        "top": 897.53125,
+        "right": 158.9375,
+        "bottom": 1035.6875,
+        "left": 25.890625
+      },
+      "event": {
+        "x": 206.109375,
+        "y": 872.734375,
+        "width": 158,
+        "height": 187.765625,
+        "top": 872.734375,
+        "right": 364.109375,
+        "bottom": 1060.5,
+        "left": 206.109375
+      },
+      "overflow": false,
+      "targets": [
+        44,
+        44
+      ]
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "pass": {
+        "x": 25.1875,
+        "y": 552.765625,
+        "width": 269.625,
+        "height": 300,
+        "top": 552.765625,
+        "right": 294.8125,
+        "bottom": 852.765625,
+        "left": 25.1875
+      },
+      "photo": {
+        "x": 38.1875,
+        "y": 592.953125,
+        "width": 116.3125,
+        "height": 230.375,
+        "top": 592.953125,
+        "right": 154.5,
+        "bottom": 823.328125,
+        "left": 38.1875
+      },
+      "controls": {
+        "x": 25.1875,
+        "y": 437.765625,
+        "width": 269.625,
+        "height": 44,
+        "top": 437.765625,
+        "right": 294.8125,
+        "bottom": 481.765625,
+        "left": 25.1875
+      },
+      "personal": {
+        "x": 25.1875,
+        "y": 944.96875,
+        "width": 126.8125,
+        "height": 157.34375,
+        "top": 944.96875,
+        "right": 152,
+        "bottom": 1102.3125,
+        "left": 25.1875
+      },
+      "event": {
+        "x": 168,
+        "y": 929.765625,
+        "width": 126.8125,
+        "height": 187.765625,
+        "top": 929.765625,
+        "right": 294.8125,
+        "bottom": 1117.53125,
+        "left": 168
+      },
+      "overflow": false,
+      "targets": [
+        44,
+        44
+      ]
+    }
+  ]
+}

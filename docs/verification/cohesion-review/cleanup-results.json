@@ -1,0 +1,14 @@
+{
+  "passed": 9,
+  "checks": [
+    "No ambiguous object links in Projects collection",
+    "All five projects preserved",
+    "Every project card link opens its canonical case",
+    "Explicit About invitation preserved",
+    "Projects layout fits 1440px",
+    "Projects layout fits 390px",
+    "Projects layout fits 320px",
+    "Case detail retains explicit correct About backlink",
+    "Case to About round trip opens the same chapter"
+  ]
+}

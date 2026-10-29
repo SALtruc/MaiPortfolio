@@ -358,6 +358,7 @@ export default function App() {
           <WorkPage
             projectId={projectId}
             invalidProject={invalidProject}
+            paused={paused}
             onChange={id => navigate(id ? `work/${id}` : 'work')}
           />
         )}

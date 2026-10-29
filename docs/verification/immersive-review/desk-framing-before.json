@@ -1,0 +1,35 @@
+[
+  {
+    "width": 785,
+    "height": 304,
+    "table": "203,87,582,276",
+    "scene": "202,27,584,276",
+    "viewport": [
+      1280,
+      720
+    ],
+    "phase": "before"
+  },
+  {
+    "width": 885,
+    "height": 480,
+    "table": "143,137,742,436",
+    "scene": "141,43,744,436",
+    "viewport": [
+      1440,
+      900
+    ],
+    "phase": "before"
+  },
+  {
+    "width": 944,
+    "height": 660,
+    "table": "65,190,879,597",
+    "scene": "62,63,882,597",
+    "viewport": [
+      1920,
+      1080
+    ],
+    "phase": "before"
+  }
+]

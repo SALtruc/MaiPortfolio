@@ -1,0 +1,273 @@
+{
+  "errors": [],
+  "sizes": [
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "h1": 1,
+      "pass": {
+        "x": 390,
+        "y": 533.3125,
+        "width": 660,
+        "height": 330,
+        "top": 533.3125,
+        "right": 1050,
+        "bottom": 863.3125,
+        "left": 390
+      },
+      "identity": {
+        "x": 738.28125,
+        "y": 579.3125,
+        "width": 291.71875,
+        "height": 234.40625,
+        "top": 579.3125,
+        "right": 1030,
+        "bottom": 813.71875,
+        "left": 738.28125
+      },
+      "textOverflow": [
+        {
+          "t": "Mai",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "t": "Career Booth team member",
+          "height": 59,
+          "scroll": 61
+        },
+        {
+          "t": "Returning with a different responsibility: helping students find their next step.",
+          "height": 62,
+          "scroll": 62
+        },
+        {
+          "t": "m.",
+          "height": 44,
+          "scroll": 44
+        }
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 1280,
+      "scroll": 1280,
+      "h1": 1,
+      "pass": {
+        "x": 310,
+        "y": 523.125,
+        "width": 660,
+        "height": 330,
+        "top": 523.125,
+        "right": 970,
+        "bottom": 853.125,
+        "left": 310
+      },
+      "identity": {
+        "x": 658.28125,
+        "y": 569.125,
+        "width": 291.71875,
+        "height": 234.40625,
+        "top": 569.125,
+        "right": 950,
+        "bottom": 803.53125,
+        "left": 658.28125
+      },
+      "textOverflow": [
+        {
+          "t": "Mai",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "t": "Career Booth team member",
+          "height": 59,
+          "scroll": 61
+        },
+        {
+          "t": "Returning with a different responsibility: helping students find their next step.",
+          "height": 62,
+          "scroll": 62
+        },
+        {
+          "t": "m.",
+          "height": 44,
+          "scroll": 44
+        }
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "h1": 1,
+      "pass": {
+        "x": 59,
+        "y": 468.6875,
+        "width": 650,
+        "height": 330,
+        "top": 468.6875,
+        "right": 709,
+        "bottom": 798.6875,
+        "left": 59
+      },
+      "identity": {
+        "x": 399.71875,
+        "y": 514.6875,
+        "width": 289.28125,
+        "height": 234.40625,
+        "top": 514.6875,
+        "right": 689,
+        "bottom": 749.09375,
+        "left": 399.71875
+      },
+      "textOverflow": [
+        {
+          "t": "Mai",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "t": "Career Booth team member",
+          "height": 53,
+          "scroll": 55
+        },
+        {
+          "t": "Returning with a different responsibility: helping students find their next step.",
+          "height": 62,
+          "scroll": 62
+        },
+        {
+          "t": "m.",
+          "height": 44,
+          "scroll": 44
+        }
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "h1": 1,
+      "pass": {
+        "x": 3.890625,
+        "y": 418.234375,
+        "width": 382.21875,
+        "height": 315,
+        "top": 418.234375,
+        "right": 386.109375,
+        "bottom": 733.234375,
+        "left": 3.890625
+      },
+      "identity": {
+        "x": 202,
+        "y": 459.828125,
+        "width": 171.109375,
+        "height": 230.21875,
+        "top": 459.828125,
+        "right": 373.109375,
+        "bottom": 690.046875,
+        "left": 202
+      },
+      "textOverflow": [
+        {
+          "t": "Mai",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "t": "Career Booth team member",
+          "height": 50,
+          "scroll": 52
+        },
+        {
+          "t": "Returning with a different responsibility: helping students find their next step.",
+          "height": 56,
+          "scroll": 56
+        },
+        {
+          "t": "m.",
+          "height": 35,
+          "scroll": 35
+        }
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 320,
+      "scroll": 320,
+      "h1": 1,
+      "pass": {
+        "x": 3.1875,
+        "y": 431.359375,
+        "width": 313.625,
+        "height": 300,
+        "top": 431.359375,
+        "right": 316.8125,
+        "bottom": 731.359375,
+        "left": 3.1875
+      },
+      "identity": {
+        "x": 165.5,
+        "y": 471.546875,
+        "width": 138.3125,
+        "height": 216.625,
+        "top": 471.546875,
+        "right": 303.8125,
+        "bottom": 688.171875,
+        "left": 165.5
+      },
+      "textOverflow": [
+        {
+          "t": "Mai",
+          "height": 0,
+          "scroll": 0
+        },
+        {
+          "t": "Career Booth team member",
+          "height": 44,
+          "scroll": 46
+        },
+        {
+          "t": "Returning with a different responsibility: helping students find their next step.",
+          "height": 68,
+          "scroll": 68
+        },
+        {
+          "t": "m.",
+          "height": 35,
+          "scroll": 35
+        }
+      ],
+      "smallTargets": []
+    }
+  ],
+  "visitor": {
+    "transform": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+    "pressed": "true",
+    "hidden": true,
+    "visitorHidden": false
+  },
+  "dialogOpen": true,
+  "dialogClosed": true,
+  "keyboardConnect": "true",
+  "connectText": "Connect\nUse the event to build connections.\n\nConnected with employers and industry representatives while supporting students at the booth.\n\nI found employers more approachable than I had expected. These conversations changed how I saw the event.",
+  "path": {
+    "dash": "376.205",
+    "traveler": "translate(501.7974853515625 62.683658599853516)"
+  },
+  "sliderLearn": "true",
+  "pausedFlip": "matrix(1, 0, 0, 1, 0, 0)",
+  "reducedFlip": "matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1)",
+  "integrated": {
+    "h1": 1,
+    "overflow": false
+  },
+  "actualAnimatedPath": true,
+  "movingDash": "686.889",
+  "finalDash": "0",
+  "pausedStable": true,
+  "pauseDash": "718.21",
+  "accent": "rgb(168, 77, 48)",
+  "nativePan": "pan-y"
+}

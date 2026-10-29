@@ -1,0 +1,790 @@
+{
+  "root": "F:\\MaiPortfolio\\src\\cases",
+  "roots_note": "no conventional source directory found, scanning the whole tree",
+  "files_examined": 16,
+  "results": [
+    {
+      "check": "tell-invented-status",
+      "title": "Invented build or release status",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No version stamp, sync time or build number in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-locale-strip",
+      "title": "Weather, clock or timezone strip",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No clock, temperature or timezone strip in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-numbered-eyebrow",
+      "title": "Numbered eyebrow or tile pagination",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No zero-padded section number and no `01 / 4` counter in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-fake-code",
+      "title": "Part number or section code that points to nothing",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No code like SEC-01, REF-204 or MK.I in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-generic-step",
+      "title": "Generic step label",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No text starts with Stage, Step, Phase or Pass followed by a number.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-scroll-cue",
+      "title": "Scroll cue",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No short text telling the visitor to scroll.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-placeholder-identity",
+      "title": "Placeholder name or brand",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No John Doe, Jane Doe, Acme or lorem ipsum in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-round-number",
+      "title": "Round or unsourced figure",
+      "severity": "nice-to-have",
+      "status": "findings",
+      "scanned": 5,
+      "meaning": "1 occurrence(s) across 5 file(s) scanned.",
+      "findings": [
+        {
+          "check": "tell-round-number",
+          "severity": "nice-to-have",
+          "file": "CouncilCase.tsx",
+          "line": 141,
+          "text": "500M+"
+        }
+      ],
+      "group": "tells"
+    },
+    {
+      "check": "tell-filler-verb",
+      "title": "Filler verb",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "None of the listed filler verbs appears in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-em-dash",
+      "title": "U+2014 (em dash) in displayed text",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No U+2014 (em dash) in the displayed text, as a character or as an entity.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-dot-run",
+      "title": "Middle-dot run",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No displayed line strings two or more middle dots together.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-gradient-text",
+      "title": "Gradient-filled text",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 11,
+      "meaning": "No text is clipped to a background, in classes or in CSS.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-glass",
+      "title": "Glassmorphism panel",
+      "severity": "nice-to-have",
+      "status": "findings",
+      "scanned": 11,
+      "meaning": "1 occurrence(s) across 11 file(s) scanned.",
+      "findings": [
+        {
+          "check": "tell-glass",
+          "severity": "nice-to-have",
+          "file": "CtmCase.css",
+          "line": 99,
+          "text": ".case-ctm .ctm-photo-dialog::backdrop { background: #18231de0; backdrop-filter: blur(6px); }"
+        }
+      ],
+      "group": "tells"
+    },
+    {
+      "check": "tell-glow",
+      "title": "Glow or neon shadow",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 11,
+      "meaning": "No shadow with zero offset and a blur of 20px or more.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-blob",
+      "title": "Blurred background blob",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 11,
+      "meaning": "No element blurred by 40px or more (blur-2xl, blur-3xl, filter: blur), and no positioned element painted with a radial gradient that fades from a colour to transparent.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-perpetual-motion",
+      "title": "Animation that never stops",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 11,
+      "meaning": "No infinite animation: no infinite iteration, no animate-pulse/ping/bounce/spin, no repeat: Infinity.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-equal-cards",
+      "title": "Three equal cards",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "No three-column container holds three children with the same class list.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-duplicate-cta",
+      "title": "One intent under several button labels",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 5,
+      "meaning": "Every call to action intent found uses a single label.",
+      "findings": [],
+      "group": "tells"
+    }
+  ],
+  "inventory": {
+    "durations": {
+      "note": "Durations in use. A designed system has three to five. Fifteen is an accident.",
+      "scanned": 16,
+      "distinct": 14,
+      "values": [
+        [
+          "200ms",
+          4
+        ],
+        [
+          "800ms",
+          3
+        ],
+        [
+          "650ms",
+          3
+        ],
+        [
+          "750ms",
+          2
+        ],
+        [
+          "700ms",
+          2
+        ],
+        [
+          "1000ms",
+          1
+        ],
+        [
+          "380ms",
+          1
+        ],
+        [
+          "220ms",
+          1
+        ],
+        [
+          "550ms",
+          1
+        ],
+        [
+          "450ms",
+          1
+        ],
+        [
+          "300ms",
+          1
+        ],
+        [
+          "600ms",
+          1
+        ],
+        [
+          "500ms",
+          1
+        ],
+        [
+          "280ms",
+          1
+        ]
+      ],
+      "where": {
+        "200ms": [
+          "CtmCase.css:42",
+          "CtmCase.css:81"
+        ],
+        "800ms": [
+          "CareersFairCase.tsx:64",
+          "CtmCase.tsx:47",
+          "MichelinCase.tsx:677"
+        ],
+        "650ms": [
+          "CareersFairCase.tsx:69",
+          "CareersFairCase.tsx:70",
+          "MichelinCase.tsx:680"
+        ],
+        "750ms": [
+          "CareersFairCase.tsx:61",
+          "CareersFairCase.tsx:63"
+        ],
+        "700ms": [
+          "CtmCase.css:89",
+          "CtmCase.tsx:44"
+        ],
+        "1000ms": [
+          "CareersFairCase.tsx:62"
+        ],
+        "380ms": [
+          "CareersFairCase.tsx:85"
+        ],
+        "220ms": [
+          "CtmCase.css:39"
+        ],
+        "550ms": [
+          "CtmCase.tsx:53"
+        ],
+        "450ms": [
+          "CtmCase.tsx:61"
+        ],
+        "300ms": [
+          "CtmCase.tsx:62"
+        ],
+        "600ms": [
+          "MichelinCase.tsx:676"
+        ],
+        "500ms": [
+          "MichelinCase.tsx:678"
+        ],
+        "280ms": [
+          "MichelinCase.tsx:689"
+        ]
+      }
+    },
+    "easings": {
+      "note": "Easings in use. Same rule: a handful, named, or it is not a system.",
+      "scanned": 16,
+      "distinct": 5,
+      "values": [
+        [
+          "linear",
+          6
+        ],
+        [
+          "cubic-bezier(.2,.7,.2,1)",
+          2
+        ],
+        [
+          "cubic-bezier(.2,0,0,1)",
+          2
+        ],
+        [
+          "cubic-bezier(.22,.61,.36,1)",
+          1
+        ],
+        [
+          "cubic-bezier(.22,.72,.14,1)",
+          1
+        ]
+      ],
+      "where": {
+        "linear": [
+          "CareersFairCase.css:32",
+          "CareersFairCase.css:33",
+          "CheckpointCase.css:39",
+          "CheckpointCase.css:40",
+          "CheckpointCase.css:41"
+        ],
+        "cubic-bezier(.2,.7,.2,1)": [
+          "CareersFairCase.css:44",
+          "CareersFairCase.css:82"
+        ],
+        "cubic-bezier(.2,0,0,1)": [
+          "CheckpointCase.css:4",
+          "CouncilCase.css:99"
+        ],
+        "cubic-bezier(.22,.61,.36,1)": [
+          "CtmCase.css:89"
+        ],
+        "cubic-bezier(.22,.72,.14,1)": [
+          "MichelinCase.css:2"
+        ]
+      }
+    },
+    "colors": {
+      "note": "Colours written as literal values or palette utilities. No verdict: each one should trace back to a token the design system or the thesis names.",
+      "scanned": 16,
+      "distinct": 136,
+      "values": [
+        [
+          "#2952c8",
+          24
+        ],
+        [
+          "#44614b",
+          15
+        ],
+        [
+          "#fbfaf5",
+          12
+        ],
+        [
+          "#c5d0c4",
+          12
+        ],
+        [
+          "#151e28",
+          10
+        ],
+        [
+          "#34424e",
+          9
+        ],
+        [
+          "#f5f4ee",
+          7
+        ],
+        [
+          "#4b5a58",
+          7
+        ],
+        [
+          "#ecefe8",
+          7
+        ],
+        [
+          "#ffffff",
+          5
+        ],
+        [
+          "#284c3e",
+          5
+        ],
+        [
+          "#59695b",
+          3
+        ],
+        [
+          "#ac5134",
+          2
+        ],
+        [
+          "#667363",
+          2
+        ],
+        [
+          "#e5e7df",
+          2
+        ],
+        [
+          "#58635c",
+          2
+        ],
+        [
+          "#b8b9a7",
+          2
+        ],
+        [
+          "#c6c0ae",
+          2
+        ],
+        [
+          "#9cab99",
+          2
+        ],
+        [
+          "#fbfaf5ed",
+          2
+        ]
+      ],
+      "where": {
+        "#2952c8": [
+          "CareersFairCase.css:5",
+          "case-shell.css:8",
+          "case-shell.css:38",
+          "case-shell.css:93",
+          "case-shell.css:98"
+        ],
+        "#44614b": [
+          "CareersFairCase.css:1",
+          "case-shell.css:7",
+          "case-shell.css:63",
+          "CheckpointCase.css:3",
+          "CheckpointCase.css:87"
+        ],
+        "#fbfaf5": [
+          "CareersFairCase.css:1",
+          "case-shell.css:4",
+          "case-shell.css:100",
+          "CheckpointCase.css:2",
+          "CheckpointCase.css:39"
+        ],
+        "#c5d0c4": [
+          "CareersFairCase.css:1",
+          "case-shell.css:6",
+          "case-shell.css:21",
+          "case-shell.css:65",
+          "case-shell.css:83"
+        ],
+        "#151e28": [
+          "CareersFairCase.css:1",
+          "case-shell.css:9",
+          "case-shell.css:57",
+          "case-shell.css:120",
+          "CheckpointCase.css:2"
+        ],
+        "#34424e": [
+          "case-shell.css:126",
+          "case-shell.css:143",
+          "CheckpointCase.css:2",
+          "CouncilCase.css:64",
+          "CouncilCase.css:69"
+        ],
+        "#f5f4ee": [
+          "CareersFairCase.css:1",
+          "case-shell.css:3",
+          "CheckpointCase.css:2",
+          "CouncilCase.css:2",
+          "CtmCase.css:2"
+        ],
+        "#4b5a58": [
+          "CareersFairCase.css:11",
+          "CareersFairCase.css:17",
+          "CareersFairCase.css:21",
+          "CareersFairCase.css:58",
+          "CareersFairCase.css:78"
+        ],
+        "#ecefe8": [
+          "case-shell.css:5",
+          "case-shell.css:64",
+          "case-shell.css:82",
+          "case-shell.css:118",
+          "CheckpointCase.css:76"
+        ],
+        "#ffffff": [
+          "michelin\\buildSolarWorkbench.ts:317",
+          "michelin\\buildSolarWorkbench.ts:432",
+          "michelin\\buildSolarWorkbench.ts:439",
+          "michelin\\buildSolarWorkbench.ts:523",
+          "michelin\\buildSolarWorkbench.ts:558"
+        ],
+        "#284c3e": [
+          "michelin\\buildSolarWorkbench.ts:413",
+          "michelin\\buildSolarWorkbench.ts:459",
+          "michelin\\buildSolarWorkbench.ts:464",
+          "michelin\\buildSolarWorkbench.ts:519",
+          "MichelinCase.css:2"
+        ],
+        "#59695b": [
+          "CtmCase.css:67",
+          "CtmCase.css:83",
+          "CtmCase.css:92"
+        ],
+        "#ac5134": [
+          "CareersFairCase.css:32",
+          "CareersFairCase.css:33"
+        ],
+        "#667363": [
+          "CareersFairCase.css:65",
+          "CareersFairCase.css:73"
+        ],
+        "#e5e7df": [
+          "CareersFairCase.css:81",
+          "CareersFairCase.css:92"
+        ],
+        "#58635c": [
+          "case-shell.css:10",
+          "case-shell.css:23"
+        ],
+        "#b8b9a7": [
+          "CheckpointCase.css:36"
+        ],
+        "#c6c0ae": [
+          "CheckpointCase.css:39",
+          "CheckpointCase.css:166"
+        ],
+        "#9cab99": [
+          "CheckpointCase.css:81",
+          "CheckpointCase.css:109"
+        ],
+        "#fbfaf5ed": [
+          "CouncilCase.css:37",
+          "CtmCase.css:91"
+        ]
+      }
+    },
+    "radii": {
+      "note": "Corner radii in use. No verdict: compare the spread with the radius scale the design system declares.",
+      "scanned": 16,
+      "distinct": 27,
+      "values": [
+        [
+          "50%",
+          14
+        ],
+        [
+          "3px",
+          7
+        ],
+        [
+          "12px",
+          7
+        ],
+        [
+          "5px",
+          4
+        ],
+        [
+          "6px",
+          3
+        ],
+        [
+          "8px",
+          3
+        ],
+        [
+          "10px",
+          3
+        ],
+        [
+          "0",
+          3
+        ],
+        [
+          "14px",
+          3
+        ],
+        [
+          "9px",
+          2
+        ],
+        [
+          "20px",
+          2
+        ],
+        [
+          "0 8px 0 0",
+          2
+        ],
+        [
+          "18px",
+          2
+        ],
+        [
+          "40px",
+          2
+        ],
+        [
+          "17px",
+          2
+        ],
+        [
+          "4px",
+          1
+        ],
+        [
+          "9px 9px 0 0",
+          1
+        ],
+        [
+          "9px 9px 8px 8px",
+          1
+        ],
+        [
+          "8px 0 0 0",
+          1
+        ],
+        [
+          "0 0 8px 8px",
+          1
+        ]
+      ],
+      "where": {
+        "50%": [
+          "CareersFairCase.css:47",
+          "CheckpointCase.css:63",
+          "CheckpointCase.css:194",
+          "CouncilCase.css:43",
+          "CouncilCase.css:118"
+        ],
+        "3px": [
+          "CareersFairCase.css:43",
+          "CareersFairCase.css:81",
+          "CareersFairCase.css:92",
+          "CareersFairCase.css:103",
+          "CheckpointCase.css:40"
+        ],
+        "12px": [
+          "case-shell.css:66",
+          "CouncilCase.css:98",
+          "CtmCase.css:43",
+          "CtmCase.css:98",
+          "CtmCase.css:100"
+        ],
+        "5px": [
+          "CheckpointCase.css:47",
+          "CheckpointCase.css:77",
+          "CheckpointCase.css:115",
+          "CouncilCase.css:105"
+        ],
+        "6px": [
+          "CareersFairCase.css:34",
+          "CareersFairCase.css:99",
+          "MichelinCase.css:38"
+        ],
+        "8px": [
+          "CheckpointCase.css:37",
+          "CheckpointCase.css:110",
+          "CouncilCase.css:119"
+        ],
+        "10px": [
+          "CheckpointCase.css:79",
+          "CouncilCase.css:104",
+          "CtmCase.css:146"
+        ],
+        "0": [
+          "CheckpointCase.css:166",
+          "CouncilCase.css:55",
+          "MichelinCase.css:107"
+        ],
+        "14px": [
+          "CouncilCase.css:111",
+          "CouncilCase.css:116",
+          "CtmCase.css:148"
+        ],
+        "9px": [
+          "CareersFairCase.css:37",
+          "CheckpointCase.css:76"
+        ],
+        "20px": [
+          "case-shell.css:81",
+          "case-shell.css:117"
+        ],
+        "0 8px 0 0": [
+          "CheckpointCase.css:41",
+          "CheckpointCase.css:64"
+        ],
+        "18px": [
+          "CouncilCase.css:34",
+          "MichelinCase.css:20"
+        ],
+        "40px": [
+          "CouncilCase.css:37",
+          "CtmCase.css:91"
+        ],
+        "17px": [
+          "CtmCase.css:51",
+          "CtmCase.css:141"
+        ],
+        "4px": [
+          "CareersFairCase.css:25"
+        ],
+        "9px 9px 0 0": [
+          "CheckpointCase.css:33"
+        ],
+        "9px 9px 8px 8px": [
+          "CheckpointCase.css:36"
+        ],
+        "8px 0 0 0": [
+          "CheckpointCase.css:39"
+        ],
+        "0 0 8px 8px": [
+          "CheckpointCase.css:59"
+        ]
+      }
+    },
+    "fonts": {
+      "note": "Font families named in the code. No verdict: each one should be a family the thesis names, for the reason it gives.",
+      "scanned": 16,
+      "distinct": 3,
+      "values": [
+        [
+          "outfit",
+          9
+        ],
+        [
+          "inherit",
+          6
+        ],
+        [
+          "dm sans",
+          2
+        ]
+      ],
+      "where": {
+        "outfit": [
+          "CareersFairCase.css:8",
+          "CareersFairCase.css:52",
+          "CareersFairCase.css:63",
+          "case-shell.css:131",
+          "CheckpointCase.css:6"
+        ],
+        "inherit": [
+          "CheckpointCase.css:12",
+          "CouncilCase.css:21",
+          "CouncilCase.css:25",
+          "CouncilCase.css:52",
+          "MichelinCase.css:4"
+        ],
+        "dm sans": [
+          "CareersFairCase.css:1",
+          "CtmCase.css:14"
+        ]
+      }
+    }
+  }
+}

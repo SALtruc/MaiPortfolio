@@ -1,0 +1,451 @@
+{
+  "passed": 111,
+  "total": 111,
+  "checks": [
+    {
+      "name": "320px council: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px council: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "320px council: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "320px michelin: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px michelin: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "320px michelin: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "320px checkpoint: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px checkpoint: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "320px checkpoint: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "320px careers-fair: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px careers-fair: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "320px careers-fair: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "320px ctm: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "320px ctm: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "320px ctm: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "390px council: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px council: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "390px council: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "390px michelin: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px michelin: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "390px michelin: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "390px checkpoint: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px checkpoint: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "390px checkpoint: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "390px careers-fair: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px careers-fair: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "390px careers-fair: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "390px ctm: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "390px ctm: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "390px ctm: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "768px council: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px council: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "768px council: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "768px michelin: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px michelin: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "768px michelin: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "768px checkpoint: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px checkpoint: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "768px checkpoint: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "768px careers-fair: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px careers-fair: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "768px careers-fair: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "768px ctm: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "768px ctm: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "768px ctm: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1280px council: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px council: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1280px council: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1280px michelin: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px michelin: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1280px michelin: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1280px checkpoint: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px checkpoint: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1280px checkpoint: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1280px careers-fair: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px careers-fair: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1280px careers-fair: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1280px ctm: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1280px ctm: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1280px ctm: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1440px council: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px council: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1440px council: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1440px michelin: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px michelin: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1440px michelin: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1440px checkpoint: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px checkpoint: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1440px checkpoint: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1440px careers-fair: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px careers-fair: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1440px careers-fair: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "1440px ctm: one case heading and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "1440px ctm: compact shell with usable return links",
+      "passed": true
+    },
+    {
+      "name": "1440px ctm: primary interaction targets are at least 44px",
+      "passed": true
+    },
+    {
+      "name": "Council selects a different responsibility",
+      "passed": true
+    },
+    {
+      "name": "Council supports keyboard chapter changes",
+      "passed": true
+    },
+    {
+      "name": "council: original photograph enlarges",
+      "passed": true
+    },
+    {
+      "name": "council: Escape closes the photo",
+      "passed": true
+    },
+    {
+      "name": "council: original source remains available",
+      "passed": true
+    },
+    {
+      "name": "Michelin station selection updates its 3D model",
+      "passed": true
+    },
+    {
+      "name": "Michelin keyboard restores whole project",
+      "passed": true
+    },
+    {
+      "name": "michelin: original photograph enlarges",
+      "passed": true
+    },
+    {
+      "name": "michelin: Escape closes the photo",
+      "passed": true
+    },
+    {
+      "name": "michelin: original source remains available",
+      "passed": true
+    },
+    {
+      "name": "Checkpoint opens Apply spread",
+      "passed": true
+    },
+    {
+      "name": "Checkpoint keyboard opens Connect spread",
+      "passed": true
+    },
+    {
+      "name": "checkpoint: original photograph enlarges",
+      "passed": true
+    },
+    {
+      "name": "checkpoint: Escape closes the photo",
+      "passed": true
+    },
+    {
+      "name": "checkpoint: original source remains available",
+      "passed": true
+    },
+    {
+      "name": "Careers Fair flips to the visitor perspective",
+      "passed": true
+    },
+    {
+      "name": "Careers Fair keyboard selects final responsibility",
+      "passed": true
+    },
+    {
+      "name": "careers-fair: original photograph enlarges",
+      "passed": true
+    },
+    {
+      "name": "careers-fair: Escape closes the photo",
+      "passed": true
+    },
+    {
+      "name": "careers-fair: original source remains available",
+      "passed": true
+    },
+    {
+      "name": "CTM channel and follow-up update the same story",
+      "passed": true
+    },
+    {
+      "name": "CTM channel keyboard navigation works",
+      "passed": true
+    },
+    {
+      "name": "ctm: original photograph enlarges",
+      "passed": true
+    },
+    {
+      "name": "ctm: Escape closes the photo",
+      "passed": true
+    },
+    {
+      "name": "ctm: original source remains available",
+      "passed": true
+    },
+    {
+      "name": "council: actual animated property changes over time",
+      "passed": true
+    },
+    {
+      "name": "council: global motion pause leaves a stable visible object",
+      "passed": true
+    },
+    {
+      "name": "checkpoint: actual animated property changes over time",
+      "passed": true
+    },
+    {
+      "name": "checkpoint: global motion pause leaves a stable visible object",
+      "passed": true
+    },
+    {
+      "name": "careers-fair: actual animated property changes over time",
+      "passed": true
+    },
+    {
+      "name": "careers-fair: global motion pause leaves a stable visible object",
+      "passed": true
+    },
+    {
+      "name": "michelin: canvas actually renders motion",
+      "passed": true
+    },
+    {
+      "name": "michelin: canvas stops on global pause",
+      "passed": true
+    },
+    {
+      "name": "ctm: canvas actually renders motion",
+      "passed": true
+    },
+    {
+      "name": "ctm: canvas stops on global pause",
+      "passed": true
+    },
+    {
+      "name": "Navigating away cleans up cases without browser errors",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

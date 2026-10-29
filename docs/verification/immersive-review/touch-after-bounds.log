@@ -1,0 +1,23 @@
+PASS: 390px marker hit targets are at least 44px
+PASS: 390px actual touch selects marker 1
+PASS: 390px actual touch selects marker 2
+PASS: 390px actual touch selects marker 3
+PASS: 390px actual touch selects marker 4
+PASS: 390px actual touch selects marker 5
+PASS: 320px marker hit targets are at least 44px
+PASS: 320px actual touch selects marker 1
+PASS: 320px actual touch selects marker 2
+PASS: 320px actual touch selects marker 3
+PASS: 320px actual touch selects marker 4
+PASS: 320px actual touch selects marker 5
+PASS: Dragging from a marker does not accidentally select
+PASS: Cancelled marker touch does not select
+PASS: Vertical swipe starting on a marker scrolls the page
+PASS: Vertical swipe does not select a chapter
+PASS: Keyboard Enter selects marker 1
+PASS: Keyboard Enter selects marker 2
+PASS: Keyboard Enter selects marker 3
+PASS: Keyboard Enter selects marker 4
+PASS: Keyboard Enter selects marker 5
+PASS: No uncaught browser errors
+22 independent touch checks passed.

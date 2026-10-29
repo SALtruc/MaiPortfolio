@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Local case review</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;450;500;550;600;650;700;750;800&family=DM+Sans:wght@400;450;500;550;600;650;700;750&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"></head>
+<body><div id="root"></div>
+<script type="module">
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { studies } from '/src/stories.ts';
+import '/src/styles.css';
+import '/src/refinement.css';
+import '/src/motion-home.css';
+import '/src/interactive-stories.css';
+import '/src/journey-desk.css';
+import '/src/work.css';
+const query = new URLSearchParams(location.search);
+const names = { council:'CouncilCase', michelin:'MichelinCase', checkpoint:'CheckpointCase', 'careers-fair':'CareersFairCase', ctm:'CtmCase' };
+const id = query.get('project') || 'council';
+const modulePath = names[id] ? '/src/cases/' + names[id] + '.tsx' : '';
+const { default: Case } = await import(/* @vite-ignore */ modulePath);
+function Lab() {
+  const [paused, setPaused] = useState(query.get('motion') !== 'on' || matchMedia('(prefers-reduced-motion: reduce)').matches);
+  document.documentElement.dataset.motion = paused ? 'off' : 'on';
+  return React.createElement('div', {className:'portfolio-world page-work'},
+    React.createElement('header', {className:'site-header'}, React.createElement('span', {className:'signature'},'mai.'), React.createElement('span',null,'Local case review')),
+    React.createElement('main', {className:'page-stage', id:'main'}, React.createElement(Case,{study:studies.find(s=>s.id===id),paused})),
+    React.createElement('button',{onClick:()=>setPaused(value=>!value),'aria-label':paused?'Enable motion':'Pause motion',style:{position:'fixed',right:15,bottom:15,zIndex:100,padding:12,background:'#f5f4ee',border:'1px solid #43614a',borderRadius:8}},paused?'Enable motion':'Pause motion'));
+}
+createRoot(document.getElementById('root')).render(React.createElement(React.StrictMode,null,React.createElement(Lab)));
+</script></body></html>

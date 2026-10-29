@@ -365,7 +365,7 @@ export function AboutPlayground({ paused }: { paused: boolean }) {
       </div>
       <div className="ix-moment-tabs" role="group" aria-label="Choose a side of Mai">
         {moments.map((moment, index) => (
-          <button key={moment.label} aria-pressed={active === index} onClick={() => setActive(index)}>
+          <button key={moment.label} type="button" aria-pressed={active === index} onClick={() => setActive(index)}>
             {moment.label}
           </button>
         ))}
@@ -375,6 +375,7 @@ export function AboutPlayground({ paused }: { paused: boolean }) {
         ref={gesture.ref}
         {...gesture.handlers}
         data-ambient="off"
+        data-active-moment={active}
         role="region"
         aria-roledescription="carousel"
         aria-label="A few sides of Mai. Drag photographs or use arrow keys."
@@ -392,26 +393,43 @@ export function AboutPlayground({ paused }: { paused: boolean }) {
         </div>
         <div className="ix-stage-orbit" aria-hidden="true" />
         {moments.map((moment, index) => {
-          const slot = ((index - active + 6) % 4) - 2;
+          // Symmetric 4-photo fan centered around 0: slots [-1.5, -0.5, 0.5, 1.5]
+          const order = (index - active + 5) % 4;
+          const slot = order - 1.5;
+          const isActive = index === active;
+          const edge = Math.abs(slot) - 0.5; // 0 for inner pair (-0.5, 0.5), 1 for outer pair (-1.5, 1.5)
+          const rel = (index - active + 4) % 4;
+          const mobileSlot = rel === 0 ? 0 : rel === 1 ? 1 : rel === 3 ? -1 : 0;
+          const mobileDepth = rel === 0 ? 0 : rel === 2 ? 2 : 1;
           return (
             <div
-              className={`ix-photo-slot ${slot === 0 ? 'is-active' : ''}`}
+              className={`ix-photo-slot ${isActive ? 'is-active' : ''}`}
               key={moment.image}
-              style={{ '--slot': slot, '--depth': Math.abs(slot), zIndex: 5 - Math.abs(slot) } as CSSProperties}
+              data-slot={slot}
+              style={
+                {
+                  '--slot': slot,
+                  '--depth': edge,
+                  '--mobile-slot': mobileSlot,
+                  '--mobile-depth': mobileDepth,
+                  zIndex: isActive ? 6 : 4 - edge,
+                } as CSSProperties
+              }
             >
               <div className="ix-photo-float">
                 <div className="ix-photo-life">
                   <button
+                    type="button"
                     className="ix-moment-photo"
                     aria-label={`Show ${moment.label}`}
-                    aria-pressed={active === index}
-                    tabIndex={Math.abs(slot) > 1 ? -1 : 0}
+                    aria-pressed={isActive}
+                    tabIndex={0}
                     onClick={() => setActive(index)}
                   >
                     <img draggable="false" src={moment.image} alt={moment.alt} loading="lazy" style={{ objectPosition: moment.position }} />
                     <span>
                       {moment.label}
-                      <span aria-hidden="true">· Chapter</span>
+                      <span aria-hidden="true">{isActive ? '· Selected' : '· Chapter'}</span>
                     </span>
                   </button>
                 </div>
@@ -422,10 +440,10 @@ export function AboutPlayground({ paused }: { paused: boolean }) {
       </div>
       <div className="ix-moment-caption">
         <div className="ix-arrows">
-          <button onClick={() => change(-1)} aria-label="Previous moment">
+          <button type="button" onClick={() => change(-1)} aria-label="Previous moment">
             <Arrow direction="left" />
           </button>
-          <button onClick={() => change(1)} aria-label="Next moment">
+          <button type="button" onClick={() => change(1)} aria-label="Next moment">
             <Arrow direction="right" />
           </button>
         </div>
