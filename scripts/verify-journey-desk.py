@@ -1,4 +1,4 @@
-"""Production browser acceptance for the restored Three.js journey desk."""
+"""Production browser acceptance for the unified About Mai & Three.js journey desk."""
 import json
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
@@ -25,10 +25,15 @@ with sync_playwright() as p:
     context = browser.new_context(viewport={'width':1440,'height':1000}, device_scale_factor=1)
     page = context.new_page()
     page.on('pageerror',lambda error:errors.append(str(error)))
+    page.goto(BASE+'/#/about')
+    ready(page)
+    check('Canonical #/about activates About Mai nav item', page.locator('.chapter-nav a[aria-current="page"]').inner_text() == 'About Mai')
+    check('Unified About Mai includes 3D desk, biography, education and award sections', page.locator('#journey-desk').count() == 1 and page.locator('#about-background').count() == 1 and page.locator('#about-recognition').count() == 1)
     page.goto(BASE+'/#/journey')
     ready(page)
     stage = page.locator('.j-desk-canvas')
     page.wait_for_timeout(1200)
+    check('Backwards-compatible #/journey activates About Mai nav item', page.locator('.chapter-nav a[aria-current="page"]').inner_text() == 'About Mai')
     check('Journey shows real WebGL canvas', page.locator('.j-desk-canvas canvas').evaluate('el=>!!el.getContext("webgl2")'))
     check('Canvas matches display pixel ratio', page.locator('.j-desk-canvas canvas').evaluate('el=>el.width>=el.clientWidth*devicePixelRatio-1'))
     check('Five accessible chapter controls', page.locator('.j-chapters button').count()==5)
@@ -85,6 +90,7 @@ with sync_playwright() as p:
     page.goto(BASE+'/#/journey/2');ready(page)
     expect(page.locator('.j-company')).to_have_text('RMIT Careers')
     check('Direct chapter URL opens the right story',page.locator('.j-chapters button').nth(2).get_attribute('aria-pressed')=='true')
+    check('RMIT Careers chapter links to both Career Checkpoint and Careers Fair studies', page.locator('.j-project-link').count() == 2)
     page.get_by_role('button',name='Explore TikTok laptop',exact=True).click()
     page.go_back();expect(page.locator('.j-company')).to_have_text('RMIT Careers')
     check('Browser back synchronizes chapter selection',page.locator('.j-chapters button').nth(2).get_attribute('aria-pressed')=='true')
@@ -111,6 +117,7 @@ with sync_playwright() as p:
     page.locator('.j-chapters button').nth(4).click()
     expect(page.locator('.j-company')).to_have_text('TikTok')
     check('Mobile chapter strip selects newest chapter',page.url.endswith('/journey/4'))
+    check('Mobile selected chapter status jump button is visible', page.locator('.j-story-jump').is_visible())
     page.set_viewport_size({'width':1440,'height':450})
     page.locator('.j-reflection summary').click()
     page.locator('.j-footer').scroll_into_view_if_needed();page.wait_for_timeout(400)

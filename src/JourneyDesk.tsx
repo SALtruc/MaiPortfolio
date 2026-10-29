@@ -196,6 +196,6 @@ export default function JourneyDesk({ selected, paused, onSelect }: { selected: 
       <div className="j-markers">{names.map((name, index) => <button key={name} type="button" data-marker={index} ref={node => { markers.current[index] = node; }} aria-label={`Explore ${name}`} aria-pressed={selected === index} onClick={event => { if (event.detail > 0 && performance.now() < blockClick.current) { blockClick.current = 0; return; } state.current.selected = index; onSelect(index); controls.current?.wake(); }}><span>{index + 1}</span><small>{name}</small></button>)}</div>
       {status !== 'ready' && <div className="j-desk-fallback"><img src="/assets/mai-portrait.webp" alt="Mai at RMIT" /><p role="status">{status === 'loading' ? 'Making room for the next chapter…' : 'The 3D desk couldn’t load. You can still explore every chapter below.'}</p>{status === 'failed' && <button onClick={() => location.reload()}>Try the desk again</button>}</div>}
     </div>
-    <div className="j-desk-note"><span>A few things I’ve learned along the way.</span><span>Always room for more.</span></div>
+    <div className="j-desk-note"><span>{selected >= 0 ? `Selected: 0${selected + 1} · ${names[selected]}` : 'A few things I’ve learned along the way.'}</span>{selected >= 0 ? <button type="button" className="j-story-jump" onClick={() => document.getElementById('journey-story-panel')?.scrollIntoView({ behavior: paused ? 'instant' : 'smooth', block: 'nearest' })}>Read chapter story ↓</button> : <span>Always room for more.</span>}</div>
   </div>;
 }
