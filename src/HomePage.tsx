@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -6,6 +6,13 @@ import { approaches, email, linkedin } from './content';
 import { ProjectShowcase, AboutPlayground } from './InteractiveStories';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+const experienceLogos = [
+  { name: 'RMIT University', logo: '/assets/logos/rmit.svg', note: 'University Vietnam' },
+  { name: 'Michelin', logo: '/assets/logos/michelin.svg', note: 'Finance & projects' },
+  { name: 'TikTok', logo: '/assets/logos/tiktok-wordmark.svg', note: 'Data & operations' },
+  { name: 'CTM', logo: null, note: 'Marketing & sales' },
+];
 
 function Arrow({ down = false }: { down?: boolean }) {
   return (
@@ -239,22 +246,15 @@ export default function HomePage({ paused }: { paused: boolean }) {
             <div className="m-marquee-track">
               {[0, 1].map(repeat => (
                 <div className="m-marquee-group" key={repeat} aria-hidden={repeat === 1 ? true : undefined}>
-                  <span>
-                    RMIT<small>University Vietnam</small>
-                  </span>
-                  <i aria-hidden="true">↗</i>
-                  <span className="m-michelin">
-                    MICHELIN<small>Finance &amp; projects</small>
-                  </span>
-                  <i aria-hidden="true">↗</i>
-                  <span>
-                    TikTok<small>Data &amp; operations</small>
-                  </span>
-                  <i aria-hidden="true">↗</i>
-                  <span>
-                    CTM<small>Marketing &amp; sales</small>
-                  </span>
-                  <i aria-hidden="true">↗</i>
+                  {experienceLogos.map(item => (
+                    <Fragment key={item.name}>
+                      <span>
+                        {item.logo ? <img className="m-marquee-logo" src={item.logo} alt={item.name} /> : item.name}
+                        <small>{item.note}</small>
+                      </span>
+                      <i aria-hidden="true">↗</i>
+                    </Fragment>
+                  ))}
                 </div>
               ))}
             </div>

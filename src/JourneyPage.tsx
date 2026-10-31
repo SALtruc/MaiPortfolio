@@ -1,9 +1,9 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
-import type { CSSProperties } from 'react';
 import { awardSource, journeyStories } from './stories';
 import { approaches } from './content';
 import { chapterLessons } from './routes';
 import { Reveal } from './ScrollMotion';
+import JourneyRoadmap from './JourneyRoadmap';
 
 export function JourneyPage({
   chapter,
@@ -20,9 +20,7 @@ export function JourneyPage({
   const selected = invalidChapter ? -1 : chapter;
   const opening = useRef<HTMLElement>(null);
   const workspace = useRef<HTMLDivElement>(null);
-  const strip = useRef<HTMLElement>(null);
   const storyPanel = useRef<HTMLElement>(null);
-  const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const story = selected >= 0 ? journeyStories[selected] : null;
   const lesson = selected >= 0 ? chapterLessons[selected] : null;
 
@@ -62,15 +60,6 @@ export function JourneyPage({
       storyPanel.current.scrollTop = 0;
     }
   }, [selected]);
-
-  useEffect(() => {
-    if (selected < 0) return;
-    const nav = strip.current;
-    const button = buttons.current[selected];
-    if (!nav || !button || nav.scrollWidth <= nav.clientWidth + 4) return;
-    const left = button.offsetLeft - (nav.clientWidth - button.offsetWidth) / 2;
-    nav.scrollTo({ left: Math.max(0, left), behavior: paused ? 'instant' : 'smooth' });
-  }, [selected, paused]);
 
   return (
     <section className="j-page about-unified" aria-labelledby="journey-title">
@@ -116,48 +105,7 @@ export function JourneyPage({
       )}
 
       <div className="j-workspace" id="journey-desk" ref={workspace} data-selected-chapter={selected}>
-        <div className="j-roadmap" style={{ '--j-progress': selected < 0 ? 1 : selected / 4 } as CSSProperties}>
-          <div className="j-roadmap-head">
-            <span>The roadmap · 2024 → Now</span>
-            <span>{selected < 0 ? 'Choose a stop' : `Stop 0${selected + 1} of 05`}</span>
-          </div>
-          <nav className="j-road" ref={strip} aria-label="Journey roadmap">
-            <span className="j-road-line" aria-hidden="true" />
-            {journeyStories.map((item, index) => (
-              <button
-                key={item.company}
-                type="button"
-                className="j-stop"
-                data-side={index % 2 ? 'down' : 'up'}
-                data-passed={selected < 0 || index <= selected ? 'true' : undefined}
-                ref={node => {
-                  buttons.current[index] = node;
-                }}
-                aria-pressed={selected === index}
-                onClick={() => onChange(index)}
-                onKeyDown={event => {
-                  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
-                  event.preventDefault();
-                  const forward = event.key === 'ArrowRight' || event.key === 'ArrowDown';
-                  const next = event.key === 'Home' ? 0 : event.key === 'End' ? 4 : (index + (forward ? 1 : 4)) % 5;
-                  buttons.current[next]?.focus();
-                  onChange(next);
-                }}
-              >
-                <span className="j-stop-dot" aria-hidden="true">
-                  0{index + 1}
-                </span>
-                <span className="j-stop-card">
-                  <span className="j-chapter-year">{item.year}</span>
-                  <span className="j-chapter-name">{item.company}</span>
-                  <span className="j-chapter-lesson">{chapterLessons[index].lessonShort}</span>
-                  <span className="j-stop-skill">{chapterLessons[index].skill}</span>
-                </span>
-                {index === 4 && <span className="j-stop-now">You are here</span>}
-              </button>
-            ))}
-          </nav>
-        </div>
+        <JourneyRoadmap selected={selected} paused={paused} onChange={onChange} />
         <aside className="j-story" id="journey-story-panel" ref={storyPanel} tabIndex={0} aria-label="Selected journey chapter">
           <span className="j-announcement" role="status" aria-live="polite" aria-atomic="true">
             {story && lesson ? `${story.company}. ${lesson.title}` : 'Journey overview. Choose a stop on the roadmap to explore.'}

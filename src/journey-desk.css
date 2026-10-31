@@ -127,35 +127,41 @@
 .j-chapter-name{font-size:15px;font-weight:600;line-height:1.2;color:var(--ink)}
 .j-chapter-lesson{font-size:11.5px;color:var(--j-muted);margin-top:2px;line-height:1.25}
 
-/* Journey roadmap: five stops on one road; cards alternate above and below it on desktop */
-.j-roadmap{min-width:0;min-height:0;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);background:#ecefe8 radial-gradient(#44614b1f 1px,transparent 1.4px) 0 0/22px 22px;border:1px solid #c5d0c4;border-radius:18px;padding:14px 18px;overflow:hidden}
+/* Journey roadmap: a winding road; the fill and Mai's pin travel to the selected stop */
+.j-roadmap{min-width:0;min-height:0;height:100%;display:flex;flex-direction:column;gap:6px;background:#ecefe8 radial-gradient(#44614b1c 1px,transparent 1.4px) 0 0/22px 22px;border:1px solid #c5d0c4;border-radius:18px;padding:14px 18px;overflow:hidden}
 .j-roadmap-head{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--j-green)}
 .j-roadmap-head>span:last-child{color:var(--j-muted);font-weight:500;font-variant-numeric:tabular-nums}
-.j-road{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));min-height:360px;height:100%}
-.j-road-line{position:absolute;left:10%;right:10%;top:50%;height:12px;transform:translateY(-50%);border-radius:99px;background:#c9d3c6;overflow:hidden}
-.j-road-line::before{content:'';position:absolute;inset:5px 0 auto;height:2px;background:repeating-linear-gradient(90deg,#fbfaf5 0 12px,transparent 12px 24px)}
-.j-road-line::after{content:'';position:absolute;inset:0 auto 0 0;width:calc(var(--j-progress,1)*100%);background:var(--blue);border-radius:inherit;transition:width .5s var(--ease)}
-.j-stop{position:relative;height:100%;padding:0;border:0;background:none;font-family:inherit;color:inherit;pointer-events:none}
+.j-road{position:relative;width:100%;max-height:100%;margin:auto}
+.j-road>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.j-road path{fill:none;stroke-linecap:round}
+.j-road-base{stroke:#c9d3c6;stroke-width:22}
+.j-road-dash{stroke:#fbfaf5;stroke-width:2.5;stroke-dasharray:14 16}
+.j-road-fill{stroke:var(--blue);stroke-width:22}
+.j-road-tail{stroke:#9eb2a0;stroke-width:3;stroke-dasharray:2 12}
+.j-road-measure{stroke:none}
+.j-stops{position:absolute;inset:0}
+.j-stop{position:absolute;z-index:2;transform:translate(-50%,-50%);padding:0;border:0;background:none;font-family:inherit;color:inherit;border-radius:16px}
+.j-stop-plate{display:grid;place-items:center;width:118px;height:58px;padding:10px 14px;border-radius:16px;background:#fff;border:2px solid #9eb2a0;box-shadow:0 10px 22px -14px #151e2855;transition:transform .25s var(--ease),border-color .2s,box-shadow .2s}
+.j-stop-plate img{width:100%;height:100%;object-fit:contain}
+.j-stop-plate strong{font-size:19px;font-weight:700;letter-spacing:-.04em;color:var(--ink)}
+.j-stop[data-passed] .j-stop-plate{border-color:var(--blue)}
+.j-stop:hover .j-stop-plate{transform:translateY(-3px)}
+.j-stop:active .j-stop-plate{transform:scale(.97)}
+.j-stop[aria-pressed=true] .j-stop-plate{transform:scale(1.08);box-shadow:0 0 0 6px #2952c82e,0 14px 26px -14px #2952c880}
 .j-stop:focus-visible{outline:none}
-.j-stop-dot,.j-stop-card{pointer-events:auto}
-.j-stop-dot{position:absolute;left:50%;top:50%;z-index:2;width:44px;height:44px;margin:-22px 0 0 -22px;display:grid;place-items:center;border-radius:50%;background:#fbfaf5;border:2px solid #9eb2a0;color:var(--j-green);font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;transition:transform .2s var(--ease),background .2s,color .2s,border-color .2s,box-shadow .2s}
-.j-stop[data-passed] .j-stop-dot{border-color:var(--blue);color:var(--blue)}
-.j-stop[aria-pressed=true] .j-stop-dot{background:var(--blue);color:#fff;box-shadow:0 0 0 5px #2952c830}
-.j-stop:hover .j-stop-dot{transform:scale(1.08)}
-.j-stop::before{content:'';position:absolute;left:50%;width:2px;height:22px;background:#9eb2a0}
-.j-stop[data-side=up]::before{bottom:calc(50% + 22px)}
-.j-stop[data-side=down]::before{top:calc(50% + 22px)}
-.j-stop-card{position:absolute;left:50%;width:clamp(140px,165%,210px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:10px 13px 11px;background:#fbfaf5;border:1px solid #c5d0c4;border-radius:14px;box-shadow:0 8px 22px -16px #151e2840;transition:border-color .2s,background .2s,box-shadow .2s,transform .2s var(--ease)}
-.j-stop[data-side=up] .j-stop-card{bottom:calc(50% + 44px)}
-.j-stop[data-side=down] .j-stop-card{top:calc(50% + 44px)}
-.j-stop:hover .j-stop-card{border-color:var(--blue);background:#fff}
-.j-stop[aria-pressed=true] .j-stop-card{border-color:var(--blue);background:#fff;box-shadow:0 12px 26px -14px #2952c860}
-.j-stop:focus-visible .j-stop-card{outline:3px solid var(--blue);outline-offset:3px}
+.j-stop:focus-visible .j-stop-plate{outline:3px solid var(--blue);outline-offset:4px}
+.j-stop-label{position:absolute;display:flex;flex-direction:column;width:max-content;max-width:170px;text-align:left;pointer-events:none}
+.j-stop[data-label=below] .j-stop-label{left:50%;top:calc(100% + 12px);transform:translateX(-50%);align-items:center;text-align:center}
+.j-stop[data-label=right] .j-stop-label{left:calc(100% + 14px);top:50%;transform:translateY(-50%);align-items:flex-start}
+.j-stop[data-label=left] .j-stop-label{right:calc(100% + 14px);top:50%;transform:translateY(-50%);align-items:flex-end;text-align:right}
 .j-stop[aria-pressed=true] .j-chapter-year,.j-stop[aria-pressed=true] .j-chapter-name{color:var(--blue)}
-.j-stop-skill{margin-top:7px;padding:3px 9px;border-radius:99px;background:#2952c814;color:#21409a;font-size:11px;font-weight:600;line-height:1.3}
-.j-stop-now{position:absolute;left:50%;top:calc(50% + 32px);transform:translateX(-50%);display:flex;align-items:center;gap:6px;white-space:nowrap;padding:4px 10px;border-radius:99px;background:var(--ink);color:#f5f4ee;font-size:11px;font-weight:600;pointer-events:none}
-.j-stop-now::before{content:'';width:7px;height:7px;border-radius:50%;background:#7fd19a;animation:j-pulse 1.8s ease-in-out infinite}
-@keyframes j-pulse{50%{opacity:.35}}
+.j-stop-skill{margin-top:6px;padding:3px 9px;border-radius:99px;background:#2952c814;color:#21409a;font-size:11px;font-weight:600;line-height:1.3}
+.j-pin{position:absolute;left:0;top:0;z-index:3;width:0;height:0;pointer-events:none;will-change:transform}
+.j-pin img{position:absolute;left:-21px;bottom:40px;width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:50% 22%;border:3px solid #fbfaf5;box-shadow:0 0 0 2px var(--blue),0 10px 18px -8px #151e2880}
+.j-pin::after{content:'';position:absolute;left:-7px;bottom:30px;border:7px solid transparent;border-top:9px solid var(--blue);border-bottom:0}
+.j-road-next{position:absolute;z-index:2;transform:translate(-100%,-110%);white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;gap:2px;min-height:44px;justify-content:center;padding:6px 2px;font-size:12px;color:var(--j-muted);text-align:right}
+.j-road-next strong{font-size:14px;font-weight:600;color:var(--blue)}
+.j-road-next:hover strong{text-decoration:underline;text-underline-offset:4px}
 
 /* About overview: the four keywords */
 .j-overview-label{margin-top:16px;font-size:12px!important;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--j-green)!important}
@@ -233,15 +239,8 @@
   .j-opening-status{justify-content:flex-start}
   .j-workspace{display:flex;flex-direction:column;gap:14px;height:auto}
   .j-roadmap{height:auto}
-  .j-road{grid-template-columns:1fr;gap:12px;min-height:0;padding:14px 0 4px}
-  .j-road-line{left:17px;right:auto;top:36px;bottom:36px;width:10px;height:auto;transform:none}
-  .j-road-line::before{inset:0 auto 0 4px;width:2px;height:auto;background:repeating-linear-gradient(180deg,#fbfaf5 0 12px,transparent 12px 24px)}
-  .j-road-line::after{inset:0 0 auto 0;width:auto;height:calc(var(--j-progress,1)*100%);transition-property:height}
-  .j-stop{display:flex;align-items:center;gap:14px;height:auto}
-  .j-stop::before{display:none}
-  .j-stop-dot,.j-stop-card,.j-stop-now{position:static;margin:0;transform:none;flex:none}
-  .j-stop-card{flex:1;width:auto}
-  .j-stop-now{position:absolute;right:10px;top:10px;left:auto}
+  .j-road{max-width:420px}
+  .j-road-next{transform:translate(-50%,-50%);align-items:center;text-align:center}
   .j-story{
     order:3;
     height:auto;

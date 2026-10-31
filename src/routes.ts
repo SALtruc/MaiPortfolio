@@ -13,6 +13,7 @@ export type ChapterLesson = {
   title: string;
   text: string;
   skill: string;
+  logo: string | null;
   lessonShort: string;
   project: string | null;
   relatedProjects: { id: string; name: string; label: string }[];
@@ -23,6 +24,7 @@ export const chapterLessons: ChapterLesson[] = [
     title: 'People before spreadsheets.',
     text: 'Student leadership taught me to listen, build trust and adapt to different teams.',
     skill: 'Project management',
+    logo: '/assets/logos/rmit.svg',
     lessonShort: 'Learning to lead',
     project: 'council',
     relatedProjects: [{ id: 'council', name: 'Club Day & community', label: 'See the work behind it' }],
@@ -31,6 +33,7 @@ export const chapterLessons: ChapterLesson[] = [
     title: 'Look beyond the first click.',
     text: 'At CTM, I began connecting content, customer conversations and the follow-up that comes next.',
     skill: 'Communication',
+    logo: null,
     lessonShort: 'Seeing the whole picture',
     project: 'ctm',
     relatedProjects: [{ id: 'ctm', name: 'Customer engagement', label: 'See the work behind it' }],
@@ -39,6 +42,7 @@ export const chapterLessons: ChapterLesson[] = [
     title: 'Try again. Then speak up.',
     text: 'Four applications later, I joined RMIT Careers. Confidence grew through conversations and taking ownership.',
     skill: 'Innovation',
+    logo: '/assets/logos/rmit.svg',
     lessonShort: 'Finding my voice',
     project: 'checkpoint',
     relatedProjects: [
@@ -50,6 +54,7 @@ export const chapterLessons: ChapterLesson[] = [
     title: 'Make the details useful.',
     text: 'Michelin taught me to organise different inputs into something a team could make a decision with.',
     skill: 'Data-driven',
+    logo: '/assets/logos/michelin.svg',
     lessonShort: 'Building clarity',
     project: 'michelin',
     relatedProjects: [{ id: 'michelin', name: 'Green Finance', label: 'See the work behind it' }],
@@ -58,6 +63,7 @@ export const chapterLessons: ChapterLesson[] = [
     title: 'A beginner, all over again.',
     text: 'Now at TikTok, I’m learning how data, quality and everyday operations support products people use.',
     skill: 'Data-driven',
+    logo: '/assets/logos/tiktok-wordmark.svg',
     lessonShort: 'Always Day 1',
     project: null,
     relatedProjects: [],
