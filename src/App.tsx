@@ -5,6 +5,7 @@ import { usePhotoMotion, useFrameMotion } from './ScrollMotion';
 import HomePage from './HomePage';
 import { studies, journeyStories } from './stories';
 import { mainNav, parseRoute } from './routes';
+import { LogoMark } from './Logo';
 
 type ScrollTarget =
   | { type: 'top'; token: number }
@@ -309,7 +310,8 @@ export default function App() {
       </a>
       <header className="site-header">
         <a className="signature" href="#/" aria-label="Mai, home" onClick={() => handleGlobalNavClick('#/')}>
-          mai.<span>↗</span>
+          <LogoMark />
+          <span className="signature-word">Ngoc Mai</span>
         </a>
         <nav className={menu ? 'chapter-nav expanded' : 'chapter-nav'} aria-label="Main navigation">
           {mainNav.map(item => (
@@ -373,7 +375,7 @@ export default function App() {
             <div className="lost-actions">
               <a className="m-button m-button-dark" href="#/">Back to Home ↗</a>
               <a className="m-button m-button-outline" href="#/work">Explore Projects ↗</a>
-              <a className="m-button m-button-outline" href="#/about">About Mai & 3D Desk ↗</a>
+              <a className="m-button m-button-outline" href="#/about">About Mai & roadmap ↗</a>
               <a className="m-button m-button-outline" href="#/contact">Contact Mai ↗</a>
             </div>
           </section>

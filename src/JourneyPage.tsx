@@ -1,10 +1,9 @@
-import { lazy, Suspense, useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import type { CSSProperties } from 'react';
 import { awardSource, journeyStories } from './stories';
 import { approaches } from './content';
 import { chapterLessons } from './routes';
 import { Reveal } from './ScrollMotion';
-
-const JourneyDesk = lazy(() => import('./JourneyDesk'));
 
 export function JourneyPage({
   chapter,
@@ -91,11 +90,11 @@ export function JourneyPage({
               <i aria-hidden="true" />
               {story && lesson
                 ? `0${selected + 1} / 05 · ${story.company} — ${story.role}`
-                : '5 chapters on the desk · 2024 – Now'}
+                : '5 stops on the roadmap · 2024 – Now'}
             </span>
             {selected >= 0 && (
               <button type="button" className="j-opening-reset" onClick={() => onChange(-1)}>
-                Whole desk
+                Whole roadmap
               </button>
             )}
           </div>
@@ -105,30 +104,69 @@ export function JourneyPage({
       {invalidChapter && (
         <div className="invalid-route-callout" role="alert">
           <div>
-            <strong>That chapter isn’t on the desk yet.</strong>
+            <strong>That stop isn’t on the roadmap yet.</strong>
             <p>
-              Mai’s journey currently spans five chapters (01 Student Council to 05 TikTok). Choose one of the five chapters below or explore the whole desk.
+              Mai’s journey currently spans five chapters (01 Student Council to 05 TikTok). Choose one of the five stops below or view the whole roadmap.
             </p>
           </div>
           <button type="button" className="j-callout-reset" onClick={() => onChange(-1)}>
-            Show whole desk
+            Show whole roadmap
           </button>
         </div>
       )}
 
       <div className="j-workspace" id="journey-desk" ref={workspace} data-selected-chapter={selected}>
-        <Suspense fallback={<div className="j-scene-loading" role="status">Making room for the next chapter…</div>}>
-          <JourneyDesk selected={selected} paused={paused} onSelect={onChange} />
-        </Suspense>
+        <div className="j-roadmap" style={{ '--j-progress': selected < 0 ? 1 : selected / 4 } as CSSProperties}>
+          <div className="j-roadmap-head">
+            <span>The roadmap · 2024 → Now</span>
+            <span>{selected < 0 ? 'Choose a stop' : `Stop 0${selected + 1} of 05`}</span>
+          </div>
+          <nav className="j-road" ref={strip} aria-label="Journey roadmap">
+            <span className="j-road-line" aria-hidden="true" />
+            {journeyStories.map((item, index) => (
+              <button
+                key={item.company}
+                type="button"
+                className="j-stop"
+                data-side={index % 2 ? 'down' : 'up'}
+                data-passed={selected < 0 || index <= selected ? 'true' : undefined}
+                ref={node => {
+                  buttons.current[index] = node;
+                }}
+                aria-pressed={selected === index}
+                onClick={() => onChange(index)}
+                onKeyDown={event => {
+                  if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return;
+                  event.preventDefault();
+                  const forward = event.key === 'ArrowRight' || event.key === 'ArrowDown';
+                  const next = event.key === 'Home' ? 0 : event.key === 'End' ? 4 : (index + (forward ? 1 : 4)) % 5;
+                  buttons.current[next]?.focus();
+                  onChange(next);
+                }}
+              >
+                <span className="j-stop-dot" aria-hidden="true">
+                  0{index + 1}
+                </span>
+                <span className="j-stop-card">
+                  <span className="j-chapter-year">{item.year}</span>
+                  <span className="j-chapter-name">{item.company}</span>
+                  <span className="j-chapter-lesson">{chapterLessons[index].lessonShort}</span>
+                  <span className="j-stop-skill">{chapterLessons[index].skill}</span>
+                </span>
+                {index === 4 && <span className="j-stop-now">You are here</span>}
+              </button>
+            ))}
+          </nav>
+        </div>
         <aside className="j-story" id="journey-story-panel" ref={storyPanel} tabIndex={0} aria-label="Selected journey chapter">
           <span className="j-announcement" role="status" aria-live="polite" aria-atomic="true">
-            {story && lesson ? `${story.company}. ${lesson.title}` : 'Journey overview. Choose an object or a chapter to explore.'}
+            {story && lesson ? `${story.company}. ${lesson.title}` : 'Journey overview. Choose a stop on the roadmap to explore.'}
           </span>
           {story && lesson ? (
             <div className="j-story-content" key={selected}>
               <div className="j-story-kicker">
                 <span>
-                  0{selected + 1} / 05 · {lesson.object}
+                  Stop 0{selected + 1} / 05 · {lesson.skill}
                 </span>
                 <span>{story.date}</span>
               </div>
@@ -177,16 +215,16 @@ export function JourneyPage({
                 </a>
               </details>
               <div className="j-story-navigation">
-                <button type="button" onClick={() => onChange((selected + 4) % 5)} aria-label="Previous chapter">
+                <button type="button" onClick={() => onChange((selected + 4) % 5)} aria-label="Previous stop">
                   ←
                 </button>
                 <div className="j-story-nav-center">
-                  <span>{selected + 1} of 5 chapters</span>
+                  <span>Stop {selected + 1} of 5</span>
                   <button type="button" className="j-story-reset-inline" onClick={() => onChange(-1)}>
-                    Whole desk
+                    Whole roadmap
                   </button>
                 </div>
-                <button type="button" onClick={() => onChange((selected + 1) % 5)} aria-label="Next chapter">
+                <button type="button" onClick={() => onChange((selected + 1) % 5)} aria-label="Next stop">
                   →
                 </button>
               </div>
@@ -194,7 +232,7 @@ export function JourneyPage({
           ) : (
             <div className="j-overview">
               <p className="j-story-kicker">
-                <span>Different chapters. Same curious me.</span>
+                <span>Five stops. Same curious me.</span>
                 <span>2024 – Now</span>
               </p>
               <h2>
@@ -202,52 +240,21 @@ export function JourneyPage({
                 my own.
               </h2>
               <p>From student clubs to a new role at TikTok, I’m learning by showing up, asking questions and trying again.</p>
-              <figure>
-                <img src="/assets/mai-portrait.webp" alt="Mai at RMIT University Vietnam" />
-                <figcaption>Ngoc Mai Nguyen · RMIT Business</figcaption>
-              </figure>
-              <div className="j-overview-pillars">
-                <div>
-                  <strong>RMIT University Vietnam</strong>
-                  <span>Finance major · Digital Marketing minor</span>
-                </div>
-                <div>
-                  <strong>TikTok / ByteDance</strong>
-                  <span>AI Data Service &amp; Operations Intern</span>
-                </div>
-              </div>
+              <p className="j-overview-label">What I bring to the team</p>
+              <ul className="j-overview-pillars">
+                {approaches.map(item => (
+                  <li key={item.word}>
+                    <strong>{item.word}</strong>
+                    <span>{item.short}</span>
+                  </li>
+                ))}
+              </ul>
               <button type="button" className="j-start" onClick={() => onChange(0)}>
-                Start with the notebook <span>↗</span>
+                Start at stop 01 · Student Council <span>↗</span>
               </button>
             </div>
           )}
         </aside>
-        <nav className="j-chapters" ref={strip} aria-label="Journey chapters">
-          {journeyStories.map((item, index) => (
-            <button
-              key={item.company}
-              type="button"
-              ref={node => {
-                buttons.current[index] = node;
-              }}
-              aria-pressed={selected === index}
-              onClick={() => onChange(index)}
-              onKeyDown={event => {
-                if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-                event.preventDefault();
-                const next = event.key === 'Home' ? 0 : event.key === 'End' ? 4 : (index + (event.key === 'ArrowRight' ? 1 : 4)) % 5;
-                buttons.current[next]?.focus();
-                onChange(next);
-              }}
-            >
-              <span className="j-chapter-year">
-                0{index + 1} · {item.year}
-              </span>
-              <span className="j-chapter-name">{item.company}</span>
-              <span className="j-chapter-lesson">{chapterLessons[index].lessonShort}</span>
-            </button>
-          ))}
-        </nav>
       </div>
 
       <section className="about-connected-bio" id="about-background" aria-labelledby="about-title">

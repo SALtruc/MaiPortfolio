@@ -12,8 +12,7 @@ export const mainNav: { id: Exclude<CanonicalPage, 'lost'>; href: string; label:
 export type ChapterLesson = {
   title: string;
   text: string;
-  object: string;
-  markerName: string;
+  skill: string;
   lessonShort: string;
   project: string | null;
   relatedProjects: { id: string; name: string; label: string }[];
@@ -23,8 +22,7 @@ export const chapterLessons: ChapterLesson[] = [
   {
     title: 'People before spreadsheets.',
     text: 'Student leadership taught me to listen, build trust and adapt to different teams.',
-    object: 'The notebook',
-    markerName: 'Council notebook',
+    skill: 'Project management',
     lessonShort: 'Learning to lead',
     project: 'council',
     relatedProjects: [{ id: 'council', name: 'Club Day & community', label: 'See the work behind it' }],
@@ -32,8 +30,7 @@ export const chapterLessons: ChapterLesson[] = [
   {
     title: 'Look beyond the first click.',
     text: 'At CTM, I began connecting content, customer conversations and the follow-up that comes next.',
-    object: 'The phone',
-    markerName: 'CTM phone',
+    skill: 'Communication',
     lessonShort: 'Seeing the whole picture',
     project: 'ctm',
     relatedProjects: [{ id: 'ctm', name: 'Customer engagement', label: 'See the work behind it' }],
@@ -41,8 +38,7 @@ export const chapterLessons: ChapterLesson[] = [
   {
     title: 'Try again. Then speak up.',
     text: 'Four applications later, I joined RMIT Careers. Confidence grew through conversations and taking ownership.',
-    object: 'The photograph',
-    markerName: 'Careers photo',
+    skill: 'Innovation',
     lessonShort: 'Finding my voice',
     project: 'checkpoint',
     relatedProjects: [
@@ -53,8 +49,7 @@ export const chapterLessons: ChapterLesson[] = [
   {
     title: 'Make the details useful.',
     text: 'Michelin taught me to organise different inputs into something a team could make a decision with.',
-    object: 'The project folder',
-    markerName: 'Michelin folder',
+    skill: 'Data-driven',
     lessonShort: 'Building clarity',
     project: 'michelin',
     relatedProjects: [{ id: 'michelin', name: 'Green Finance', label: 'See the work behind it' }],
@@ -62,20 +57,19 @@ export const chapterLessons: ChapterLesson[] = [
   {
     title: 'A beginner, all over again.',
     text: 'Now at TikTok, I’m learning how data, quality and everyday operations support products people use.',
-    object: 'The laptop',
-    markerName: 'TikTok laptop',
+    skill: 'Data-driven',
     lessonShort: 'Always Day 1',
     project: null,
     relatedProjects: [],
   },
 ];
 
-export const projectChapterMap: Record<string, { chapterIndex: number; company: string; object: string; lessonShort: string; href: string }> = {
-  council: { chapterIndex: 0, company: 'Student Council', object: 'The notebook', lessonShort: 'Learning to lead', href: '#/journey/0' },
-  ctm: { chapterIndex: 1, company: 'CTM', object: 'The phone', lessonShort: 'Seeing the whole picture', href: '#/journey/1' },
-  checkpoint: { chapterIndex: 2, company: 'RMIT Careers', object: 'The photograph', lessonShort: 'Finding my voice', href: '#/journey/2' },
-  'careers-fair': { chapterIndex: 2, company: 'RMIT Careers', object: 'The photograph', lessonShort: 'Finding my voice', href: '#/journey/2' },
-  michelin: { chapterIndex: 3, company: 'Michelin', object: 'The project folder', lessonShort: 'Building clarity', href: '#/journey/3' },
+export const projectChapterMap: Record<string, { chapterIndex: number; company: string; lessonShort: string; href: string }> = {
+  council: { chapterIndex: 0, company: 'Student Council', lessonShort: 'Learning to lead', href: '#/journey/0' },
+  ctm: { chapterIndex: 1, company: 'CTM', lessonShort: 'Seeing the whole picture', href: '#/journey/1' },
+  checkpoint: { chapterIndex: 2, company: 'RMIT Careers', lessonShort: 'Finding my voice', href: '#/journey/2' },
+  'careers-fair': { chapterIndex: 2, company: 'RMIT Careers', lessonShort: 'Finding my voice', href: '#/journey/2' },
+  michelin: { chapterIndex: 3, company: 'Michelin', lessonShort: 'Building clarity', href: '#/journey/3' },
 };
 
 const validProjectIds = new Set(studies.map(study => study.id));

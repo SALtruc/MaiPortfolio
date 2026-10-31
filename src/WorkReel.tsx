@@ -224,7 +224,7 @@ export function WorkReel() {
       </div>
       <div className="reel-end">
         <a href="#/about">
-          About Mai &amp; the 3D journey desk <span aria-hidden="true">↗</span>
+          About Mai &amp; the journey roadmap <span aria-hidden="true">↗</span>
         </a>
         <a href="#/contact">
           Contact Mai <span aria-hidden="true">↗</span>

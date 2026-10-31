@@ -100,7 +100,7 @@ export function HelloPage() {
       <nav className="hello-next-steps" aria-label="Next steps">
         <a className="desk-return" href="#/">← Back to Home</a>
         <a className="desk-return" href="#/work">Explore Projects ↗</a>
-        <a className="desk-return" href="#/about">About Mai &amp; 3D Desk ↗</a>
+        <a className="desk-return" href="#/about">About Mai &amp; roadmap ↗</a>
       </nav>
     </section>
   );

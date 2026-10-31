@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { email, linkedin } from './content';
+import { approaches, email, linkedin } from './content';
 import { ProjectShowcase, AboutPlayground } from './InteractiveStories';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -187,7 +187,7 @@ export default function HomePage({ paused }: { paused: boolean }) {
         </div>
         <div className="m-hero-center">
           <p className="m-hero-eyebrow">
-            Ngoc Mai Nguyen <span>Finance / People / Operations</span>
+            Ngoc Mai Nguyen <span>{approaches.map(item => item.word).join(' · ')}</span>
           </p>
           <div className="m-hero-composition">
             <div className="m-hero-message">
@@ -268,7 +268,7 @@ export default function HomePage({ paused }: { paused: boolean }) {
       <footer className="m-contact" aria-labelledby="contact-title">
         <img className="m-footer-ribbon" src="/assets/cobalt-ribbon.png" alt="" loading="lazy" aria-hidden="true" />
         <div className="m-contact-content">
-          <p>A good conversation is a good beginning.</p>
+          <p>Next stop · A good conversation is a good beginning.</p>
           <h2 id="contact-title">
             <span>LET’S MAKE</span>
             <span>GOOD THINGS HAPPEN.</span>

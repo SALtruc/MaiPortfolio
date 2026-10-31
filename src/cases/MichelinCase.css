@@ -15,7 +15,7 @@
 .case-michelin .mc-opening-role{display:flex;flex-direction:column;gap:6px;flex:0 1 290px;margin:0 0 3px;font-size:15px;line-height:1.4}
 .case-michelin .mc-opening-role>span{font-size:12px;color:var(--mc-muted)}
 .case-michelin .mc-opening-role strong{font-size:16px;font-weight:550}
-.case-michelin .mc-opening-role a{font-size:12px;text-decoration:underline;text-underline-offset:4px;margin-top:3px}
+.case-michelin .mc-opening-role a{display:inline-flex;align-items:center;min-height:32px;font-size:12px;text-decoration:underline;text-underline-offset:4px}
 /* Full model and decision in a single opening composition. */
 .case-michelin .mc-workbench-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.34fr);border:1px solid var(--mc-border);border-radius:18px;overflow:hidden;background:var(--mc-sage-bg)}
 .case-michelin .mc-scene-column{min-width:0;background:#e8ede5}

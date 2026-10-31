@@ -20,65 +20,21 @@
 .j-callout-reset{flex-shrink:0;min-height:44px;padding:7px 15px;border-radius:24px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-size:13px;font-weight:500}
 .j-callout-reset:hover{background:#1e3fa3}
 
-/* Immersive viewport-fitting desktop workspace: ~67% left 3D desk stage, ~33% right story panel, bottom chapter rail visibly bound */
+/* Viewport-fitting desktop workspace: ~67% roadmap, ~33% story panel */
 .j-workspace{
   display:grid;
   grid-template-columns:minmax(0,67fr) minmax(320px,33fr);
-  grid-template-rows:minmax(0,1fr) auto;
+  grid-template-rows:minmax(0,1fr);
   gap:10px 18px;
   height:var(--j-workspace-height,min(860px,calc(100dvh - 208px)));
   align-items:stretch;
   scroll-margin-top:86px;
 }
-.j-workspace[data-viewport-fit=flow]{height:auto;grid-template-rows:480px auto}
+.j-workspace[data-viewport-fit=flow]{height:auto;grid-template-rows:auto}
 
-.j-desk-wrap{
-  min-width:0;
-  min-height:0;
-  height:100%;
-  display:grid;
-  grid-template-rows:auto minmax(0,1fr) auto;
-  background:#ecefe8;
-  border:1px solid #c5d0c4;
-  border-radius:18px;
-  position:relative;
-  overflow:hidden;
-}
 
-.j-desk-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 14px 2px;position:relative;z-index:2}
-.j-desk-toolbar>span{font-size:12.5px;line-height:1.4;color:var(--j-muted);font-weight:500}
-.j-desk-toolbar>div{display:flex;gap:3px;flex-shrink:0;align-items:center}
-.j-desk-toolbar button{border:0;background:transparent;border-radius:50%;min-width:44px;height:44px;color:#34433a;font-size:20px;display:grid;place-items:center;transition:background .2s,transform .2s}
-.j-desk-toolbar .j-reset{width:auto;border-radius:22px;padding:0 13px;font-size:12.5px;font-weight:550;background:#fbfaf5;border:1px solid #44614b30}
-.j-desk-toolbar .j-reset[aria-pressed=false]{background:#fff;border-color:#2952c855;color:#21409a}
-.j-desk-toolbar button:hover{background:#dbe4d6}
-.j-desk-toolbar button:active{transform:scale(.94)}
-.j-desk-toolbar button:disabled{opacity:.35;cursor:default}
 
-.j-desk-canvas{height:100%;min-height:0;position:relative;isolation:isolate;touch-action:pan-y}
-.j-desk-canvas>canvas{display:block;width:100%;height:100%;touch-action:pan-y;cursor:grab}
-.j-markers{position:absolute;inset:0;pointer-events:none}
-.j-markers button{position:absolute;left:0;top:0;width:44px;height:44px;pointer-events:auto;touch-action:pan-y;cursor:pointer;display:grid;place-items:center;padding:0;background:transparent;border:0;border-radius:50%;color:#34433a;box-shadow:none;font-family:inherit;font-size:15px;transition:background .2s,color .2s}
-.j-markers button>span{display:grid;place-items:center;width:28px;height:28px;pointer-events:none;border:1.5px solid #44614b75;border-radius:50%;background:#fafbf4;color:#34433a;font-size:12.5px;font-weight:600;box-shadow:0 2px 8px #2b3b2422;transition:transform .18s,background .18s,color .18s,border-color .18s,box-shadow .18s}
-.j-markers button:hover>span,.j-markers button[data-hover=true]>span{border-color:#2952c8;color:#21409a;transform:scale(1.1)}
-.j-markers button[aria-pressed=true]{background:transparent;z-index:4}
-.j-markers button[aria-pressed=true]>span{background:#2952c8;color:white;border-color:#fff;transform:scale(1.16);box-shadow:0 0 0 4px #2952c838,0 4px 12px #151e2835}
-.j-markers small{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:12px;font-weight:550;line-height:1.25;background:#fafbf4f8;color:#1b2c21;padding:4px 9px;border-radius:6px;border:1px solid #44614b38;box-shadow:0 4px 12px #1c281f1a;opacity:0;transition:opacity .16s;pointer-events:none;z-index:3}
-.j-markers button[aria-pressed=true] small{background:#2952c8;color:#fff;border-color:#2952c8}
-.j-markers button[data-tip^=bottom] small{bottom:auto;top:calc(100% + 4px)}
-.j-markers button[data-tip$=-start] small{left:0;transform:none}
-.j-markers button[data-tip$=-end] small{left:auto;right:0;transform:none}
-.j-markers button:hover small,.j-markers button:focus-visible small,.j-markers button[data-hover=true] small,.j-markers button[aria-pressed=true] small{opacity:1}
-.j-desk-canvas:not([data-scene-state=ready]) .j-markers{display:none}
 
-.j-desk-note{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px;color:var(--j-muted);padding:2px 18px 8px}
-.j-story-jump{border:1px solid #2952c840;background:#fbfaf5;color:var(--blue);font-size:11.5px;font-weight:550;padding:4px 11px;border-radius:24px;min-height:44px;transition:background .2s,color .2s}
-.j-story-jump:hover{background:var(--blue);color:#fff}
-.j-scene-loading{height:100%;min-height:360px;display:grid;place-items:center;color:var(--j-muted);background:#ecefe8;border-radius:18px}
-.j-desk-fallback{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:16px;padding:24px;background:#ecefe8;text-align:center}
-.j-desk-fallback>img{width:130px;height:165px;object-fit:cover;border-radius:80px 80px 8px 8px}
-.j-desk-fallback p{max-width:300px;line-height:1.45;font-size:16px}
-.j-desk-fallback button{background:#2952c8;color:white;border:0;padding:12px 18px;border-radius:24px}
 
 /* Contained desktop story panel: fits viewport height alongside the desk and scrolls internally when expanded */
 .j-story{
@@ -125,13 +81,6 @@
 .j-story-turn{margin:0;padding-left:10px;border-left:2px solid #2952c866;font-size:13.5px;line-height:1.42;color:#2c3a31}
 .j-story-turn em{display:block;margin-top:3px;font-style:normal;color:var(--j-green);font-weight:600}
 
-.j-overview figure{margin:10px 0 0}
-.j-overview figure img{width:100%;height:142px;object-fit:cover;object-position:50% 33%;border-radius:10px}
-.j-overview figure figcaption{font-size:11.5px;color:var(--j-muted);margin-top:5px}
-.j-overview-pillars{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.j-overview-pillars>div{background:#ecefe8;border:1px solid #c5d0c485;border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
-.j-overview-pillars strong{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.25}
-.j-overview-pillars span{font-size:11.5px;color:var(--j-muted);line-height:1.3}
 
 .j-project-links{display:flex;flex-direction:column;gap:4px;margin-top:10px}
 .j-start,.j-project-link{
@@ -174,51 +123,55 @@
 
 @keyframes j-story-enter{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-/* Visibly bound 5-chapter rail along the bottom of the workspace */
-.j-chapters{
-  grid-column:1/-1;
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  gap:10px;
-  margin:0;
-}
-.j-chapters button{
-  position:relative;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:center;
-  text-align:left;
-  min-height:62px;
-  padding:8px 13px;
-  background:#fbfaf5;
-  border:1px solid #c5d0c4;
-  border-top:3px solid #9eb2a0;
-  border-radius:12px;
-  color:#435046;
-  font-family:inherit;
-  transition:color .2s,border-color .2s,background .2s,transform .2s,box-shadow .2s;
-}
-.j-chapters button:hover{
-  color:var(--blue);
-  border-color:var(--blue);
-  background:#fff;
-}
-.j-chapters button[aria-pressed=true]{
-  color:var(--blue);
-  border-color:var(--blue);
-  border-top-color:var(--blue);
-  background:#fff;
-  box-shadow:0 8px 20px -12px #2952c845;
-  transform:translateY(-1px);
-}
 .j-chapter-year{font-size:11px;font-weight:600;color:var(--j-green);font-variant-numeric:tabular-nums;margin-bottom:2px}
-.j-chapters button[aria-pressed=true] .j-chapter-year{color:var(--blue)}
 .j-chapter-name{font-size:15px;font-weight:600;line-height:1.2;color:var(--ink)}
-.j-chapters button[aria-pressed=true] .j-chapter-name{color:var(--blue)}
 .j-chapter-lesson{font-size:11.5px;color:var(--j-muted);margin-top:2px;line-height:1.25}
 
-/* Connected Biography, Approaches, Education & Leadership Recognition below the desk workspace */
+/* Journey roadmap: five stops on one road; cards alternate above and below it on desktop */
+.j-roadmap{min-width:0;min-height:0;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);background:#ecefe8 radial-gradient(#44614b1f 1px,transparent 1.4px) 0 0/22px 22px;border:1px solid #c5d0c4;border-radius:18px;padding:14px 18px;overflow:hidden}
+.j-roadmap-head{display:flex;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--j-green)}
+.j-roadmap-head>span:last-child{color:var(--j-muted);font-weight:500;font-variant-numeric:tabular-nums}
+.j-road{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));min-height:360px;height:100%}
+.j-road-line{position:absolute;left:10%;right:10%;top:50%;height:12px;transform:translateY(-50%);border-radius:99px;background:#c9d3c6;overflow:hidden}
+.j-road-line::before{content:'';position:absolute;inset:5px 0 auto;height:2px;background:repeating-linear-gradient(90deg,#fbfaf5 0 12px,transparent 12px 24px)}
+.j-road-line::after{content:'';position:absolute;inset:0 auto 0 0;width:calc(var(--j-progress,1)*100%);background:var(--blue);border-radius:inherit;transition:width .5s var(--ease)}
+.j-stop{position:relative;height:100%;padding:0;border:0;background:none;font-family:inherit;color:inherit;pointer-events:none}
+.j-stop:focus-visible{outline:none}
+.j-stop-dot,.j-stop-card{pointer-events:auto}
+.j-stop-dot{position:absolute;left:50%;top:50%;z-index:2;width:44px;height:44px;margin:-22px 0 0 -22px;display:grid;place-items:center;border-radius:50%;background:#fbfaf5;border:2px solid #9eb2a0;color:var(--j-green);font-size:13px;font-weight:650;font-variant-numeric:tabular-nums;transition:transform .2s var(--ease),background .2s,color .2s,border-color .2s,box-shadow .2s}
+.j-stop[data-passed] .j-stop-dot{border-color:var(--blue);color:var(--blue)}
+.j-stop[aria-pressed=true] .j-stop-dot{background:var(--blue);color:#fff;box-shadow:0 0 0 5px #2952c830}
+.j-stop:hover .j-stop-dot{transform:scale(1.08)}
+.j-stop::before{content:'';position:absolute;left:50%;width:2px;height:22px;background:#9eb2a0}
+.j-stop[data-side=up]::before{bottom:calc(50% + 22px)}
+.j-stop[data-side=down]::before{top:calc(50% + 22px)}
+.j-stop-card{position:absolute;left:50%;width:clamp(140px,165%,210px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:10px 13px 11px;background:#fbfaf5;border:1px solid #c5d0c4;border-radius:14px;box-shadow:0 8px 22px -16px #151e2840;transition:border-color .2s,background .2s,box-shadow .2s,transform .2s var(--ease)}
+.j-stop[data-side=up] .j-stop-card{bottom:calc(50% + 44px)}
+.j-stop[data-side=down] .j-stop-card{top:calc(50% + 44px)}
+.j-stop:hover .j-stop-card{border-color:var(--blue);background:#fff}
+.j-stop[aria-pressed=true] .j-stop-card{border-color:var(--blue);background:#fff;box-shadow:0 12px 26px -14px #2952c860}
+.j-stop:focus-visible .j-stop-card{outline:3px solid var(--blue);outline-offset:3px}
+.j-stop[aria-pressed=true] .j-chapter-year,.j-stop[aria-pressed=true] .j-chapter-name{color:var(--blue)}
+.j-stop-skill{margin-top:7px;padding:3px 9px;border-radius:99px;background:#2952c814;color:#21409a;font-size:11px;font-weight:600;line-height:1.3}
+.j-stop-now{position:absolute;left:50%;top:calc(50% + 32px);transform:translateX(-50%);display:flex;align-items:center;gap:6px;white-space:nowrap;padding:4px 10px;border-radius:99px;background:var(--ink);color:#f5f4ee;font-size:11px;font-weight:600;pointer-events:none}
+.j-stop-now::before{content:'';width:7px;height:7px;border-radius:50%;background:#7fd19a;animation:j-pulse 1.8s ease-in-out infinite}
+@keyframes j-pulse{50%{opacity:.35}}
+
+/* About overview: the four keywords */
+.j-overview-label{margin-top:16px;font-size:12px!important;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--j-green)!important}
+.j-overview-pillars{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.j-overview-pillars li{background:#ecefe8;border:1px solid #c5d0c485;border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+.j-overview-pillars strong{font-size:14px;font-weight:650;color:var(--blue);line-height:1.2}
+.j-overview-pillars span{font-size:12px;color:var(--j-muted);line-height:1.35}
+.j-overview .j-start{margin-top:auto}
+
+/* Header logo: mark + name */
+.portfolio-world .site-header .signature{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:650;letter-spacing:-.02em;line-height:1}
+.site-header .signature .logo-mark{width:42px;height:42px;flex:none;transition:transform .35s var(--ease)}
+.site-header .signature:hover .logo-mark{transform:rotate(-6deg)}
+.site-header .signature .signature-word{display:inline;font-size:21px;letter-spacing:-.02em}
+
+/* Connected Biography, Approaches, Education & Leadership Recognition below the roadmap */
 .about-connected-bio{margin-top:52px;padding-top:52px;border-top:1px solid #bcc9bb;scroll-margin-top:90px}
 .about-connected-bio .about-main{display:grid;grid-template-columns:.88fr 1.12fr;gap:64px;align-items:start}
 .about-connected-bio .about-portrait{border:8px solid #ecefe8;border-radius:18px;box-shadow:0 22px 45px -28px #151e2835;overflow:hidden;background:#ecefe8;position:sticky;top:110px;height:calc(100dvh - 160px);max-height:640px;min-height:420px}
@@ -227,7 +180,7 @@
 .portfolio-world .about-bio-article h2{font-size:clamp(46px,4.8vw,72px);line-height:1.03;margin-bottom:24px}
 .about-bio-article p{font-size:21px;line-height:1.65;color:#34424e;margin-top:20px}
 .about-bio-article .personal-signature{font-family:'Instrument Serif',serif;font-style:italic;font-size:36px;line-height:1.2;color:var(--j-green);margin-top:34px}
-.about-approaches-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:64px}
+.about-approaches-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:64px}
 .about-approach-card{background:#ecefe8;border:1px solid #c5d0c4;border-radius:16px;padding:28px 26px;display:flex;flex-direction:column;gap:12px}
 .about-approach-kicker{font-size:13px;font-weight:550;letter-spacing:.08em;text-transform:uppercase;color:var(--j-green)}
 .about-approach-card h3{font-family:'Outfit','DM Sans',sans-serif;font-size:25px;font-weight:550;line-height:1.2;letter-spacing:-.03em;color:var(--ink)}
@@ -261,19 +214,17 @@
   .j-story-summary,.j-overview>p:not(.j-story-kicker){font-size:15.5px;line-height:1.5}
   .j-story-media-block{grid-template-columns:150px minmax(0,1fr);padding:10px;margin-top:14px}
   .j-story-media-block figure img{height:112px}
-  .j-overview figure img{height:185px}
-  .j-chapters button{min-height:68px;padding:10px 15px}
 }
 
 @media(max-width:1100px) and (min-width:851px){
   .j-workspace{grid-template-columns:minmax(0,65fr) minmax(290px,35fr);gap:10px 14px}
   .j-opening-side{max-width:480px}
-  .about-approaches-grid{grid-template-columns:1fr;gap:16px}
+  .about-approaches-grid{grid-template-columns:1fr 1fr;gap:16px}
   .about-connected-bio .about-main{gap:40px}
   .about-unified .award-story{gap:35px;padding:30px}
 }
 
-/* Mobile & small tablet: normal document flow, full table visible, compact story panel, no nested scroll trap */
+/* Mobile & small tablet: normal document flow, vertical roadmap, compact story panel, no nested scroll trap */
 @media(max-width:850px){
   .j-page{padding:16px 22px 30px}
   .j-opening{flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:14px}
@@ -281,9 +232,16 @@
   .j-opening-side{max-width:100%;align-items:flex-start;text-align:left}
   .j-opening-status{justify-content:flex-start}
   .j-workspace{display:flex;flex-direction:column;gap:14px;height:auto}
-  .j-desk-wrap{height:auto;display:block}
-  .j-desk-canvas{height:400px;min-height:300px}
-  .j-chapters{order:2;gap:10px}
+  .j-roadmap{height:auto}
+  .j-road{grid-template-columns:1fr;gap:12px;min-height:0;padding:14px 0 4px}
+  .j-road-line{left:17px;right:auto;top:36px;bottom:36px;width:10px;height:auto;transform:none}
+  .j-road-line::before{inset:0 auto 0 4px;width:2px;height:auto;background:repeating-linear-gradient(180deg,#fbfaf5 0 12px,transparent 12px 24px)}
+  .j-road-line::after{inset:0 0 auto 0;width:auto;height:calc(var(--j-progress,1)*100%);transition-property:height}
+  .j-stop{display:flex;align-items:center;gap:14px;height:auto}
+  .j-stop::before{display:none}
+  .j-stop-dot,.j-stop-card,.j-stop-now{position:static;margin:0;transform:none;flex:none}
+  .j-stop-card{flex:1;width:auto}
+  .j-stop-now{position:absolute;right:10px;top:10px;left:auto}
   .j-story{
     order:3;
     height:auto;
@@ -294,7 +252,6 @@
   .j-story-content,.j-overview{min-height:0}
   .j-story-media-block{grid-template-columns:140px minmax(0,1fr)}
   .j-story-media-block figure img{height:105px}
-  .j-overview figure img{height:220px}
   .portfolio-world .j-story h2{font-size:32px}
   .j-story-summary,.j-overview>p:not(.j-story-kicker){font-size:16px}
   .about-connected-bio{margin-top:46px;padding-top:42px}
@@ -311,21 +268,9 @@
   .portfolio-world .j-opening h1{font-size:38px}
   .j-opening-bio{font-size:14px}
   .invalid-route-callout{flex-direction:column;align-items:flex-start;padding:14px}
-  .j-desk-wrap{margin-inline:-18px;border-radius:0;border-inline:0}
-  .j-desk-toolbar{padding:10px 14px 2px;flex-wrap:wrap;gap:4px}
-  .j-desk-toolbar>span{font-size:12px;width:100%}
-  .j-desk-toolbar>div{width:100%;justify-content:flex-end}
-  .j-desk-canvas{height:310px;min-height:270px}
-  .j-markers button>span{width:24px;height:24px;font-size:11px}
-  .j-markers small{display:none}
-  .j-desk-note{font-size:12px;padding-inline:16px}
-  .j-chapters{display:flex;overflow-x:auto;gap:10px;scrollbar-width:thin;padding:2px 2px 6px;scroll-snap-type:x proximity}
-  .j-chapters button{flex:0 0 148px;min-height:68px;scroll-snap-align:start}
   .j-story{padding:18px 16px}
   .j-story-media-block{grid-template-columns:1fr}
   .j-story-media-block figure img{height:185px}
-  .j-overview figure img{height:210px}
-  .j-overview-pillars{grid-template-columns:1fr}
   .portfolio-world .j-story h2{font-size:28px}
   .about-learning-card{padding:24px 20px}
   .about-unified .award-story{padding:20px;border-radius:16px}
@@ -335,12 +280,15 @@
   .j-footer>p>span{font-size:15px}
   .j-footer-links{gap:18px}
   .j-footer-links a{font-size:17px}
-  .j-scene-loading{height:340px;margin-inline:-18px;border-radius:0}
 }
 
 @media(max-width:359px){
   .portfolio-world .j-opening h1{font-size:34px}
-  .j-desk-canvas{height:285px}
+  .j-overview-pillars{grid-template-columns:1fr}
+}
+
+@media(max-width:520px){
+  .portfolio-world .site-header .signature .signature-word{display:none}
 }
 
 @media(prefers-reduced-motion:reduce){

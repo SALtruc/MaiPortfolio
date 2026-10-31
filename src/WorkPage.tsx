@@ -149,7 +149,7 @@ function ProjectCase({
         </div>
         <div className="case-collection-return">
           <a href="#/work">← All 5 projects</a>
-          {chapterInfo && <a href={chapterInfo.href}>Back to {chapterInfo.company} on 3D desk ↗</a>}
+          {chapterInfo && <a href={chapterInfo.href}>Back to {chapterInfo.company} on the roadmap ↗</a>}
         </div>
       </nav>
     </section>
@@ -201,7 +201,7 @@ export function WorkPage({
               Back to all 5 projects ↗
             </a>
             <a className="m-button m-button-outline" href="#/about">
-              About Mai &amp; 3D Desk ↗
+              About Mai &amp; roadmap ↗
             </a>
           </div>
         </div>

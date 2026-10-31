@@ -42,7 +42,7 @@ const featuredWork = [
   },
 ];
 
-// All moments in the Home About invitation connect coherently to the unified About Mai & 3D Journey experience.
+// All moments in the Home About invitation connect to stops on the About Mai journey roadmap.
 const moments = [
   {
     label: 'Meet Mai',
@@ -51,7 +51,7 @@ const moments = [
     title: 'Finance major. Curious mind.',
     note: 'RMIT Business · Finance major · Digital Marketing minor',
     link: '#/about',
-    action: 'Meet Mai & explore her 3D desk',
+    action: 'Meet Mai & walk her roadmap',
     position: '50% 43%',
   },
   {
@@ -61,7 +61,7 @@ const moments = [
     title: 'It starts with listening.',
     note: 'From four applications to finding my voice at RMIT Careers.',
     link: '#/journey/2',
-    action: 'Open RMIT Careers chapter on Mai’s desk',
+    action: 'Open the RMIT Careers stop on Mai’s roadmap',
     position: '30% center',
   },
   {
@@ -71,7 +71,7 @@ const moments = [
     title: 'Growing into responsibility.',
     note: 'RMIT Impactful Leaders Award · 2026',
     link: '#/journey/0',
-    action: 'Open Student Council chapter on Mai’s desk',
+    action: 'Open the Student Council stop on Mai’s roadmap',
     position: '50% 35%',
   },
   {
@@ -81,7 +81,7 @@ const moments = [
     title: 'Still learning. Always Day 1.',
     note: 'AI Data Service & Operations Intern · TikTok',
     link: '#/journey/4',
-    action: 'Open TikTok chapter on Mai’s desk',
+    action: 'Open the TikTok stop on Mai’s roadmap',
     position: 'center',
   },
 ];
@@ -162,7 +162,7 @@ export function ProjectShowcase() {
     <section className="ix-work" id="selected-work" aria-labelledby="selected-title">
       <div className="ix-section-heading">
         <div>
-          <p className="ix-section-kicker">Selected work</p>
+          <p className="ix-section-kicker">01 · The work</p>
           <h2 id="selected-title">Work, in practice.</h2>
         </div>
         <a className="m-text-link" href="#/work">
@@ -356,11 +356,11 @@ export function AboutPlayground({ paused }: { paused: boolean }) {
       </div>
       <div className="ix-about-heading">
         <div>
-          <p className="ix-section-kicker">About Mai</p>
+          <p className="ix-section-kicker">02 · The person behind it</p>
           <h2 id="about-title">A few sides of Mai.</h2>
         </div>
         <a className="m-text-link" href="#/about">
-          Full biography &amp; 3D desk <Arrow />
+          Full story &amp; roadmap <Arrow />
         </a>
       </div>
       <div className="ix-moment-tabs" role="group" aria-label="Choose a side of Mai">
